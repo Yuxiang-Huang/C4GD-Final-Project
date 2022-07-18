@@ -10,7 +10,7 @@ public class DoorControl : MonoBehaviour
     public Button close;
     public GameObject doorLeft;
     public GameObject doorRight;
-    private bool interactable = false;
+    public bool interactable = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +21,9 @@ public class DoorControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(interactable && Input.GetKeyDown(KeyCode.E))
+        if(interactable && Input.GetKeyDown(KeyCode.O))
         {
+
             if (doorClose)
             {
                 open.onClick.Invoke();
@@ -48,6 +49,7 @@ public class DoorControl : MonoBehaviour
             {
                 close.gameObject.SetActive(true);
             }
+            interactable = true;
         }      
     }
 
@@ -63,6 +65,8 @@ public class DoorControl : MonoBehaviour
             {
                 close.gameObject.SetActive(false);
             }
+
+            interactable = false;
         }
     }
 
