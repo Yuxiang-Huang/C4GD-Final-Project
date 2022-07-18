@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -409,6 +410,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ac6b8f9b9382445bf417deadce2bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1549466001}
 --- !u!1 &1549466001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b186f9485a0828b468f98fe846ae1a68, type: 3}
@@ -468,7 +482,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: b186f9485a0828b468f98fe846ae1a68, type: 3}
       propertyPath: m_Name
-      value: SimplePeople_Man_Business_White
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b186f9485a0828b468f98fe846ae1a68, type: 3}
       propertyPath: m_RootOrder
