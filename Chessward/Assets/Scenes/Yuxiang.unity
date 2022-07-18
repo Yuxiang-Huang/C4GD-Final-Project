@@ -437,7 +437,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 312452485}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1465608437}
+        m_TargetAssemblyTypeName: DoorControl, Assembly-CSharp
+        m_MethodName: closeDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &312452485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,7 +888,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 630089363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1465608437}
+        m_TargetAssemblyTypeName: DoorControl, Assembly-CSharp
+        m_MethodName: openDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &630089363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,6 +1050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1465608435}
   - component: {fileID: 1465608436}
+  - component: {fileID: 1465608437}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -1060,6 +1085,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.472473, y: 3.2491426, z: 3.67401}
   m_Center: {x: 0.35850215, y: -0.0752573, z: -0.88964593}
+--- !u!114 &1465608437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465608434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0532403e16ec4a9e9361672433c7359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  open: {fileID: 630089362}
+  close: {fileID: 312452484}
 --- !u!1001 &1501993616
 PrefabInstance:
   m_ObjectHideFlags: 0

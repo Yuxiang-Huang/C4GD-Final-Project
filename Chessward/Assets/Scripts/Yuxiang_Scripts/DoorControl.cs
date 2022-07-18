@@ -23,8 +23,6 @@ public class DoorControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hey");
-
         if (doorClose)
         {
             open.gameObject.SetActive(true);
