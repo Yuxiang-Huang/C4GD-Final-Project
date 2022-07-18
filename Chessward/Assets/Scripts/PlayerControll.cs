@@ -8,7 +8,7 @@ public class PlayerControll : MonoBehaviour
     private Rigidbody playerRb;
     public bool isOnGround = true;
     public float gravityModifier;
-    public float speed = 5.0f;
+    private float speed = 20.0f;
     private float rSpeed = 1200.0f;
 
     // Start is called before the first frame update
@@ -39,6 +39,9 @@ public class PlayerControll : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+        }
+        else if (collision.gameObject.CompareTag("Wall")){
+            transform.Translate(Vector3.back * Time.deltaTime * speed * 2);
         }
     }
 }
