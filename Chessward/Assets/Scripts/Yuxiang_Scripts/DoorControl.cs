@@ -8,6 +8,9 @@ public class DoorControl : MonoBehaviour
     bool doorClose;
     public Button open;
     public Button close;
+    public GameObject doorLeft;
+    public GameObject doorRight;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +26,6 @@ public class DoorControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hey");
-
         if (doorClose)
         {
             open.gameObject.SetActive(true);
@@ -36,17 +37,34 @@ public class DoorControl : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (doorClose)
+        {
+            open.gameObject.SetActive(false);
+        }
+
+        else
+        {
+            close.gameObject.SetActive(false);
+        }
+    }
+
     public void openDoor ()
     {
-        gameObject.SetActive(true);
+        doorLeft.gameObject.SetActive(false);
+        doorRight.gameObject.SetActive(false);
         open.gameObject.SetActive(false);
         doorClose = false;
+        close.gameObject.SetActive(true);
     }
 
     public void closeDoor()
     {
-        gameObject.SetActive(false);
+        doorLeft.gameObject.SetActive(true);
+        doorRight.gameObject.SetActive(true);
         close.gameObject.SetActive(false);
         doorClose = true;
+        open.gameObject.SetActive(true);
     }
 }
