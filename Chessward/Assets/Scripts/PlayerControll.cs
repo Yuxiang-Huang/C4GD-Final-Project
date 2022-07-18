@@ -10,7 +10,7 @@ public class PlayerControll : MonoBehaviour
     public float gravityModifier;
     private float speed = 20.0f;
     private float rSpeed = 1200.0f;
-
+    private bool touchingWall;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +21,20 @@ public class PlayerControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         float forwardInput = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-
+        
         float horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
-
+        if (!touchingWall)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+            transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+        }
+        else
+        {
+            transform.Translate(-Vector3.forward * Time.deltaTime * speed * forwardInput);
+            transform.Translate(-Vector3.right * Time.deltaTime * speed * horizontalInput);
+        }
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -41,7 +49,14 @@ public class PlayerControll : MonoBehaviour
             isOnGround = true;
         }
         else if (collision.gameObject.CompareTag("Wall")){
-            transform.Translate(Vector3.back * Time.deltaTime * speed * 2);
+            touchingWall = true;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            touchingWall = false;
         }
     }
 }
