@@ -9,7 +9,7 @@ public class PlayerControll : MonoBehaviour
     public bool isOnGround = true;
     public float gravityModifier;
     public float speed = 5.0f;
-    private float rSpeed = 1000.0f;
+    private float rSpeed = 1200.0f;
 
     // Start is called before the first frame update
     void Start()
