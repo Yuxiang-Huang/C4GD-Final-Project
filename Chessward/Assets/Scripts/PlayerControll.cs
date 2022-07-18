@@ -9,6 +9,8 @@ public class PlayerControll : MonoBehaviour
     public bool isOnGround = true;
     public float gravityModifier;
     public float speed = 5.0f;
+    private float rSpeed = 1000.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class PlayerControll : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
+        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rSpeed);
     }
     private void OnCollisionEnter(Collision collision)
     {
