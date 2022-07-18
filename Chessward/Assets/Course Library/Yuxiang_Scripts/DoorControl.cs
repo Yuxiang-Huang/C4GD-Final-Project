@@ -12,7 +12,7 @@ public class DoorControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        doorClose = false;
+        doorClose = true;
     }
 
     // Update is called once per frame
@@ -23,6 +23,8 @@ public class DoorControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("hey");
+
         if (doorClose)
         {
             open.gameObject.SetActive(true);
