@@ -87,4 +87,9 @@ public class DoorControl : MonoBehaviour
         doorClose = true;
         open.gameObject.SetActive(true);
     }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        
+    }
 }
