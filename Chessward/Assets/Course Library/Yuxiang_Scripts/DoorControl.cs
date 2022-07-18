@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class DoorControl : MonoBehaviour
 {
-    bool doorOpen;
+    bool doorClose;
     public Button open;
     public Button close;
 
     // Start is called before the first frame update
     void Start()
     {
-        doorOpen = false;
+        doorClose = false;
     }
 
     // Update is called once per frame
@@ -21,8 +21,30 @@ public class DoorControl : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (doorClose)
+        {
+            open.gameObject.SetActive(true);
+        }
+
+        else
+        {
+            close.gameObject.SetActive(true);
+        }
+    }
+
+    public void openDoor ()
+    {
+        gameObject.SetActive(true);
+        open.gameObject.SetActive(false);
+        doorClose = false;
+    }
+
+    public void closeDoor()
+    {
+        gameObject.SetActive(false);
+        close.gameObject.SetActive(false);
+        doorClose = true;
     }
 }
