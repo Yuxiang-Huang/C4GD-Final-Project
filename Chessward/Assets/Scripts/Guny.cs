@@ -8,7 +8,7 @@ public class Guny : MonoBehaviour
     private Vector3 offset = new Vector3(0, 15, 0);
     public GameObject projectilePrefab;
     private float shootTime;
-    private int magSize;
+    public int magSize;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class Guny : MonoBehaviour
         transform.position += transform.forward;
         if (Input.GetKey(KeyCode.Q) && shootTime > 0.2 && magSize > 0)
         {
-            Vector3 offset2 = transform.up * 0.5f + transform.forward * 6f;
+            Vector3 offset2 = transform.up * 0.5f + transform.forward * 8f;
             shootTime = 0;
             Instantiate(projectilePrefab, transform.position + offset2, transform.rotation);
             magSize = magSize - 1;

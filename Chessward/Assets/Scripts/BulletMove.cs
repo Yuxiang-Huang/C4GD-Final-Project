@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
-    private float bSpeed = 50.0f;
+    private float bSpeed = 80.0f;
     public GameObject Player;
     private float maxDist = 80.0f;
     // Start is called before the first frame update
