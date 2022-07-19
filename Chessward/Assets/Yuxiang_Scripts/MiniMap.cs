@@ -13,8 +13,6 @@ public class MiniMap : MonoBehaviour
     public float ySpace;
     public float yStart;
 
-    private MapBuilder mapBuilder;
-
     public int xPos;
     public int yPos;
 
@@ -32,7 +30,10 @@ public class MiniMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        xPos = (int)(player.transform.position.x / roomLength);
+
+        xPos = (int)(
+            player.transform.position.x
+            / roomLength);
         yPos = (int)(player.transform.position.z / roomLength);
 
         xStart = (float)( - size.rect.width * 3.5 / 8);

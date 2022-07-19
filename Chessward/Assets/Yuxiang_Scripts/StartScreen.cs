@@ -14,7 +14,10 @@ public class StartScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        startCanvas.SetActive(true);
+        player.SetActive(false);
+        gun.SetActive(false);
+        miniMap.SetActive(false);
     }
 
     public void startTutorial()
