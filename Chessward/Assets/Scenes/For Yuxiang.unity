@@ -155,6 +155,9 @@ MonoBehaviour:
   WhiteFloor: {fileID: 3694303020796664016, guid: 2209bf22026b54ad2a7e1f2c63d76553, type: 3}
   WhiteWall: {fileID: 5743699361065348447, guid: 1b844c72818e544ca8d7e38199fb7009, type: 3}
   WhiteWallWDoor: {fileID: 7964041473226915698, guid: 48edfa2d8a0794a32bf2a859638517e3, type: 3}
+  BlackFloor: {fileID: 3305653897689021750, guid: bb423290cff4243079c62a75a76c893c, type: 3}
+  BlackWall: {fileID: 4361281812686726514, guid: b0e0969fec03442a38f051d128de02fb, type: 3}
+  BlackWallWDoor: {fileID: 3958769421631712672, guid: 823e8caf06cbd42e98a0cd05182579ef, type: 3}
 --- !u!4 &474445440
 Transform:
   m_ObjectHideFlags: 0
