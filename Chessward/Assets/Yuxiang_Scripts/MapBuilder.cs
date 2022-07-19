@@ -496,4 +496,142 @@ public class MapBuilder : MonoBehaviour
         right4.transform.Rotate(0, 90, 0);
 
     }
+
+    void CreatWhiteFloor(Vector3 center)
+    {
+        Instantiate(WhiteFloor, center, WhiteFloor.transform.rotation);
+    }
+
+    void CreateWhiteFrontWall(Vector3 center)
+    {
+        GameObject front = Instantiate(WhiteWall,
+        new Vector3(center.x, roomLength / 2, center.z + roomLength / 2),
+        WhiteFloor.transform.rotation);
+        front.transform.Rotate(-90, 0, 0);
+    }
+
+    void CreateWhiteBackWall(Vector3 center)
+    {
+        GameObject back = Instantiate(WhiteWall,
+            new Vector3(center.x, roomLength / 2, center.z - roomLength / 2),
+            WhiteFloor.transform.rotation);
+        back.transform.Rotate(90, 0, 0);
+    }
+
+    void CreateWhiteLeftWall(Vector3 center)
+    {
+        GameObject left = Instantiate(WhiteWall,
+            new Vector3(center.x - roomLength / 2, roomLength / 2, center.z),
+            WhiteFloor.transform.rotation);
+        left.transform.Rotate(0, 0, -90);
+    }
+
+    void CreateWhiteRightWall(Vector3 center)
+    {
+        GameObject right = Instantiate(WhiteWall,
+            new Vector3(center.x + roomLength / 2, roomLength / 2, center.z),
+            WhiteFloor.transform.rotation);
+        right.transform.Rotate(0, 0, 90);
+    }
+
+
+    void CreateWhiteFrontWallWDoor(Vector3 center)
+    {
+        GameObject front = Instantiate(WhiteWallWDoor,
+            new Vector3(center.x, yForDoors, center.z + roomLength / 2),
+            WhiteFloor.transform.rotation);
+    }
+
+    void CreateWhiteBackWallWDoor(Vector3 center)
+    {
+        GameObject back = Instantiate(WhiteWallWDoor,
+        new Vector3(center.x, yForDoors, center.z - roomLength / 2),
+        WhiteFloor.transform.rotation);
+        back.transform.Rotate(0, 180, 0);
+    }
+
+    void CreateWhiteLeftWallWDoor(Vector3 center)
+    {
+        GameObject left = Instantiate(WhiteWallWDoor,
+            new Vector3(center.x - roomLength / 2, yForDoors, center.z),
+            WhiteFloor.transform.rotation);
+        left.transform.Rotate(0, -90, 0);
+    }
+
+    void CreateWhiteRightWallWDoor(Vector3 center)
+    {
+        GameObject right = Instantiate(WhiteWallWDoor,
+            new Vector3(center.x + roomLength / 2, yForDoors, center.z),
+            WhiteFloor.transform.rotation);
+        right.transform.Rotate(0, 90, 0);
+    }
+
+    void CreatBlackFloor(Vector3 center)
+    {
+        Instantiate(BlackFloor, center, BlackFloor.transform.rotation);
+    }
+
+    void CreateBlackFrontWall(Vector3 center)
+    {
+        GameObject front = Instantiate(BlackWall,
+        new Vector3(center.x, roomLength / 2, center.z + roomLength / 2),
+        BlackFloor.transform.rotation);
+        front.transform.Rotate(-90, 0, 0);
+    }
+
+    void CreateBlackBackWall(Vector3 center)
+    {
+        GameObject back = Instantiate(BlackWall,
+            new Vector3(center.x, roomLength / 2, center.z - roomLength / 2),
+            BlackFloor.transform.rotation);
+        back.transform.Rotate(90, 0, 0);
+    }
+
+    void CreateBlackLeftWall(Vector3 center)
+    {
+        GameObject left = Instantiate(BlackWall,
+            new Vector3(center.x - roomLength / 2, roomLength / 2, center.z),
+            BlackFloor.transform.rotation);
+        left.transform.Rotate(0, 0, -90);
+    }
+
+    void CreateBlackRightWall(Vector3 center)
+    {
+        GameObject right = Instantiate(BlackWall,
+            new Vector3(center.x + roomLength / 2, roomLength / 2, center.z),
+            BlackFloor.transform.rotation);
+        right.transform.Rotate(0, 0, 90);
+    }
+
+
+    void CreateBlackFrontWallWDoor(Vector3 center)
+    {
+        GameObject front = Instantiate(BlackWallWDoor,
+            new Vector3(center.x, yForDoors, center.z + roomLength / 2) + offset,
+            BlackFloor.transform.rotation);
+        front.transform.Rotate(0, 90, 0);
+    }
+
+    void CreateBlackBackWallWDoor(Vector3 center)
+    {
+        GameObject back = Instantiate(BlackWallWDoor,
+            new Vector3(center.x, yForDoors, center.z - roomLength / 2) + offset,
+            BlackFloor.transform.rotation);
+        back.transform.Rotate(0, -90, 0);
+    }
+
+    void CreateBlackLeftWallWDoor(Vector3 center)
+    {
+        GameObject left = Instantiate(BlackWallWDoor,
+            new Vector3(center.x - roomLength / 2, yForDoors, center.z) + offset,
+            BlackFloor.transform.rotation);
+    }
+
+    void CreateBlackRightWallWDoor(Vector3 center)
+    {
+        GameObject right = Instantiate(BlackWallWDoor,
+       new Vector3(center.x + roomLength / 2, yForDoors, center.z) + offset,
+       BlackFloor.transform.rotation);
+        right.transform.Rotate(0, 180, 0);
+    }
 }
