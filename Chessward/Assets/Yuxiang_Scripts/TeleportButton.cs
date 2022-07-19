@@ -10,7 +10,6 @@ public class TeleportButton : MonoBehaviour
 
     public GameObject player;
     public float roomLength = 100;
-    private MapBuilder mapBuilder;
     public Button button;
 
     // Start is called before the first frame update

@@ -1111,7 +1111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 1
   z: 2
-  player: {fileID: 0}
+  player: {fileID: 1921103545}
   roomLength: 0
   button: {fileID: 367852607}
 --- !u!114 &367852607
@@ -2320,6 +2320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a335274cbc95f4919ae94a170956d537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xPos: 0
+  yPos: 0
   Rank1:
   - {fileID: 1201072063}
   - {fileID: 170574691}
@@ -3243,7 +3245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 1
   z: 1
-  player: {fileID: 0}
+  player: {fileID: 1921103545}
   roomLength: 0
   button: {fileID: 1012742536}
 --- !u!114 &1012742536
@@ -3831,8 +3833,8 @@ MonoBehaviour:
   ySpace: 50
   yStart: 25
   Canvas: {fileID: 1796146770}
-  x: 0
-  y: 0
+  xPos: 0
+  yPos: 0
   roomLength: 100
 --- !u!1 &1161642791
 GameObject:
@@ -3970,7 +3972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   z: 2
-  player: {fileID: 0}
+  player: {fileID: 1921103545}
   roomLength: 0
   button: {fileID: 1161642793}
 --- !u!1 &1201072061
@@ -5536,7 +5538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 2
   z: 1
-  player: {fileID: 0}
+  player: {fileID: 1921103545}
   roomLength: 0
   button: {fileID: 1539268918}
 --- !u!114 &1539268918
@@ -5809,7 +5811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 2
   z: 2
-  player: {fileID: 0}
+  player: {fileID: 1921103545}
   roomLength: 0
   button: {fileID: 1577225210}
 --- !u!114 &1577225210
@@ -6681,7 +6683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   z: 1
-  player: {fileID: 0}
+  player: {fileID: 1921103545}
   roomLength: 0
   button: {fileID: 1825207337}
 --- !u!1 &1921103545 stripped
@@ -6704,6 +6706,10 @@ MonoBehaviour:
   jumpForce: 10
   isOnGround: 1
   gravityModifier: 1
+  xPos: 0
+  yPos: 0
+  roomLength: 0
+  mapBuilder: {fileID: 0}
 --- !u!65 &1921103547
 BoxCollider:
   m_ObjectHideFlags: 0
