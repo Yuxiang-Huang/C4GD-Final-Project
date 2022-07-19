@@ -12,6 +12,11 @@ public class TeleportManager : MonoBehaviour
     public Button[] Rank1 = new Button[8];
     public Button[] Rank2 = new Button[8];
     public Button[] Rank3 = new Button[8];
+    public Button[] Rank4 = new Button[8];
+    public Button[] Rank5 = new Button[8];
+    public Button[] Rank6 = new Button[8];
+    public Button[] Rank7 = new Button[8];
+    public Button[] Rank8 = new Button[8];
 
     public Button[][] allButtons;
 
@@ -21,24 +26,24 @@ public class TeleportManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       allButtons = new Button[][] {Rank1, Rank2, Rank3};
+       //allButtons = new Button[][] {Rank1, Rank2, Rank3, Rank4, Rank5, Rank6, Rank7, Rank8};
 
-        foreach (Button[] rank in allButtons)
-        {
-            foreach (Button button in rank)
-            {
-                button.gameObject.SetActive(false);
-            }
-        }
+       // foreach (Button[] rank in allButtons)
+       // {
+       //     foreach (Button button in rank)
+       //     {
+       //         button.gameObject.SetActive(false);
+       //     }
+       // }
 
-        FindSquareForKnight();
+       // FindSquareForKnight();
     }
 
     // Update is called once per frame
     void Update()
     {
         xPos = (int)(player.transform.position.x / roomLength);
-        yPos = (int)(player.transform.position.y / roomLength);
+        yPos = (int)(player.transform.position.z / roomLength);
     }
 
     void FindSquareForKnight()
