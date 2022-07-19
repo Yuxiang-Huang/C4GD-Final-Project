@@ -14,6 +14,7 @@ public class MiniMap : MonoBehaviour
     public float yStart;
 
     public GameObject Canvas;
+    private MapBuilder mapBuilder;
     private RectTransform scale;
 
     public int x;
@@ -26,6 +27,9 @@ public class MiniMap : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        mapBuilder = GameObject.Find("MapBuilder").GetComponent<MapBuilder>();
+        roomLength = mapBuilder.roomLength;
+
         size = gameObject.GetComponent<RectTransform>();
         scale = Canvas.GetComponent<RectTransform>();
     }

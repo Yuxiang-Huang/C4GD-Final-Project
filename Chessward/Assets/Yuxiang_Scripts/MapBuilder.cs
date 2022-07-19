@@ -13,7 +13,7 @@ public class MapBuilder : MonoBehaviour
     public GameObject BlackWall;
     public GameObject BlackWallWDoor;
 
-    private float roomLength = 100;
+    public float roomLength = 100;
 
     private float yForDoors = 69.5f;
     private Vector3 offset = new Vector3(0, -0.5f, 0);
