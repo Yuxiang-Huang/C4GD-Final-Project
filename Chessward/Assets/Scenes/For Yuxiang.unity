@@ -2650,14 +2650,14 @@ RectTransform:
   m_GameObject: {fileID: 346031334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 0.6, y: 0.75, z: 0}
   m_Children: []
-  m_Father: {fileID: 492176091}
-  m_RootOrder: 10
+  m_Father: {fileID: 1156948418}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 215, y: -170}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346031336
@@ -3644,7 +3644,6 @@ RectTransform:
   - {fileID: 507883591}
   - {fileID: 1549442385}
   - {fileID: 615537496}
-  - {fileID: 346031335}
   m_Father: {fileID: 1796146774}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10464,7 +10463,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 346031335}
   m_Father: {fileID: 492176091}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10521,11 +10521,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 346031334}
-  xSpace: 50
-  xStart: 330
-  ySpace: 50
-  yStart: 25
-  Canvas: {fileID: 1796146770}
+  xSpace: 0
+  xStart: 0
+  ySpace: 0
+  yStart: 0
   xPos: 0
   yPos: 0
   roomLength: 100
