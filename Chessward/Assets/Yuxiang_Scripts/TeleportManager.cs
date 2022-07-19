@@ -9,6 +9,7 @@ public class TeleportManager : MonoBehaviour
     public int xPos;
     public int yPos;
     public float roomLength = 100;
+    public string pieceName;
 
     public Button[] Rank1 = new Button[8];
     public Button[] Rank2 = new Button[8];
@@ -25,6 +26,8 @@ public class TeleportManager : MonoBehaviour
     public int[][] indices = new int[8][];
 
     public bool isPowerActive;
+
+    public float coolDown;
 
     // Start is called before the first frame update
     void Start()
@@ -53,18 +56,36 @@ public class TeleportManager : MonoBehaviour
             yPos = yPosNow;
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (coolDown > 0)
         {
-            if (isPowerActive)
+            coolDown -= Time.deltaTime;
+            coolDown = Mathf.Max(coolDown, 0);
+        }
+
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.P))
             {
-                HideAllButton();
-                isPowerActive = false;
+                if (isPowerActive)
+                {
+                    HideAllButton();
+                    isPowerActive = false;
+                }
+                else
+                {
+                    switch (pieceName)
+                    {
+                        case "Rook":
+                            FindSquareForRook();
+                            break;
+                        case "Knight":
+                            FindSquareForKnight();
+                            break;
+                    }
+
+                    isPowerActive = true;
+                }
             }
-            else
-            {
-                FindSquareForRook();
-                isPowerActive = true;
-            }       
         }
     }
 
@@ -140,6 +161,19 @@ public class TeleportManager : MonoBehaviour
             {
                 button.gameObject.SetActive(false);
             }
+        }
+    }
+
+    void startCoolDown()
+    {
+        switch (pieceName)
+        {
+            case "Rook":
+                coolDown = 5;
+                break;
+            case "Knight":
+                coolDown = 3;
+                break;
         }
     }
 }

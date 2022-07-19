@@ -9,6 +9,8 @@ public class StartScreen : MonoBehaviour
     public GameObject gun;
     public GameObject miniMap;
 
+    public TeleportManager teleportManager;
+
     public MapBuilder mapBuilder;
 
     // Start is called before the first frame update
@@ -35,5 +37,18 @@ public class StartScreen : MonoBehaviour
         gun.SetActive(true);
         mapBuilder.StartBuild(true);
         miniMap.SetActive(true);
+
+        teleportManager.pieceName = "Knight";
+    }
+
+    public void startRookGame()
+    {
+        startCanvas.SetActive(false);
+        player.SetActive(true);
+        gun.SetActive(true);
+        mapBuilder.StartBuild(true);
+        miniMap.SetActive(true);
+
+        teleportManager.pieceName = "Rook";
     }
 }
