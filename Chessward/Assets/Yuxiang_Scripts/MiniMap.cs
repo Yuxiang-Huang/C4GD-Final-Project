@@ -13,9 +13,7 @@ public class MiniMap : MonoBehaviour
     public float ySpace;
     public float yStart;
 
-    public GameObject Canvas;
     private MapBuilder mapBuilder;
-    private RectTransform scale;
 
     public int xPos;
     public int yPos;
@@ -28,7 +26,7 @@ public class MiniMap : MonoBehaviour
         player = GameObject.Find("Player");
 
         size = gameObject.GetComponent<RectTransform>();
-        scale = Canvas.GetComponent<RectTransform>();
+
     }
 
     // Update is called once per frame
@@ -37,12 +35,12 @@ public class MiniMap : MonoBehaviour
         xPos = (int)(player.transform.position.x / roomLength);
         yPos = (int)(player.transform.position.z / roomLength);
 
-        xStart = (float)(transform.position.x - size.rect.width * 3.5 / 8 * scale.localScale.x);
-        yStart = (float)(transform.position.y - size.rect.height * 3.5 / 8 * scale.localScale.y);
+        xStart = (float)( - size.rect.width * 3.5 / 8);
+        yStart = (float)( - size.rect.height * 3.5 / 8);
 
-        xSpace = size.rect.width / 8 * scale.localScale.x;
-        ySpace = size.rect.height / 8 * scale.localScale.y;
+        xSpace = size.rect.width / 8;
+        ySpace = size.rect.height / 8;
 
-        image.transform.position = new Vector3(xStart + xPos * xSpace, yStart + yPos * ySpace, 0);
+        image.transform.localPosition = new Vector3(xStart + xPos * xSpace, yStart + yPos * ySpace, 0);
     }
 }

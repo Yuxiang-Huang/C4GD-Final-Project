@@ -21,64 +21,95 @@ public class MapBuilder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int row = 1; row < 7; row++)
+
+
+    }
+
+    public void StartBuild(bool fullGame)
+    {
+        if (fullGame)
         {
-            for (int col = 1; col < 7; col++)
+            for (int row = 1; row < 7; row++)
             {
-                if (row % 2 == 0)
+                for (int col = 1; col < 7; col++)
                 {
-                    if (col % 2 == 0)
+                    if (row % 2 == 0)
                     {
-                        CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
+                        if (col % 2 == 0)
+                        {
+                            CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
+                        }
+                        else
+                        {
+                            CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
+                        }
                     }
                     else
                     {
-                        CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
+                        if (col % 2 == 0)
+                        {
+                            CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
+                        }
+                        else
+                        {
+                            CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
+                        }
                     }
+                }
+            }
+
+            for (int row = 1; row < 7; row++)
+            {
+                if (row % 2 == 1)
+                {
+                    CreateWhiteRoomWith3Doors(0, row * roomLength, "left");
+                    CreateBlackRoomWith3Doors(7 * roomLength, row * roomLength, "right");
                 }
                 else
                 {
-                    if (col % 2 == 0)
-                    {
-                        CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
-                    }
-                    else
-                    {
-                        CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
-                    }
+                    CreateWhiteRoomWith3Doors(7 * roomLength, row * roomLength, "right");
+                    CreateBlackRoomWith3Doors(0, row * roomLength, "left");
                 }
             }
+
+            for (int col = 1; col < 7; col++)
+            {
+                if (col % 2 == 1)
+                {
+                    CreateWhiteRoomWith3Doors(col * roomLength, 0, "back");
+                    CreateBlackRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
+                }
+                else
+                {
+                    CreateWhiteRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
+                    CreateBlackRoomWith3Doors(col * roomLength, 0, "back");
+                }
+            }
+
+            CreatFourCornerRooms();
         }
 
-        for (int row = 1; row < 7; row++)
+        else
         {
-            if (row % 2 == 1)
-            {
-                CreateWhiteRoomWith3Doors(0, row * roomLength, "left");
-                CreateBlackRoomWith3Doors(7 * roomLength, row * roomLength, "right");
-            }
-            else
-            {
-                CreateWhiteRoomWith3Doors(7 * roomLength, row * roomLength, "right");
-                CreateBlackRoomWith3Doors(0, row * roomLength, "left");
-            }
+            BuildTutorialMap();
         }
+    }
 
-        for (int col = 1; col < 7; col++)
-        {
-            if (col % 2 == 1)
-            {
-                CreateWhiteRoomWith3Doors(col * roomLength, 0, "back");
-                CreateBlackRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
-            }
-            else
-            {
-                CreateWhiteRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
-                CreateBlackRoomWith3Doors(col * roomLength, 0, "back");
-            }
-        }
+    void BuildTutorialMap()
+    {
+        Vector3 center = new Vector3(50, 0, 50);
+        CreateWhiteFloor(center);
+        CreateWhiteFrontWallWDoor(center);
+        CreateWhiteLeftWall(center);
+        CreateWhiteRightWall(center);
+        CreateWhiteBackWall(center);
 
-        CreatFourCornerRooms();
+        Vector3 center2 = new Vector3(50, 0, 150);
+        CreateBlackFloor(center2);
+        CreateBlackFrontWall(center2);
+        CreateBlackLeftWall(center2);
+        CreateBlackRightWall(center2);
+        CreateBlackBackWallWDoor(center2);
     }
 
     void CreateWhiteRoomWith4Doors(float x, float z)
@@ -86,7 +117,7 @@ public class MapBuilder : MonoBehaviour
         Vector3 center = new Vector3(x + roomLength / 2, 0, z + roomLength / 2);
 
         //floor
-        CreatWhiteFloor(center);
+        CreateWhiteFloor(center);
 
         //front
         CreateWhiteFrontWallWDoor(center);
@@ -106,7 +137,7 @@ public class MapBuilder : MonoBehaviour
         Vector3 center = new Vector3(x + roomLength / 2, 0, z + roomLength / 2);
 
         //floor
-        CreatBlackFloor(center);
+        CreateBlackFloor(center);
 
         //front
         CreateBlackFrontWallWDoor(center);
@@ -126,7 +157,7 @@ public class MapBuilder : MonoBehaviour
         Vector3 center = new Vector3(x + roomLength / 2, 0, z + roomLength / 2);
 
         //floor
-        CreatWhiteFloor(center);
+        CreateWhiteFloor(center);
 
         //front
         if (noDoorWall == "front")
@@ -174,7 +205,7 @@ public class MapBuilder : MonoBehaviour
         Vector3 center = new Vector3(x + roomLength / 2, 0, z + roomLength / 2);
 
         //floor
-        CreatBlackFloor(center);
+        CreateBlackFloor(center);
 
         //front
         if (noDoorWall == "front")
@@ -223,7 +254,7 @@ public class MapBuilder : MonoBehaviour
         Vector3 center = new Vector3(0 + roomLength / 2, 0, 0 + roomLength / 2);
 
         //floor
-        CreatBlackFloor(center);
+        CreateBlackFloor(center);
 
         //front
         CreateBlackFrontWallWDoor(center);
@@ -242,7 +273,7 @@ public class MapBuilder : MonoBehaviour
         Vector3 center2 = new Vector3(0 + roomLength / 2, 0, 7 * roomLength + roomLength / 2);
 
         //floor
-        CreatWhiteFloor(center2);
+        CreateWhiteFloor(center2);
 
         //front
         CreateWhiteFrontWall(center2);
@@ -263,7 +294,7 @@ public class MapBuilder : MonoBehaviour
         Vector3 center3 = new Vector3(7 * roomLength + roomLength / 2, 0, 7 * roomLength + roomLength / 2);
 
         //floor
-        CreatBlackFloor(center3);
+        CreateBlackFloor(center3);
 
         //front
         CreateBlackFrontWall(center3);
@@ -284,7 +315,7 @@ public class MapBuilder : MonoBehaviour
         Vector3 center4 = new Vector3(7 * roomLength + roomLength / 2, 0, 0 + roomLength / 2);
 
         //floor
-        CreatWhiteFloor(center4);
+        CreateWhiteFloor(center4);
 
         //front
         CreateWhiteFrontWall(center4);
@@ -300,7 +331,7 @@ public class MapBuilder : MonoBehaviour
 
     }
 
-    void CreatWhiteFloor(Vector3 center)
+    void CreateWhiteFloor(Vector3 center)
     {
         Instantiate(WhiteFloor, center, WhiteFloor.transform.rotation);
     }
@@ -369,7 +400,7 @@ public class MapBuilder : MonoBehaviour
         right.transform.Rotate(0, 90, 0);
     }
 
-    void CreatBlackFloor(Vector3 center)
+    void CreateBlackFloor(Vector3 center)
     {
         Instantiate(BlackFloor, center, BlackFloor.transform.rotation);
     }
