@@ -23,8 +23,8 @@ public class PlayerControll : MonoBehaviour
     {
         
         float forwardInput = Input.GetAxis("Vertical");
-        
         float horizontalInput = Input.GetAxis("Horizontal");
+
         if (!touchingWall)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
