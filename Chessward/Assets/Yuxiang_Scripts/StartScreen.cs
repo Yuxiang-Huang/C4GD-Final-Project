@@ -8,6 +8,7 @@ public class StartScreen : MonoBehaviour
     public GameObject player;
     public GameObject gun;
     public GameObject miniMap;
+    public GameObject statScreen;
 
     public TeleportManager teleportManager;
 
@@ -20,6 +21,7 @@ public class StartScreen : MonoBehaviour
         player.SetActive(false);
         gun.SetActive(false);
         miniMap.SetActive(false);
+        statScreen.SetActive(false);
     }
 
     public void startTutorial()
@@ -28,27 +30,30 @@ public class StartScreen : MonoBehaviour
         player.SetActive(true);
         gun.SetActive(true);
         mapBuilder.StartBuild(false);
+        statScreen.SetActive(true);
     }
 
     public void startKnightGame()
     {
-        startCanvas.SetActive(false);
-        player.SetActive(true);
-        gun.SetActive(true);
-        mapBuilder.StartBuild(true);
-        miniMap.SetActive(true);
+        notTutorial();
 
         teleportManager.pieceName = "Knight";
     }
 
     public void startRookGame()
     {
+        notTutorial();
+
+        teleportManager.pieceName = "Rook";
+    }
+
+    void notTutorial()
+    {
         startCanvas.SetActive(false);
         player.SetActive(true);
         gun.SetActive(true);
         mapBuilder.StartBuild(true);
         miniMap.SetActive(true);
-
-        teleportManager.pieceName = "Rook";
+        statScreen.SetActive(true);
     }
 }

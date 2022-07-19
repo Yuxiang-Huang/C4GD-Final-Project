@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TeleportManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TeleportManager : MonoBehaviour
     public int yPos;
     public float roomLength = 100;
     public string pieceName;
+    public TextMeshProUGUI cdText;
 
     public Button[] Rank1 = new Button[8];
     public Button[] Rank2 = new Button[8];
@@ -40,6 +42,8 @@ public class TeleportManager : MonoBehaviour
         {
             indices[i] = new int[8];
         }
+
+        cdText.text = "CD: " + coolDown;
     }
 
     // Update is called once per frame
@@ -60,6 +64,7 @@ public class TeleportManager : MonoBehaviour
         {
             coolDown -= Time.deltaTime;
             coolDown = Mathf.Max(coolDown, 0);
+            cdText.text = "CD: " + coolDown;
         }
 
         else
@@ -164,7 +169,7 @@ public class TeleportManager : MonoBehaviour
         }
     }
 
-    void startCoolDown()
+    public void startCoolDown()
     {
         switch (pieceName)
         {

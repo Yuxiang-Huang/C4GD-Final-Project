@@ -448,6 +448,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 75383284}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &75383284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,6 +665,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79054467}
   m_CullTransparentMesh: 1
+--- !u!1 &90697705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90697706}
+  - component: {fileID: 90697708}
+  - component: {fileID: 90697707}
+  m_Layer: 5
+  m_Name: cdText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &90697706
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90697705}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1430989442}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 388, y: -346}
+  m_SizeDelta: {x: 300, y: 146}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &90697707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90697705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'CD:'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -234.1882, y: -192.94434, z: -9.484375, w: 205.43097}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &90697708
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90697705}
+  m_CullTransparentMesh: 1
 --- !u!1 &101578169
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +856,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 101578172}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &101578172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,6 +996,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 127087372}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &127087372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,6 +1136,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 170574691}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &170574691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1851,6 +1989,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 260513529}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &260513529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1990,6 +2129,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 275196593}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &275196593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2129,6 +2269,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 286042965}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &286042965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2402,6 +2543,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 336187107}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &336187107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2541,6 +2683,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 338150793}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &338150793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2724,12 +2867,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 707383541}
+  m_Father: {fileID: 1430989442}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -103, y: 60}
+  m_AnchoredPosition: {x: 284, y: -270}
   m_SizeDelta: {x: 86, y: 146}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348058468
@@ -3063,6 +3206,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 366603550}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &366603550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3202,6 +3346,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 367852607}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &367852607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3712,6 +3857,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 464810302}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &464810302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4257,6 +4403,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 516905451}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &516905451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5038,6 +5185,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 576282017}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &576282017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5177,6 +5325,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 584919555}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &584919555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5604,6 +5753,7 @@ MonoBehaviour:
   yPos: 0
   roomLength: 100
   pieceName: 
+  cdText: {fileID: 90697707}
   Rank1:
   - {fileID: 1201072063}
   - {fileID: 170574691}
@@ -5749,6 +5899,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 661475617}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &661475617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5888,6 +6039,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 676359894}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &676359894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6338,6 +6490,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 701762299}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &701762299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6420,38 +6573,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701762296}
   m_CullTransparentMesh: 1
---- !u!1 &707383540
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 707383541}
-  m_Layer: 0
-  m_Name: GameInfoScreen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &707383541
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707383540}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 387, y: 374, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 348058467}
-  - {fileID: 2031626636}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &707511550
 GameObject:
   m_ObjectHideFlags: 0
@@ -6643,6 +6764,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 726639254}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &726639254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6782,6 +6904,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 739328481}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &739328481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7529,6 +7652,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 806441138}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &806441138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7668,6 +7792,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 824933806}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &824933806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7850,6 +7975,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 844858423}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &844858423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8299,6 +8425,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 905248858}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &905248858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8438,6 +8565,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 943910228}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &943910228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8577,6 +8705,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 957326383}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &957326383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8984,6 +9113,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 975352133}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &975352133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9257,6 +9387,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1011949623}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1011949623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9396,6 +9527,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1012742536}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1012742536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9937,6 +10069,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1081929282}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1081929282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10076,6 +10209,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1098625829}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1098625829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10483,6 +10617,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1124267908}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1124267908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10756,6 +10891,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1145782418}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1145782418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10895,6 +11031,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1152608525}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1152608525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11210,6 +11347,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1161642793}
+  teleportManager: {fileID: 660388096}
 --- !u!1 &1197242407
 GameObject:
   m_ObjectHideFlags: 0
@@ -11267,6 +11405,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1197242410}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1197242410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11622,6 +11761,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1201072063}
+  teleportManager: {fileID: 660388096}
 --- !u!1 &1213466275
 GameObject:
   m_ObjectHideFlags: 0
@@ -11679,6 +11819,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1213466278}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1213466278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12488,6 +12629,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1291311008}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1291311008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12627,6 +12769,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1299562276}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1299562276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13034,6 +13177,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1342138140}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1342138140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13307,6 +13451,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1381932249}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1381932249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13446,6 +13591,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1392923522}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1392923522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13585,6 +13731,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1402298683}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1402298683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13724,6 +13871,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1403310967}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1403310967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13863,6 +14011,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1408526189}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1408526189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14002,6 +14151,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1429515524}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1429515524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14218,6 +14368,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430101261}
   m_CullTransparentMesh: 1
+--- !u!1 &1430989438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1430989442}
+  - component: {fileID: 1430989441}
+  - component: {fileID: 1430989440}
+  - component: {fileID: 1430989439}
+  m_Layer: 5
+  m_Name: GameInfoScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1430989439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430989438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1430989440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430989438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1430989441
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430989438}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1430989442
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430989438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 348058467}
+  - {fileID: 2031626636}
+  - {fileID: 90697706}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1438072743
 GameObject:
   m_ObjectHideFlags: 0
@@ -14409,6 +14661,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1452179007}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1452179007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14548,6 +14801,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1483756779}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1483756779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14687,6 +14941,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1506180303}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1506180303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15227,6 +15482,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1539268918}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1539268918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15677,6 +15933,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1577225210}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1577225210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16074,6 +16331,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   gun: {fileID: 571266762}
   miniMap: {fileID: 1796146770}
+  statScreen: {fileID: 1430989438}
   teleportManager: {fileID: 660388096}
   mapBuilder: {fileID: 474445439}
 --- !u!1 &1605356256
@@ -16267,6 +16525,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1625180015}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1625180015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16540,6 +16799,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1675405211}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1675405211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16679,6 +16939,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1693927168}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1693927168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16818,6 +17079,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1701533130}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1701533130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17225,6 +17487,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1715272137}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1715272137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17364,6 +17627,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1782614081}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1782614081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17819,6 +18083,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1825207337}
+  teleportManager: {fileID: 660388096}
 --- !u!1 &1851422659
 GameObject:
   m_ObjectHideFlags: 0
@@ -17876,6 +18141,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1851422662}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1851422662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18332,6 +18598,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 1939519794}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &1939519794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19458,12 +19725,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 707383541}
+  m_Father: {fileID: 1430989442}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 387, y: -330}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2031626637
@@ -19620,6 +19887,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 2037750183}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &2037750183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19759,6 +20027,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 2048834189}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &2048834189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20263,6 +20532,7 @@ MonoBehaviour:
   player: {fileID: 1921103545}
   roomLength: 100
   button: {fileID: 2126246730}
+  teleportManager: {fileID: 660388096}
 --- !u!114 &2126246730
 MonoBehaviour:
   m_ObjectHideFlags: 0

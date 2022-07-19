@@ -11,6 +11,7 @@ public class TeleportButton : MonoBehaviour
     public GameObject player;
     public float roomLength = 100;
     public Button button;
+    public TeleportManager teleportManager;
 
     // Start is called before the first frame update
     void Start()
@@ -22,5 +23,6 @@ public class TeleportButton : MonoBehaviour
     {
         player.transform.position = new Vector3(player.transform.position.x % roomLength + x * roomLength,
         player.transform.position.y, player.transform.position.z % roomLength + z * roomLength);
+        teleportManager.startCoolDown();
     }
 }
