@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TeleportManager : MonoBehaviour
 {
-    private PlayerControll player;
+    public GameObject player;
     public int xPos;
     public int yPos;
 
@@ -15,14 +15,12 @@ public class TeleportManager : MonoBehaviour
 
     public Button[][] allButtons;
 
+    public float roomLength = 100;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerControll>();
-        xPos = player.xPos;
-        yPos = player.yPos;
-
        allButtons = new Button[][] {Rank1, Rank2, Rank3};
 
         foreach (Button[] rank in allButtons)
@@ -39,7 +37,8 @@ public class TeleportManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        xPos = (int)(player.transform.position.x / roomLength);
+        yPos = (int)(player.transform.position.y / roomLength);
     }
 
     void FindSquareForKnight()

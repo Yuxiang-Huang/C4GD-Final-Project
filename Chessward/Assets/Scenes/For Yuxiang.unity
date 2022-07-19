@@ -2320,6 +2320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a335274cbc95f4919ae94a170956d537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1921103545}
   xPos: 0
   yPos: 0
   Rank1:
@@ -2334,6 +2335,7 @@ MonoBehaviour:
   - {fileID: 1161642793}
   - {fileID: 367852607}
   - {fileID: 1577225210}
+  roomLength: 100
 --- !u!4 &660388097
 Transform:
   m_ObjectHideFlags: 0
