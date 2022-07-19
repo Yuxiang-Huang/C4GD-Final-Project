@@ -9,26 +9,18 @@ public class PlayerControll : MonoBehaviour
     public bool isOnGround = true;
     public float gravityModifier;
     private float speed = 20.0f;
-    private float rSpeed = 1000.0f;
+    private float rSpeed = 800.0f;
     private bool touchingWall;
-    public int xPos;
-    public int yPos;
-    public float roomLength;
-    public MapBuilder mapBuilder;
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
-        mapBuilder = GameObject.Find("MapBuilder").GetComponent<MapBuilder>();
-        roomLength = mapBuilder.roomLength;
     }
 
     // Update is called once per frame
     void Update()
     {
-        xPos = (int)(transform.position.x / roomLength);
-        yPos = (int)(transform.position.y / roomLength);
         float forwardInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
 
