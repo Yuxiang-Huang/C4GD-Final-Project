@@ -17,16 +17,19 @@ public class MiniMap : MonoBehaviour
     private MapBuilder mapBuilder;
     private RectTransform scale;
 
-    public int x;
-    public int y;
+    public int xPos;
+    public int yPos;
 
-    public float roomLength = 100;
+    public float roomLength;
     
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        xPos = player.xPos;
+        yPos = player.yPos;
+
         mapBuilder = GameObject.Find("MapBuilder").GetComponent<MapBuilder>();
         roomLength = mapBuilder.roomLength;
 
@@ -37,8 +40,8 @@ public class MiniMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = (int) (player.transform.position.x / roomLength);
-        y = (int) (player.transform.position.z / roomLength);
+        xPos = (int) (player.transform.position.x / roomLength);
+        yPos = (int) (player.transform.position.z / roomLength);
 
         xStart = (float)(transform.position.x - size.rect.width * 3.5 / 8 * scale.localScale.x);
         yStart = (float)(transform.position.y - size.rect.height * 3.5 / 8 * scale.localScale.y);
