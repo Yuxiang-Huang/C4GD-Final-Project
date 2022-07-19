@@ -26,24 +26,29 @@ public class TeleportManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       //allButtons = new Button[][] {Rank1, Rank2, Rank3, Rank4, Rank5, Rank6, Rank7, Rank8};
+        allButtons = new Button[][] { Rank1, Rank2, Rank3, Rank4, Rank5, Rank6, Rank7, Rank8 };
 
-       // foreach (Button[] rank in allButtons)
-       // {
-       //     foreach (Button button in rank)
-       //     {
-       //         button.gameObject.SetActive(false);
-       //     }
-       // }
-
-       // FindSquareForKnight();
+        HideAllButton();
     }
 
     // Update is called once per frame
     void Update()
     {
-        xPos = (int)(player.transform.position.x / roomLength);
-        yPos = (int)(player.transform.position.z / roomLength);
+        int xPosNow = (int)(player.transform.position.x / roomLength);
+        int yPosNow = (int)(player.transform.position.z / roomLength);
+
+        if (xPosNow != xPos || yPosNow != yPos)
+        {
+            HideAllButton();
+            xPos = xPosNow;
+            yPos = yPosNow;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            HideAllButton();
+            FindSquareForKnight();
+        }
     }
 
     void FindSquareForKnight()
@@ -54,12 +59,12 @@ public class TeleportManager : MonoBehaviour
             {
                 if (inBound(xPos + row * 2, yPos + col))
                 {
-                    allButtons[xPos + row * 2][yPos + col].gameObject.SetActive(true);
+                    allButtons[yPos + col][xPos + row * 2].gameObject.SetActive(true);
                 }
 
                 if (inBound(xPos + row, yPos + col * 2))
                 {
-                    allButtons[xPos + row][yPos + col * 2].gameObject.SetActive(true);
+                    allButtons[yPos + col * 2][xPos + row].gameObject.SetActive(true);
                 }
             }
         }
@@ -68,5 +73,16 @@ public class TeleportManager : MonoBehaviour
     bool inBound(int x, int y)
     {
         return x >= 0 && x < 8 && y >= 0 && y < 8;
+    }
+
+    void HideAllButton()
+    {
+        foreach (Button[] rank in allButtons)
+        {
+            foreach (Button button in rank)
+            {
+                button.gameObject.SetActive(false);
+            }
+        }
     }
 }
