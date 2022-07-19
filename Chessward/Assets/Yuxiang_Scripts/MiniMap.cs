@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MiniMap : MonoBehaviour
 {
-    private GameObject player;
+    private PlayerControll player;
     public GameObject image;
     RectTransform size;
 
@@ -26,9 +26,7 @@ public class MiniMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
-        xPos = player.xPos;
-        yPos = player.yPos;
+        player = GameObject.Find("Player").GetComponent<PlayerControll>();
 
         mapBuilder = GameObject.Find("MapBuilder").GetComponent<MapBuilder>();
         roomLength = mapBuilder.roomLength;
@@ -40,8 +38,8 @@ public class MiniMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        xPos = (int) (player.transform.position.x / roomLength);
-        yPos = (int) (player.transform.position.z / roomLength);
+        xPos = player.xPos;
+        yPos = player.yPos;
 
         xStart = (float)(transform.position.x - size.rect.width * 3.5 / 8 * scale.localScale.x);
         yStart = (float)(transform.position.y - size.rect.height * 3.5 / 8 * scale.localScale.y);
@@ -49,6 +47,6 @@ public class MiniMap : MonoBehaviour
         xSpace = size.rect.width / 8 * scale.localScale.x;
         ySpace = size.rect.height / 8 * scale.localScale.y;
 
-        image.transform.position = new Vector3(xStart + x * xSpace, yStart + y * ySpace, 0);
+        image.transform.position = new Vector3(xStart + xPos * xSpace, yStart + yPos * ySpace, 0);
     }
 }

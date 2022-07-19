@@ -7,18 +7,15 @@ public class TeleportButton : MonoBehaviour
 {
     public int x;
     public int z;
+
     public GameObject player;
-    public float roomLength;
+    public float roomLength = 100;
     private MapBuilder mapBuilder;
     public Button button;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
-        mapBuilder = GameObject.Find("MapBuilder").GetComponent<MapBuilder>();
-        roomLength = mapBuilder.roomLength;
-
         button.onClick.AddListener(delegate { teleport(x, z); });
     }
 
