@@ -121,8 +121,6 @@ public class MapBuilder : MonoBehaviour
         CreateBlackRightWallWDoor(center);
     }
 
-
-
     void CreateWhiteRoomWith3Doors(float x, float z, string noDoorWall) 
     {
         Vector3 center = new Vector3(x + roomLength / 2, 0, z + roomLength / 2);
@@ -137,58 +135,38 @@ public class MapBuilder : MonoBehaviour
         }
         else
         {
-            GameObject front = Instantiate(WhiteWallWDoor,
-            new Vector3(center.x, yForDoors, center.z + roomLength / 2),
-            WhiteFloor.transform.rotation);
+            CreateWhiteFrontWallWDoor(center);
         }
 
         //back
         if (noDoorWall == "back")
         {
-            GameObject back = Instantiate(WhiteWall,
-            new Vector3(center.x, roomLength / 2, center.z - roomLength / 2),
-            WhiteFloor.transform.rotation);
-            back.transform.Rotate(90, 0, 0);
+            CreateWhiteBackWall(center);
         }
         else
         {
-            GameObject back = Instantiate(WhiteWallWDoor,
-            new Vector3(center.x, yForDoors, center.z - roomLength / 2),
-            WhiteFloor.transform.rotation);
-            back.transform.Rotate(0, 180, 0);
+            CreateWhiteBackWallWDoor(center);
         }
 
         //left
         if (noDoorWall == "left")
         {
-            GameObject left = Instantiate(WhiteWall,
-            new Vector3(center.x - roomLength / 2, roomLength / 2, center.z),
-            WhiteFloor.transform.rotation);
-            left.transform.Rotate(0, 0, -90);
+            CreateWhiteLeftWall(center);
         }
         else
         {
-            GameObject left = Instantiate(WhiteWallWDoor,
-            new Vector3(center.x - roomLength / 2, yForDoors, center.z),
-            WhiteFloor.transform.rotation);
-            left.transform.Rotate(0, -90, 0);
+            CreateWhiteLeftWallWDoor(center);
         }
 
         //right
         if (noDoorWall == "right")
         {
-            GameObject right = Instantiate(WhiteWall,
-                new Vector3(center.x + roomLength / 2, roomLength / 2, center.z),
-                WhiteFloor.transform.rotation);
-            right.transform.Rotate(0, 0, 90);
+            CreateWhiteRightWall(center);
         }
         else
         {
-            GameObject right = Instantiate(WhiteWallWDoor,
-            new Vector3(center.x + roomLength / 2, yForDoors, center.z),
-            WhiteFloor.transform.rotation);
-            right.transform.Rotate(0, 90, 0);
-        }        
+            CreateWhiteRightWallWDoor(center);
+        }
     }
 
     void CreateBlackRoomWith3Doors(float x, float z, string noDoorWall)
@@ -201,64 +179,41 @@ public class MapBuilder : MonoBehaviour
         //front
         if (noDoorWall == "front")
         {
-            GameObject front = Instantiate(BlackWall,
-            new Vector3(center.x, roomLength / 2, center.z + roomLength / 2),
-            BlackFloor.transform.rotation);
-            front.transform.Rotate(-90, 0, 0);
+            CreateBlackFrontWall(center);
         }
         else
         {
-            GameObject front = Instantiate(BlackWallWDoor,
-            new Vector3(center.x, yForDoors, center.z + roomLength / 2) + offset,
-            BlackFloor.transform.rotation);
-            front.transform.Rotate(0, 90, 0);
+            CreateBlackFrontWallWDoor(center);
         }
 
         //back
         if (noDoorWall == "back")
         {
-            GameObject back = Instantiate(BlackWall,
-            new Vector3(center.x, roomLength / 2, center.z - roomLength / 2),
-            BlackFloor.transform.rotation);
-            back.transform.Rotate(90, 0, 0);
+            CreateBlackBackWall(center);
         }
         else
         {
-            GameObject back = Instantiate(BlackWallWDoor,
-            new Vector3(center.x, yForDoors, center.z - roomLength / 2) + offset,
-            BlackFloor.transform.rotation);
-            back.transform.Rotate(0, -90, 0);
+            CreateBlackBackWallWDoor(center);
         }
 
         //left
         if (noDoorWall == "left")
         {
-            GameObject left = Instantiate(BlackWall,
-            new Vector3(center.x - roomLength / 2, roomLength / 2, center.z),
-            BlackFloor.transform.rotation);
-            left.transform.Rotate(0, 0, -90);
+            CreateBlackLeftWall(center);
         }
         else
         {
-            GameObject left = Instantiate(BlackWallWDoor,
-            new Vector3(center.x - roomLength / 2, yForDoors, center.z) + offset,
-            BlackFloor.transform.rotation);
+            CreateBlackLeftWallWDoor(center);
         }
 
         //right
         if (noDoorWall == "right")
         {
-            GameObject right = Instantiate(BlackWall,
-                new Vector3(center.x + roomLength / 2, roomLength / 2, center.z),
-                BlackFloor.transform.rotation);
-            right.transform.Rotate(0, 0, 90);
+            CreateBlackRightWall(center);
         }
         else
         {
-            GameObject right = Instantiate(BlackWallWDoor,
-            new Vector3(center.x + roomLength / 2, yForDoors, center.z) + offset,
-            BlackFloor.transform.rotation);
-            right.transform.Rotate(0, 180, 0);
+            CreateBlackRightWallWDoor(center);
         }
     }
 
@@ -271,32 +226,19 @@ public class MapBuilder : MonoBehaviour
         CreatBlackFloor(center);
 
         //front
-        GameObject front = Instantiate(BlackWallWDoor,
-        new Vector3(center.x, yForDoors, center.z + roomLength / 2) + offset,
-        BlackFloor.transform.rotation);
-        front.transform.Rotate(0, 90, 0);
+        CreateBlackFrontWallWDoor(center);
 
         //back
-        GameObject back = Instantiate(BlackWall,
-        new Vector3(center.x, roomLength / 2, center.z - roomLength / 2),
-        BlackFloor.transform.rotation);
-        back.transform.Rotate(90, 0, 0);
-        
+        CreateBlackBackWall(center);
 
         //left
-        GameObject left = Instantiate(BlackWall,
-        new Vector3(center.x - roomLength / 2, roomLength / 2, center.z),
-        BlackFloor.transform.rotation);
-        left.transform.Rotate(0, 0, -90);
+        CreateBlackLeftWall(center);
 
         //right
-        GameObject right = Instantiate(BlackWallWDoor,
-        new Vector3(center.x + roomLength / 2, yForDoors, center.z) + offset,
-        BlackFloor.transform.rotation);
-        right.transform.Rotate(0, 180, 0);
+        CreateBlackRightWallWDoor(center);
 
 
-     //left upper
+        //left upper
         Vector3 center2 = new Vector3(0 + roomLength / 2, 0, 7 * roomLength + roomLength / 2);
 
         //floor
