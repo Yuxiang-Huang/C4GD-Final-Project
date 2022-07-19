@@ -13,26 +13,35 @@ public class MiniMap : MonoBehaviour
     public float ySpace;
     public float yStart;
 
+    public GameObject Canvas;
+    private RectTransform scale;
+
     public int x;
     public int y;
+
+    public float roomLength = 100;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
-        RectTransform size = gameObject.GetComponent<RectTransform>();
-        xStart = (float)(transform.position.x - size.rect.width / 8 * 3.5);
-        yStart = (float)(transform.position.y - size.rect.height / 8 * 3.5);
-        xSpace = size.rect.width / 8;
-        ySpace = size.rect.height / 8;
+        size = gameObject.GetComponent<RectTransform>();
+        scale = Canvas.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        x = (int) player.transform.position.x / 100;
-        y = (int)player.transform.position.z / 100;
-        
+        x = (int) (player.transform.position.x / roomLength);
+        y = (int) (player.transform.position.z / roomLength);
+
+        xStart = (float)(transform.position.x - size.rect.width * 3.5 / 8 * scale.localScale.x);
+        yStart = (float)(transform.position.y - size.rect.height * 3.5 / 8 * scale.localScale.y);
+
+        xSpace = size.rect.width / 8 * scale.localScale.x;
+        ySpace = size.rect.height / 8 * scale.localScale.y;
+
         image.transform.position = new Vector3(xStart + x * xSpace, yStart + y * ySpace, 0);
     }
 }
