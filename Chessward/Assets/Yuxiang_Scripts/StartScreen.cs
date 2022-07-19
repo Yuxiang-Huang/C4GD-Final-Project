@@ -22,7 +22,7 @@ public class StartScreen : MonoBehaviour
         startCanvas.SetActive(false);
         player.SetActive(true);
         gun.SetActive(true);
-        mapBuilder.Start(false);
+        mapBuilder.StartBuild(false);
     }
 
     public void startKnightGame()
@@ -30,7 +30,7 @@ public class StartScreen : MonoBehaviour
         startCanvas.SetActive(false);
         player.SetActive(true);
         gun.SetActive(true);
-        mapBuilder.Start(true);
+        mapBuilder.StartBuild(true);
         miniMap.SetActive(true);
     }
 }

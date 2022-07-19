@@ -8,6 +8,7 @@ public class TeleportManager : MonoBehaviour
     public GameObject player;
     public int xPos;
     public int yPos;
+    public float roomLength = 100;
 
     public Button[] Rank1 = new Button[8];
     public Button[] Rank2 = new Button[8];
@@ -20,8 +21,10 @@ public class TeleportManager : MonoBehaviour
 
     public Button[][] allButtons;
 
-    public float roomLength = 100;
+    //-1 for enemy, 1 for player, 0 for none
+    public int[][] indices;
 
+    public bool isPowerActive;
 
     // Start is called before the first frame update
     void Start()
@@ -40,14 +43,23 @@ public class TeleportManager : MonoBehaviour
         if (xPosNow != xPos || yPosNow != yPos)
         {
             HideAllButton();
+            isPowerActive = false;
             xPos = xPosNow;
             yPos = yPosNow;
         }
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            HideAllButton();
-            FindSquareForKnight();
+            if (isPowerActive)
+            {
+                HideAllButton();
+                isPowerActive = false;
+            }
+            else
+            {
+                FindSquareForRook();
+                isPowerActive = true;
+            }       
         }
     }
 
@@ -69,6 +81,46 @@ public class TeleportManager : MonoBehaviour
             }
         }
     }
+
+    void FindSquareForRook()
+    {
+        int x = xPos;
+        int y = yPos;
+
+        while (inBound(xPos, yPos) && indices[x][y] != -1)
+        {
+            allButtons[y][x].gameObject.SetActive(true);
+            y++;
+        }
+
+        x = xPos;
+        y = yPos;
+
+        while (inBound(xPos, yPos) && indices[x][y] != -1)
+        {
+            allButtons[y][x].gameObject.SetActive(true);
+            y--;
+        }
+
+        x = xPos;
+        y = yPos;
+
+        while (inBound(xPos, yPos) && indices[x][y] != -1)
+        {
+            allButtons[y][x].gameObject.SetActive(true);
+            x++;
+        }
+
+        x = xPos;
+        y = yPos;
+
+        while (inBound(xPos, yPos) && indices[x][y] != -1)
+        {
+            allButtons[y][x].gameObject.SetActive(true);
+            x--;
+        }
+    }
+
 
     bool inBound(int x, int y)
     {
