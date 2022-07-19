@@ -29,29 +29,34 @@ public class MapBuilder : MonoBehaviour
                 {
                     if (col % 2 == 0)
                     {
-                        CreateBlackRoomWithFourDoors(row * roomLength, col * roomLength);
+                        CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
                     }
                     else
                     {
-                        CreateWhiteRoomWithFourDoors(row * roomLength, col * roomLength);
+                        CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
                     }
                 }
                 else
                 {
                     if (col % 2 == 0)
                     {
-                        CreateWhiteRoomWithFourDoors(row * roomLength, col * roomLength);
+                        CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
                     }
                     else
                     {
-                        CreateBlackRoomWithFourDoors(row * roomLength, col * roomLength);
+                        CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
                     }
                 }
             }
         }
+
+        CreateWhiteRoomWith3Doors(0, 0, "front");
+        CreateWhiteRoomWith3Doors(200, 0, "left");
+        CreateWhiteRoomWith3Doors(400, 0, "back");
+        CreateWhiteRoomWith3Doors(600, 0, "right");
     }
 
-    void CreateWhiteRoomWithFourDoors(float x, float z)
+    void CreateWhiteRoomWith4Doors(float x, float z)
     {
         Vector3 center = new Vector3(x + roomLength / 2, 0, z + roomLength / 2);
 
@@ -82,7 +87,7 @@ public class MapBuilder : MonoBehaviour
         right.transform.Rotate(0, 90, 0);
     }
 
-    void CreateBlackRoomWithFourDoors(float x, float z)
+    void CreateBlackRoomWith4Doors(float x, float z)
     {
         Vector3 center = new Vector3(x + roomLength / 2, 0, z + roomLength / 2);
 
@@ -129,19 +134,19 @@ public class MapBuilder : MonoBehaviour
             WhiteFloor.transform.rotation);
         front.transform.Rotate(-90, 0, 0);
 
-        ////back
+        //back
         GameObject back = Instantiate(WhiteWall,
             new Vector3(center.x, roomLength / 2, center.z - roomLength / 2),
             WhiteFloor.transform.rotation);
         back.transform.Rotate(90, 0, 0);
 
-        ////left
+        //left
         GameObject left = Instantiate(WhiteWall,
             new Vector3(center.x - roomLength / 2, roomLength / 2, center.z),
             WhiteFloor.transform.rotation);
         left.transform.Rotate(0, 0, -90);
 
-        ////right
+        //right
         GameObject right = Instantiate(WhiteWall,
             new Vector3(center.x + roomLength / 2, roomLength / 2, center.z),
             WhiteFloor.transform.rotation);
@@ -181,4 +186,75 @@ public class MapBuilder : MonoBehaviour
     }
 
 
+
+    void CreateWhiteRoomWith3Doors(float x, float z, string noDoorWall) 
+    {
+        Vector3 center = new Vector3(x + roomLength / 2, 0, z + roomLength / 2);
+
+        //floor
+        GameObject floor = Instantiate(WhiteFloor, center, WhiteFloor.transform.rotation);
+
+        //front
+        if (noDoorWall == "front")
+        {
+            GameObject front = Instantiate(WhiteWall,
+            new Vector3(center.x, roomLength / 2, center.z + roomLength / 2),
+            WhiteFloor.transform.rotation);
+            front.transform.Rotate(-90, 0, 0);
+        }
+        else
+        {
+            GameObject front = Instantiate(WhiteWallWDoor,
+            new Vector3(center.x, yForDoors, center.z + roomLength / 2),
+            WhiteFloor.transform.rotation);
+        }
+
+        //back
+        if (noDoorWall == "back")
+        {
+            GameObject back = Instantiate(WhiteWall,
+            new Vector3(center.x, roomLength / 2, center.z - roomLength / 2),
+            WhiteFloor.transform.rotation);
+            back.transform.Rotate(90, 0, 0);
+        }
+        else
+        {
+            GameObject back = Instantiate(WhiteWallWDoor,
+            new Vector3(center.x, yForDoors, center.z - roomLength / 2),
+            WhiteFloor.transform.rotation);
+            back.transform.Rotate(0, 180, 0);
+        }
+
+        //left
+        if (noDoorWall == "left")
+        {
+            GameObject left = Instantiate(WhiteWall,
+            new Vector3(center.x - roomLength / 2, roomLength / 2, center.z),
+            WhiteFloor.transform.rotation);
+            left.transform.Rotate(0, 0, -90);
+        }
+        else
+        {
+            GameObject left = Instantiate(WhiteWallWDoor,
+            new Vector3(center.x - roomLength / 2, yForDoors, center.z),
+            WhiteFloor.transform.rotation);
+            left.transform.Rotate(0, -90, 0);
+        }
+
+        //right
+        if (noDoorWall == "right")
+        {
+            GameObject right = Instantiate(WhiteWall,
+                new Vector3(center.x + roomLength / 2, roomLength / 2, center.z),
+                WhiteFloor.transform.rotation);
+            right.transform.Rotate(0, 0, 90);
+        }
+        else
+        {
+            GameObject right = Instantiate(WhiteWallWDoor,
+            new Vector3(center.x + roomLength / 2, yForDoors, center.z),
+            WhiteFloor.transform.rotation);
+            right.transform.Rotate(0, 90, 0);
+        }        
+    }
 }
