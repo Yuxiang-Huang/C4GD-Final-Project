@@ -11,11 +11,15 @@ public class PlayerControll : MonoBehaviour
     private float speed = 20.0f;
     private float rSpeed = 700.0f;
     private bool touchingWall;
+    public int health;
+    private int damage;
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
+        health = 100;
+        damage = 5;
     }
 
     // Update is called once per frame
@@ -40,6 +44,10 @@ public class PlayerControll : MonoBehaviour
             isOnGround = false;
         }
         transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rSpeed);
+        if (health <= 0)
+        {
+            Debug.Log("Game Over");
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -50,12 +58,20 @@ public class PlayerControll : MonoBehaviour
         else if (collision.gameObject.CompareTag("Wall")){
             touchingWall = true;
         }
+       
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
             touchingWall = false;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("BulletBad"))
+        {
+            health = health - damage;
         }
     }
 }

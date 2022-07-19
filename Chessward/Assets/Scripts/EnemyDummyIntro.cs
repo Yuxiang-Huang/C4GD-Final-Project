@@ -19,8 +19,10 @@ public class EnemyDummyIntro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 lookDirection = (Player.transform.position - transform.position).normalized;
-        transform.Rotate(lookDirection);
+        Vector3 targetPostition = new Vector3(Player.transform.position.x,
+                                        this.transform.position.y,
+                                        Player.transform.position.z);
+        this.transform.LookAt(targetPostition);
     }
     private void OnCollisionEnter(Collision collision)
     {
