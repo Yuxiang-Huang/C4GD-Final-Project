@@ -22,7 +22,7 @@ public class TeleportManager : MonoBehaviour
     public Button[][] allButtons;
 
     //-1 for enemy, 1 for player, 0 for none
-    public int[][] indices;
+    public int[][] indices = new int[8][];
 
     public bool isPowerActive;
 
@@ -32,6 +32,11 @@ public class TeleportManager : MonoBehaviour
         allButtons = new Button[][] { Rank1, Rank2, Rank3, Rank4, Rank5, Rank6, Rank7, Rank8 };
 
         HideAllButton();
+
+        for (int i = 0; i < indices.Length; i ++)
+        {
+            indices[i] = new int[8];
+        }
     }
 
     // Update is called once per frame
@@ -85,36 +90,36 @@ public class TeleportManager : MonoBehaviour
     void FindSquareForRook()
     {
         int x = xPos;
-        int y = yPos;
+        int y = yPos + 1;
 
-        while (inBound(xPos, yPos) && indices[x][y] != -1)
+        while (inBound(x, y) && indices[x][y] != -1)
         {
             allButtons[y][x].gameObject.SetActive(true);
             y++;
         }
 
         x = xPos;
-        y = yPos;
+        y = yPos - 1;
 
-        while (inBound(xPos, yPos) && indices[x][y] != -1)
+        while (inBound(x, y) && indices[x][y] != -1)
         {
             allButtons[y][x].gameObject.SetActive(true);
             y--;
         }
 
-        x = xPos;
+        x = xPos + 1;
         y = yPos;
 
-        while (inBound(xPos, yPos) && indices[x][y] != -1)
+        while (inBound(x, y) && indices[x][y] != -1)
         {
             allButtons[y][x].gameObject.SetActive(true);
             x++;
         }
 
-        x = xPos;
+        x = xPos - 1;
         y = yPos;
 
-        while (inBound(xPos, yPos) && indices[x][y] != -1)
+        while (inBound(x, y) && indices[x][y] != -1)
         {
             allButtons[y][x].gameObject.SetActive(true);
             x--;
