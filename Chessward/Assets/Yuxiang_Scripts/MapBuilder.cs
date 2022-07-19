@@ -19,66 +19,79 @@ public class MapBuilder : MonoBehaviour
     private Vector3 offset = new Vector3(0, -0.5f, 0);
 
     // Start is called before the first frame update
-    void Start()
+    public void Start(bool fullGame)
     {
-        for (int row = 1; row < 7; row++)
+        if (fullGame)
         {
-            for (int col = 1; col < 7; col++)
+            for (int row = 1; row < 7; row++)
             {
-                if (row % 2 == 0)
+                for (int col = 1; col < 7; col++)
                 {
-                    if (col % 2 == 0)
+                    if (row % 2 == 0)
                     {
-                        CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
+                        if (col % 2 == 0)
+                        {
+                            CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
+                        }
+                        else
+                        {
+                            CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
+                        }
                     }
                     else
                     {
-                        CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
+                        if (col % 2 == 0)
+                        {
+                            CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
+                        }
+                        else
+                        {
+                            CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
+                        }
                     }
+                }
+            }
+
+            for (int row = 1; row < 7; row++)
+            {
+                if (row % 2 == 1)
+                {
+                    CreateWhiteRoomWith3Doors(0, row * roomLength, "left");
+                    CreateBlackRoomWith3Doors(7 * roomLength, row * roomLength, "right");
                 }
                 else
                 {
-                    if (col % 2 == 0)
-                    {
-                        CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
-                    }
-                    else
-                    {
-                        CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
-                    }
+                    CreateWhiteRoomWith3Doors(7 * roomLength, row * roomLength, "right");
+                    CreateBlackRoomWith3Doors(0, row * roomLength, "left");
                 }
             }
+
+            for (int col = 1; col < 7; col++)
+            {
+                if (col % 2 == 1)
+                {
+                    CreateWhiteRoomWith3Doors(col * roomLength, 0, "back");
+                    CreateBlackRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
+                }
+                else
+                {
+                    CreateWhiteRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
+                    CreateBlackRoomWith3Doors(col * roomLength, 0, "back");
+                }
+            }
+
+            CreatFourCornerRooms();
         }
 
-        for (int row = 1; row < 7; row++)
+        else
         {
-            if (row % 2 == 1)
-            {
-                CreateWhiteRoomWith3Doors(0, row * roomLength, "left");
-                CreateBlackRoomWith3Doors(7 * roomLength, row * roomLength, "right");
-            }
-            else
-            {
-                CreateWhiteRoomWith3Doors(7 * roomLength, row * roomLength, "right");
-                CreateBlackRoomWith3Doors(0, row * roomLength, "left");
-            }
+            buildTutorialMap();
         }
+    }
 
-        for (int col = 1; col < 7; col++)
-        {
-            if (col % 2 == 1)
-            {
-                CreateWhiteRoomWith3Doors(col * roomLength, 0, "back");
-                CreateBlackRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
-            }
-            else
-            {
-                CreateWhiteRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
-                CreateBlackRoomWith3Doors(col * roomLength, 0, "back");
-            }
-        }
+    void buildTutorialMap()
+    {
 
-        CreatFourCornerRooms();
     }
 
     void CreateWhiteRoomWith4Doors(float x, float z)
