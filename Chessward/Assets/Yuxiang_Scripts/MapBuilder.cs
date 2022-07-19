@@ -16,11 +16,73 @@ public class MapBuilder : MonoBehaviour
     private float roomLength = 100;
 
     private float yForDoors = 69.5f;
+    private Vector3 offset = new Vector3(0, -0.5f, 0);
 
     // Start is called before the first frame update
     void Start()
     {
-        CreateWhiteRoom(0, 0);
+        CreateWhiteRoomWithFourDoors(0, 0);
+        CreateBlackRoomWithFourDoors(100,0);
+
+        for (int row = 1; row < 7; row++)
+        {
+            for (int col = 1; col < 7; col++)
+            {
+                //if (row % 2 == 0)
+                //{
+                //    if (col % 2 == 0)
+                //    {
+                //        CreateBlackRoom(row * roomLength, col * roomLength);
+                //    }
+                //    else
+                //    {
+                //        CreateWhiteRoomWithFourDoors(row * roomLength, col * roomLength);
+                //    }
+                //}
+                //else
+                //{
+                //    if (col % 2 == 0)
+                //    {
+                //        CreateWhiteRoomWithFourDoors(row * roomLength, col * roomLength);
+                //    }
+                //    else
+                //    {
+                //        CreateBlackRoom(row * roomLength, col * roomLength);
+                //    }
+                //}
+            }
+        }
+    }
+
+    void CreateWhiteRoomWithFourDoors(float x, float z)
+    {
+        Vector3 center = new Vector3(x + roomLength / 2, 0, z + roomLength / 2);
+
+        //floor
+        Instantiate(WhiteFloor, center, WhiteFloor.transform.rotation);
+
+        //front
+        GameObject front = Instantiate(WhiteWallWDoor,
+            new Vector3(center.x, yForDoors, center.z + roomLength / 2),
+            WhiteFloor.transform.rotation);
+
+        //back
+        GameObject back = Instantiate(WhiteWallWDoor,
+            new Vector3(center.x, yForDoors, center.z - roomLength / 2),
+            WhiteFloor.transform.rotation);
+        back.transform.Rotate(0, 180, 0);
+
+        //left
+        GameObject left = Instantiate(WhiteWallWDoor,
+            new Vector3(center.x - roomLength / 2, yForDoors, center.z),
+            WhiteFloor.transform.rotation);
+        left.transform.Rotate(0, -90, 0);
+
+        //right
+        GameObject right = Instantiate(WhiteWallWDoor,
+            new Vector3(center.x + roomLength / 2, yForDoors, center.z),
+            WhiteFloor.transform.rotation);
+        right.transform.Rotate(0, 90, 0);
     }
 
     void CreateBlackRoomWithFourDoors(float x, float z)
@@ -30,10 +92,10 @@ public class MapBuilder : MonoBehaviour
         //floor
         Instantiate(BlackFloor, center, BlackFloor.transform.rotation);
 
-        //front
-        GameObject front = Instantiate(BlackWallWDoor,
-            new Vector3(center.x, yForDoors, center.z + roomLength / 2),
-            BlackFloor.transform.rotation);
+        ////front
+        //GameObject front = Instantiate(BlackWallWDoor,
+        //    new Vector3(center.x, yForDoors, center.z + roomLength / 2),
+        //    BlackFloor.transform.rotation);
 
         ////back
         //GameObject back = Instantiate(BlackWallWDoor,
@@ -42,9 +104,9 @@ public class MapBuilder : MonoBehaviour
         //back.transform.Rotate(0, 180, 0);
 
         ////left
-        //GameObject left = Instantiate(BlackWallWDoor,
-        //    new Vector3(center.x - roomLength / 2, yForDoors, center.z),
-        //    BlackFloor.transform.rotation);
+        GameObject left = Instantiate(BlackWallWDoor,
+            new Vector3(center.x - roomLength / 2, yForDoors, center.z) + offset,
+            BlackFloor.transform.rotation);
         //left.transform.Rotate(0, -90, 0);
 
         ////right
