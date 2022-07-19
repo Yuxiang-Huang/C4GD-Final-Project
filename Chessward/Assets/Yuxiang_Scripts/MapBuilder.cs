@@ -21,35 +21,32 @@ public class MapBuilder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateWhiteRoomWithFourDoors(0, 0);
-        CreateBlackRoomWithFourDoors(100,0);
-
         for (int row = 1; row < 7; row++)
         {
             for (int col = 1; col < 7; col++)
             {
-                //if (row % 2 == 0)
-                //{
-                //    if (col % 2 == 0)
-                //    {
-                //        CreateBlackRoom(row * roomLength, col * roomLength);
-                //    }
-                //    else
-                //    {
-                //        CreateWhiteRoomWithFourDoors(row * roomLength, col * roomLength);
-                //    }
-                //}
-                //else
-                //{
-                //    if (col % 2 == 0)
-                //    {
-                //        CreateWhiteRoomWithFourDoors(row * roomLength, col * roomLength);
-                //    }
-                //    else
-                //    {
-                //        CreateBlackRoom(row * roomLength, col * roomLength);
-                //    }
-                //}
+                if (row % 2 == 0)
+                {
+                    if (col % 2 == 0)
+                    {
+                        CreateBlackRoomWithFourDoors(row * roomLength, col * roomLength);
+                    }
+                    else
+                    {
+                        CreateWhiteRoomWithFourDoors(row * roomLength, col * roomLength);
+                    }
+                }
+                else
+                {
+                    if (col % 2 == 0)
+                    {
+                        CreateWhiteRoomWithFourDoors(row * roomLength, col * roomLength);
+                    }
+                    else
+                    {
+                        CreateBlackRoomWithFourDoors(row * roomLength, col * roomLength);
+                    }
+                }
             }
         }
     }
@@ -93,27 +90,27 @@ public class MapBuilder : MonoBehaviour
         Instantiate(BlackFloor, center, BlackFloor.transform.rotation);
 
         ////front
-        //GameObject front = Instantiate(BlackWallWDoor,
-        //    new Vector3(center.x, yForDoors, center.z + roomLength / 2),
-        //    BlackFloor.transform.rotation);
+        GameObject front = Instantiate(BlackWallWDoor,
+            new Vector3(center.x, yForDoors, center.z + roomLength / 2) + offset,
+            BlackFloor.transform.rotation);
+        front.transform.Rotate(0, 90, 0);
 
         ////back
-        //GameObject back = Instantiate(BlackWallWDoor,
-        //    new Vector3(center.x, yForDoors, center.z - roomLength / 2),
-        //    BlackFloor.transform.rotation);
-        //back.transform.Rotate(0, 180, 0);
+        GameObject back = Instantiate(BlackWallWDoor,
+            new Vector3(center.x, yForDoors, center.z - roomLength / 2) + offset,
+            BlackFloor.transform.rotation);
+        back.transform.Rotate(0, -90, 0);
 
         ////left
         GameObject left = Instantiate(BlackWallWDoor,
             new Vector3(center.x - roomLength / 2, yForDoors, center.z) + offset,
             BlackFloor.transform.rotation);
-        //left.transform.Rotate(0, -90, 0);
 
         ////right
-        //GameObject right = Instantiate(BlackWallWDoor,
-        //    new Vector3(center.x + roomLength / 2, yForDoors, center.z),
-        //    BlackFloor.transform.rotation);
-        //right.transform.Rotate(0, 90, 0);
+        GameObject right = Instantiate(BlackWallWDoor,
+            new Vector3(center.x + roomLength / 2, yForDoors, center.z) + offset,
+            BlackFloor.transform.rotation);
+        right.transform.Rotate(0, 180, 0);
     }
 
 
