@@ -24,7 +24,6 @@ public class SpawnEnemy : MonoBehaviour
     {
         if (numOfEnemies == 0 && startScreenScript.GameStarted)
         {
-            Debug.Log("Enemy Created");
             startGame(1);
         }
     }

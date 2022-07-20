@@ -8,6 +8,7 @@ public class EnemyDummyIntro : MonoBehaviour
     private int damage;
     public GameObject Player;
     public GameObject EnemyWeapon;
+    public SpawnEnemy spawnEnemyScript;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class EnemyDummyIntro : MonoBehaviour
         health = 100;
         damage = 10;
         EnemyWeapon.gameObject.SetActive(true);
+        spawnEnemyScript = GameObject.Find("SpawnManager").GetComponent<SpawnEnemy>();
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class EnemyDummyIntro : MonoBehaviour
         {
             Destroy(gameObject);
             EnemyWeapon.gameObject.SetActive(false);
-
+            spawnEnemyScript.numOfEnemies--;
         }
     }
 
