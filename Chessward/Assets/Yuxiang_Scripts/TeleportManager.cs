@@ -12,6 +12,7 @@ public class TeleportManager : MonoBehaviour
     public float roomLength = 100;
     public string pieceName;
     public TextMeshProUGUI cdText;
+    public GameObject promotionScreen;
 
     public Button[] Rank1 = new Button[8];
     public Button[] Rank2 = new Button[8];
@@ -77,6 +78,8 @@ public class TeleportManager : MonoBehaviour
                 }
                 else
                 {
+                    isPowerActive = true;
+
                     switch (pieceName)
                     {
                         case "Rook":
@@ -86,19 +89,22 @@ public class TeleportManager : MonoBehaviour
                             FindSquareForKnight();
                             break;
                         case "Bishop":
-                            //FindSquareForBishop();
+                            FindSquareForBishop();
                             break;
                         case "Queen":
-                            //FindSquareForQueen();
+                            FindSquareForQueen();
                             break;
                         case "Pawn":
-                            //FindSquareForPawn();
+                            FindSquareForPawn();
                             break;
-                    }
-
-                    isPowerActive = true;
+                    }             
                 }
             }
+        }
+
+        if (pieceName == "Pawn" && yPos == 7)
+        {
+            promotionScreen.SetActive(true);
         }
     }
 
@@ -121,42 +127,56 @@ public class TeleportManager : MonoBehaviour
         }
     }
 
+    void FindSquareHelper(int x, int y, int xChange, int yChange)
+    {
+        x += xChange;
+        y += yChange;
+
+        while (inBound(x, y))
+        {
+            allButtons[y][x].gameObject.SetActive(true);
+            if (enemySquare[x][y])
+            {
+                break;
+            }
+            x += xChange;
+            y += yChange;
+        }
+    }
+
     void FindSquareForRook()
     {
-        int x = xPos;
-        int y = yPos + 1;
+        FindSquareHelper(xPos, yPos, 0, 1);
+        FindSquareHelper(xPos, yPos, 0, -1);
+        FindSquareHelper(xPos, yPos, 1, 0);
+        FindSquareHelper(xPos, yPos, -1, 0);
+    }
 
-        while (inBound(x, y) && !enemySquare[x][y])
+
+    void FindSquareForBishop()
+    {
+        FindSquareHelper(xPos, yPos, 1, 1);
+        FindSquareHelper(xPos, yPos, 1, -1);
+        FindSquareHelper(xPos, yPos, -1, 1);
+        FindSquareHelper(xPos, yPos, -1, -1);
+    }
+
+    void FindSquareForQueen()
+    {
+        FindSquareForBishop();
+        FindSquareForRook();
+    }
+
+    void FindSquareForPawn()
+    {
+        if (inBound(xPos + 1, yPos + 1) && enemySquare[xPos + 1][yPos + 1])
         {
-            allButtons[y][x].gameObject.SetActive(true);
-            y++;
+            allButtons[yPos+1][xPos+1].gameObject.SetActive(true);
         }
 
-        x = xPos;
-        y = yPos - 1;
-
-        while (inBound(x, y) && !enemySquare[x][y])
+        if (inBound(xPos - 1, yPos + 1) && enemySquare[xPos - 1][yPos + 1])
         {
-            allButtons[y][x].gameObject.SetActive(true);
-            y--;
-        }
-
-        x = xPos + 1;
-        y = yPos;
-
-        while (inBound(x, y) && !enemySquare[x][y])
-        {
-            allButtons[y][x].gameObject.SetActive(true);
-            x++;
-        }
-
-        x = xPos - 1;
-        y = yPos;
-
-        while (inBound(x, y) && !enemySquare[x][y])
-        {
-            allButtons[y][x].gameObject.SetActive(true);
-            x--;
+            allButtons[yPos+1][xPos-1].gameObject.SetActive(true);
         }
     }
 

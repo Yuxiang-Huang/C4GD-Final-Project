@@ -11,7 +11,6 @@ public class EnemyDummyIntro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("Player");
         health = 100;
         damage = 10;
         EnemyWeapon.gameObject.SetActive(true);
