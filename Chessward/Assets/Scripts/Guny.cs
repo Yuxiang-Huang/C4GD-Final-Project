@@ -18,7 +18,6 @@ public class Guny : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("Player");
         SCARAudio = GetComponent<AudioSource>();
         magSize = 30;
         reloadRot = 0;

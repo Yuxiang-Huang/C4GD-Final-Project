@@ -47,9 +47,9 @@ public class EnemyDummyIntro : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("bullet"))
+        if (other.gameObject.CompareTag("bullet"))
         {
             health = health - damage;
         }
