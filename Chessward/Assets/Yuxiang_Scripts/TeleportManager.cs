@@ -77,6 +77,8 @@ public class TeleportManager : MonoBehaviour
                 }
                 else
                 {
+                    isPowerActive = true;
+
                     switch (pieceName)
                     {
                         case "Rook":
@@ -86,7 +88,7 @@ public class TeleportManager : MonoBehaviour
                             FindSquareForKnight();
                             break;
                         case "Bishop":
-                            //FindSquareForBishop();
+                            FindSquareForBishop();
                             break;
                         case "Queen":
                             //FindSquareForQueen();
@@ -94,9 +96,7 @@ public class TeleportManager : MonoBehaviour
                         case "Pawn":
                             //FindSquareForPawn();
                             break;
-                    }
-
-                    isPowerActive = true;
+                    }             
                 }
             }
         }
@@ -123,8 +123,68 @@ public class TeleportManager : MonoBehaviour
 
     void FindSquareForRook()
     {
-        int x = xPos;
-        int y = yPos + 1;
+        //int x = xPos;
+        //int y = yPos + 1;
+
+        //while (inBound(x, y))
+        //{
+        //    allButtons[y][x].gameObject.SetActive(true);
+        //    if (enemySquare[x][y])
+        //    {
+        //        break;
+        //    }
+        //    y++;
+        //}
+
+        //x = xPos;
+        //y = yPos - 1;
+
+        //while (inBound(x, y))
+        //{
+        //    allButtons[y][x].gameObject.SetActive(true);
+        //    if (enemySquare[x][y])
+        //    {
+        //        break;
+        //    }
+        //    y--;
+        //}
+
+        //x = xPos + 1;
+        //y = yPos;
+
+        //while (inBound(x, y))
+        //{
+        //    allButtons[y][x].gameObject.SetActive(true);
+        //    if (enemySquare[x][y])
+        //    {
+        //        break;
+        //    }
+        //    x++;
+        //}
+
+        //x = xPos - 1;
+        //y = yPos;
+
+        //while (inBound(x, y))
+        //{
+        //    allButtons[y][x].gameObject.SetActive(true);
+        //    if (enemySquare[x][y])
+        //    {
+        //        break;
+        //    }
+        //    x--;
+        //}
+
+        FindSquareHelper(xPos, yPos, 0, 1);
+        FindSquareHelper(xPos, yPos, 0, -1);
+        FindSquareHelper(xPos, yPos, 1, 0);
+        FindSquareHelper(xPos, yPos, -1, 0);
+    }
+
+    void FindSquareHelper(int x, int y, int xChange, int yChange)
+    {
+        x += xChange;
+        y += yChange;
 
         while (inBound(x, y))
         {
@@ -133,47 +193,14 @@ public class TeleportManager : MonoBehaviour
             {
                 break;
             }
-            y++;
+            x += xChange;
+            y += yChange;
         }
+    }
 
-        x = xPos;
-        y = yPos - 1;
+    void FindSquareForBishop()
+    {
 
-        while (inBound(x, y))
-        {
-            allButtons[y][x].gameObject.SetActive(true);
-            if (enemySquare[x][y])
-            {
-                break;
-            }
-            y--;
-        }
-
-        x = xPos + 1;
-        y = yPos;
-
-        while (inBound(x, y))
-        {
-            allButtons[y][x].gameObject.SetActive(true);
-            if (enemySquare[x][y])
-            {
-                break;
-            }
-            x++;
-        }
-
-        x = xPos - 1;
-        y = yPos;
-
-        while (inBound(x, y))
-        {
-            allButtons[y][x].gameObject.SetActive(true);
-            if (enemySquare[x][y])
-            {
-                break;
-            }
-            x--;
-        }
     }
 
 
