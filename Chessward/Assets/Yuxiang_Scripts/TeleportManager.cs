@@ -91,7 +91,7 @@ public class TeleportManager : MonoBehaviour
                             FindSquareForBishop();
                             break;
                         case "Queen":
-                            //FindSquareForQueen();
+                            FindSquareForQueen();
                             break;
                         case "Pawn":
                             //FindSquareForPawn();
@@ -123,58 +123,6 @@ public class TeleportManager : MonoBehaviour
 
     void FindSquareForRook()
     {
-        //int x = xPos;
-        //int y = yPos + 1;
-
-        //while (inBound(x, y))
-        //{
-        //    allButtons[y][x].gameObject.SetActive(true);
-        //    if (enemySquare[x][y])
-        //    {
-        //        break;
-        //    }
-        //    y++;
-        //}
-
-        //x = xPos;
-        //y = yPos - 1;
-
-        //while (inBound(x, y))
-        //{
-        //    allButtons[y][x].gameObject.SetActive(true);
-        //    if (enemySquare[x][y])
-        //    {
-        //        break;
-        //    }
-        //    y--;
-        //}
-
-        //x = xPos + 1;
-        //y = yPos;
-
-        //while (inBound(x, y))
-        //{
-        //    allButtons[y][x].gameObject.SetActive(true);
-        //    if (enemySquare[x][y])
-        //    {
-        //        break;
-        //    }
-        //    x++;
-        //}
-
-        //x = xPos - 1;
-        //y = yPos;
-
-        //while (inBound(x, y))
-        //{
-        //    allButtons[y][x].gameObject.SetActive(true);
-        //    if (enemySquare[x][y])
-        //    {
-        //        break;
-        //    }
-        //    x--;
-        //}
-
         FindSquareHelper(xPos, yPos, 0, 1);
         FindSquareHelper(xPos, yPos, 0, -1);
         FindSquareHelper(xPos, yPos, 1, 0);
@@ -200,7 +148,16 @@ public class TeleportManager : MonoBehaviour
 
     void FindSquareForBishop()
     {
+        FindSquareHelper(xPos, yPos, 1, 1);
+        FindSquareHelper(xPos, yPos, 1, -1);
+        FindSquareHelper(xPos, yPos, -1, 1);
+        FindSquareHelper(xPos, yPos, -1, -1);
+    }
 
+    void FindSquareForQueen()
+    {
+        FindSquareForBishop();
+        FindSquareForRook();
     }
 
 

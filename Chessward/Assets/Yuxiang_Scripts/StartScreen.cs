@@ -47,6 +47,20 @@ public class StartScreen : MonoBehaviour
         teleportManager.pieceName = "Rook";
     }
 
+    public void startBishopGame()
+    {
+        notTutorial();
+
+        teleportManager.pieceName = "Bishop";
+    }
+
+    public void startQueenGame()
+    {
+        notTutorial();
+
+        teleportManager.pieceName = "Queen";
+    }
+
     void notTutorial()
     {
         startCanvas.SetActive(false);
