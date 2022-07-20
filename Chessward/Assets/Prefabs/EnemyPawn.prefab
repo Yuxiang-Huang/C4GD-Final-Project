@@ -1221,7 +1221,6 @@ GameObject:
   - component: {fileID: 6394975179601063342}
   - component: {fileID: 7299221313946265274}
   - component: {fileID: 6422425364609669697}
-  - component: {fileID: -2458859961012734912}
   m_Layer: 0
   m_Name: EnemyPawn
   m_TagString: Enemy
@@ -1286,6 +1285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560a0b1b8d769744f838acd026544de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 6422425364609669697}
   health: 0
   Player: {fileID: 0}
   EnemyWeapon: {fileID: 2094201999624250865}
@@ -1317,20 +1317,6 @@ NavMeshAgent:
   m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-2458859961012734912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5202100947696472551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bac12e207f0a45f0bb249b69de25071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 6422425364609669697}
-  player: {fileID: 0}
 --- !u!1 &5518978163714387951
 GameObject:
   m_ObjectHideFlags: 0

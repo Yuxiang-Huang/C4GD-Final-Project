@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyDummyIntro : MonoBehaviour
 {
+    [SerializeField] private NavMeshAgent agent;
+
     public int health;
     private int damage;
     public GameObject Player;
@@ -29,7 +32,7 @@ public class EnemyDummyIntro : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         Vector3 targetPostition = new Vector3(Player.transform.position.x,
                                         this.transform.position.y,
                                         Player.transform.position.z);
@@ -39,12 +42,36 @@ public class EnemyDummyIntro : MonoBehaviour
         int yPosNow = (int)(transform.position.z / roomLength);
 
         if (xPosNow != xPos || yPosNow != yPos)
-        {     
+        {
             teleportManager.enemySquare[xPos][yPos] = false;
             xPos = xPosNow;
             yPos = yPosNow;
             teleportManager.enemySquare[xPos][yPos] = true;
         }
+
+        //!!! Better randomize movement later
+
+        if (xPos > Player.transform.position.x / roomLength)
+        {
+            agent.SetDestination(new Vector3(transform.position.x - roomLength, transform.position.y, transform.position.z));
+        }
+        else if (xPos < Player.transform.position.x / roomLength)
+        {
+            agent.SetDestination(new Vector3(transform.position.x + roomLength, transform.position.y, transform.position.z));
+        }
+
+        else if (yPos > Player.transform.position.z / roomLength)
+        {
+            agent.SetDestination(new Vector3(transform.position.x, transform.position.y, transform.position.z - roomLength));
+        }
+        else if (yPos < Player.transform.position.z / roomLength)
+        {
+            agent.SetDestination(new Vector3(transform.position.x, transform.position.y, transform.position.z + roomLength));
+        }
+        else
+        {
+            agent.SetDestination(Player.transform.position);
+        }      
     }
 
     private void OnTriggerEnter(Collider other)
