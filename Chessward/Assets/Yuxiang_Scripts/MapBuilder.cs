@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class MapBuilder : MonoBehaviour
 {
     //looking from 0, 0, 0
-    public List<NavMeshSurface> forAI;
 
     public GameObject WhiteFloor;
     public GameObject WhiteWall;
@@ -14,6 +13,8 @@ public class MapBuilder : MonoBehaviour
     public GameObject BlackFloor;
     public GameObject BlackWall;
     public GameObject BlackWallWDoor;
+
+    public GameObject BoardFloor;
 
     public float roomLength = 100;
 
@@ -23,14 +24,42 @@ public class MapBuilder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //for (int row = 0; row < 8; row++)
+        //{
+        //    for (int col = 0; col < 8; col++)
+        //    {
+        //        if (row % 2 == 0)
+        //        {
+        //            if (col % 2 == 0)
+        //            {
+        //                CreateBlackFloor(new Vector3(row * roomLength + roomLength / 2, 0, col * roomLength + roomLength / 2));
+        //            }
+        //            else
+        //            {
+        //                CreateWhiteFloor(new Vector3(row * roomLength + roomLength / 2, 0, col * roomLength + roomLength / 2));
+        //            }
 
-
+        //        }
+        //        else
+        //        {
+        //            if (col % 2 == 1)
+        //            {
+        //                CreateBlackFloor(new Vector3(row * roomLength + roomLength / 2, 0, col * roomLength + roomLength / 2));
+        //            }
+        //            else
+        //            {
+        //                CreateWhiteFloor(new Vector3(row * roomLength + roomLength / 2, 0, col * roomLength + roomLength / 2));
+        //            }
+        //        }
+        //    }
+        //}
     }
 
     public void StartBuild(bool fullGame)
     {
         if (fullGame)
         {
+            BoardFloor.SetActive(true);
             for (int row = 1; row < 7; row++)
             {
                 for (int col = 1; col < 7; col++)
@@ -89,15 +118,11 @@ public class MapBuilder : MonoBehaviour
             }
 
             CreatFourCornerRooms();
-
-            for (int i = 0; i < forAI.Count; i++)
-            {
-                forAI[i].BuildNavMesh();
-            }
         }
 
         else
         {
+            BoardFloor.SetActive(false);
             BuildTutorialMap();
         }
     }
@@ -340,8 +365,7 @@ public class MapBuilder : MonoBehaviour
 
     void CreateWhiteFloor(Vector3 center)
     {
-        GameObject floor = Instantiate(WhiteFloor, center, BlackFloor.transform.rotation);
-        forAI.Add(floor.GetComponent<NavMeshSurface>());
+        //Instantiate(WhiteFloor, center, BlackFloor.transform.rotation);
     }
 
     void CreateWhiteFrontWall(Vector3 center)
@@ -410,8 +434,7 @@ public class MapBuilder : MonoBehaviour
 
     void CreateBlackFloor(Vector3 center)
     {
-        GameObject floor = Instantiate(BlackFloor, center, BlackFloor.transform.rotation);
-        forAI.Add(floor.GetComponent<NavMeshSurface>());
+        //Instantiate(BlackFloor, center, BlackFloor.transform.rotation);
     }
 
     void CreateBlackFrontWall(Vector3 center)
