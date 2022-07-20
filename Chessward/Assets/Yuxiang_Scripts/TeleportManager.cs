@@ -24,8 +24,7 @@ public class TeleportManager : MonoBehaviour
 
     public Button[][] allButtons;
 
-    //-1 for enemy, 1 for player, 0 for none
-    public int[][] indices = new int[8][];
+    public bool[][] enemySquare = new bool[8][];
 
     public bool isPowerActive;
 
@@ -38,9 +37,9 @@ public class TeleportManager : MonoBehaviour
 
         HideAllButton();
 
-        for (int i = 0; i < indices.Length; i ++)
+        for (int i = 0; i < enemySquare.Length; i ++)
         {
-            indices[i] = new int[8];
+            enemySquare[i] = new bool[8];
         }
 
         cdText.text = "CD: " + coolDown;
@@ -86,6 +85,15 @@ public class TeleportManager : MonoBehaviour
                         case "Knight":
                             FindSquareForKnight();
                             break;
+                        case "Bishop":
+                            //FindSquareForBishop();
+                            break;
+                        case "Queen":
+                            //FindSquareForQueen();
+                            break;
+                        case "Pawn":
+                            //FindSquareForPawn();
+                            break;
                     }
 
                     isPowerActive = true;
@@ -118,7 +126,7 @@ public class TeleportManager : MonoBehaviour
         int x = xPos;
         int y = yPos + 1;
 
-        while (inBound(x, y) && indices[x][y] != -1)
+        while (inBound(x, y) && !enemySquare[x][y])
         {
             allButtons[y][x].gameObject.SetActive(true);
             y++;
@@ -127,7 +135,7 @@ public class TeleportManager : MonoBehaviour
         x = xPos;
         y = yPos - 1;
 
-        while (inBound(x, y) && indices[x][y] != -1)
+        while (inBound(x, y) && !enemySquare[x][y])
         {
             allButtons[y][x].gameObject.SetActive(true);
             y--;
@@ -136,7 +144,7 @@ public class TeleportManager : MonoBehaviour
         x = xPos + 1;
         y = yPos;
 
-        while (inBound(x, y) && indices[x][y] != -1)
+        while (inBound(x, y) && !enemySquare[x][y])
         {
             allButtons[y][x].gameObject.SetActive(true);
             x++;
@@ -145,7 +153,7 @@ public class TeleportManager : MonoBehaviour
         x = xPos - 1;
         y = yPos;
 
-        while (inBound(x, y) && indices[x][y] != -1)
+        while (inBound(x, y) && !enemySquare[x][y])
         {
             allButtons[y][x].gameObject.SetActive(true);
             x--;
@@ -178,6 +186,15 @@ public class TeleportManager : MonoBehaviour
                 break;
             case "Knight":
                 coolDown = 3;
+                break;
+            case "Bishop":
+                coolDown = 3;
+                break;
+            case "Queen":
+                coolDown = 9;
+                break;
+            case "Pawn":
+                coolDown = 1;
                 break;
         }
     }

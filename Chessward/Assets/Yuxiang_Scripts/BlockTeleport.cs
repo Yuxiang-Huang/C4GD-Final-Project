@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BlockTeleport : MonoBehaviour
+{
+    public TeleportManager teleportManager;
+    public int xPos;
+    public int yPos;
+    public float roomLength = 100;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        int xPosNow = (int)(transform.position.x / roomLength);
+        int yPosNow = (int)(transform.position.z / roomLength);
+
+        if (xPosNow != xPos || yPosNow != yPos)
+        {
+            teleportManager.enemySquare[yPos][xPos] = false;
+            xPos = xPosNow;
+            yPos = yPosNow;
+            teleportManager.enemySquare[yPos][xPos] = true;
+        }
+
+
+    }
+}
