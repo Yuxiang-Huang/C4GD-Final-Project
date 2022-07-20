@@ -6,6 +6,9 @@ public class MiniMap : MonoBehaviour
 {
     private GameObject player;
     public GameObject image;
+    public TeleportManager teleportManager;
+    public GameObject enemyImage;
+
     RectTransform size;
 
     public float xSpace;
@@ -43,5 +46,17 @@ public class MiniMap : MonoBehaviour
         ySpace = size.rect.height / 8;
 
         image.transform.localPosition = new Vector3(xStart + xPos * xSpace, yStart + yPos * ySpace, 0);
+
+        for (int row = 0; row < teleportManager.enemySquare.Length; row++)
+        {
+            for (int col = 0; col < teleportManager.enemySquare[0].Length; col++)
+            {
+                if (teleportManager.enemySquare[row][col])
+                {
+                    enemyImage.transform.localPosition = new Vector3(xStart + row * xSpace, yStart + col * ySpace, 0);
+                }
+            }
+        }
+        
     }
 }
