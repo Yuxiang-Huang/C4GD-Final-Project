@@ -12,6 +12,7 @@ public class TeleportManager : MonoBehaviour
     public float roomLength = 100;
     public string pieceName;
     public TextMeshProUGUI cdText;
+    public GameObject promotionScreen;
 
     public Button[] Rank1 = new Button[8];
     public Button[] Rank2 = new Button[8];
@@ -94,11 +95,16 @@ public class TeleportManager : MonoBehaviour
                             FindSquareForQueen();
                             break;
                         case "Pawn":
-                            //FindSquareForPawn();
+                            FindSquareForPawn();
                             break;
                     }             
                 }
             }
+        }
+
+        if (pieceName == "Pawn" && yPos == 7)
+        {
+            promotionScreen.SetActive(true);
         }
     }
 
@@ -121,14 +127,6 @@ public class TeleportManager : MonoBehaviour
         }
     }
 
-    void FindSquareForRook()
-    {
-        FindSquareHelper(xPos, yPos, 0, 1);
-        FindSquareHelper(xPos, yPos, 0, -1);
-        FindSquareHelper(xPos, yPos, 1, 0);
-        FindSquareHelper(xPos, yPos, -1, 0);
-    }
-
     void FindSquareHelper(int x, int y, int xChange, int yChange)
     {
         x += xChange;
@@ -146,6 +144,15 @@ public class TeleportManager : MonoBehaviour
         }
     }
 
+    void FindSquareForRook()
+    {
+        FindSquareHelper(xPos, yPos, 0, 1);
+        FindSquareHelper(xPos, yPos, 0, -1);
+        FindSquareHelper(xPos, yPos, 1, 0);
+        FindSquareHelper(xPos, yPos, -1, 0);
+    }
+
+
     void FindSquareForBishop()
     {
         FindSquareHelper(xPos, yPos, 1, 1);
@@ -158,6 +165,19 @@ public class TeleportManager : MonoBehaviour
     {
         FindSquareForBishop();
         FindSquareForRook();
+    }
+
+    void FindSquareForPawn()
+    {
+        if (inBound(xPos + 1, yPos + 1) && enemySquare[xPos + 1][yPos + 1])
+        {
+            allButtons[yPos+1][xPos+1].gameObject.SetActive(true);
+        }
+
+        if (inBound(xPos - 1, yPos + 1) && enemySquare[xPos - 1][yPos + 1])
+        {
+            allButtons[yPos+1][xPos-1].gameObject.SetActive(true);
+        }
     }
 
 

@@ -22,6 +22,7 @@ public class StartScreen : MonoBehaviour
         gun.SetActive(false);
         miniMap.SetActive(false);
         statScreen.SetActive(false);
+        teleportManager.promotionScreen.SetActive(false);
     }
 
     public void startTutorial()
@@ -61,6 +62,13 @@ public class StartScreen : MonoBehaviour
         teleportManager.pieceName = "Queen";
     }
 
+    public void startPawnGame()
+    {
+        notTutorial();
+
+        teleportManager.pieceName = "Pawn";
+    }
+
     void notTutorial()
     {
         startCanvas.SetActive(false);
@@ -69,5 +77,29 @@ public class StartScreen : MonoBehaviour
         mapBuilder.StartBuild(true);
         miniMap.SetActive(true);
         statScreen.SetActive(true);
+    }
+
+    public void tagKnight()
+    {
+        teleportManager.pieceName = "Knight";
+        teleportManager.promotionScreen.SetActive(false);
+    }
+
+    public void tagBishop()
+    {
+        teleportManager.pieceName = "Bishop";
+        teleportManager.promotionScreen.SetActive(false);
+    }
+
+    public void tagRook()
+    {
+        teleportManager.pieceName = "Rook";
+        teleportManager.promotionScreen.SetActive(false);
+    }
+
+    public void tagQueen()
+    {
+        teleportManager.pieceName = "Queen";
+        teleportManager.promotionScreen.SetActive(false);
     }
 }
