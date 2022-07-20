@@ -11,10 +11,14 @@ public class Guny : MonoBehaviour
     public int magSize;
     private float reloadRot;
     private bool reloadDone;
+    private AudioSource SCARAudio;
+    public AudioClip shootSound;
+    public AudioClip reloadSound;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.Find("Player");
+        SCARAudio = GetComponent<AudioSource>();
         magSize = 30;
         reloadRot = 0;
         reloadDone = false;
@@ -40,6 +44,7 @@ public class Guny : MonoBehaviour
         {
             Vector3 offset2 = transform.up * 0.5f + transform.forward * 8f;
             shootTime = 0;
+            SCARAudio.PlayOneShot(shootSound, 1.0f);
             Instantiate(projectilePrefab, transform.position + offset2, transform.rotation);
             magSize = magSize - 1;
             StartCoroutine(MagCheck());
@@ -57,7 +62,9 @@ public class Guny : MonoBehaviour
     IEnumerator MagCheck() {
         if (magSize <= 0)
         {
+            SCARAudio.PlayOneShot(reloadSound, 1.0f);
             yield return new WaitForSeconds(3.25f);
+            SCARAudio.PlayOneShot(reloadSound, 1.0f);
             StartCoroutine(DownGun());
         }
     }
