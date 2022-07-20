@@ -37,8 +37,8 @@ public class SpawnEnemy : MonoBehaviour
 
     Vector3 randomPosition()
     {
-        int x = Random.Range(0, 8);
-        int z = Random.Range(0, 8);
+        int x = Random.Range(1, 8);
+        int z = Random.Range(1, 8);
         return new Vector3(roomLength / 2 + x * roomLength, 10, roomLength / 2 + z * roomLength);
     }
 }

@@ -311,23 +311,23 @@ public class MapBuilder : MonoBehaviour
         CreateBlackRightWall(center3);
 
 
-        //left upper
+     //Right Bottom
         Vector3 center4 = new Vector3(7 * roomLength + roomLength / 2, 0, 0 + roomLength / 2);
 
         //floor
         CreateWhiteFloor(center4);
 
         //front
-        CreateWhiteFrontWall(center4);
+        CreateWhiteFrontWallWDoor(center4);
 
         //back
-        CreateWhiteBackWallWDoor(center4);
+        CreateWhiteBackWall(center4);
 
         //left
-        CreateWhiteLeftWall(center4);
+        CreateWhiteLeftWallWDoor(center4);
 
         //right
-        CreateWhiteRightWallWDoor(center4);
+        CreateWhiteRightWall(center4);
 
     }
 

@@ -39,7 +39,7 @@ public class EnemyDummyIntro : MonoBehaviour
         int yPosNow = (int)(transform.position.z / roomLength);
 
         if (xPosNow != xPos || yPosNow != yPos)
-        {
+        {     
             teleportManager.enemySquare[xPos][yPos] = false;
             xPos = xPosNow;
             yPos = yPosNow;
