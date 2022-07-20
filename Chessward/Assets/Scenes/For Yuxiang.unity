@@ -6518,7 +6518,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: a92c258c1196d4a41a1b7930d03f88a4, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1088bc399ae15496cba34ce967c903d4, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6958,7 +6958,7 @@ GameObject:
   - component: {fileID: 660388097}
   - component: {fileID: 660388096}
   m_Layer: 0
-  m_Name: Teleport Manger
+  m_Name: Teleport Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
