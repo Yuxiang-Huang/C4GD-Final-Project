@@ -51,27 +51,39 @@ public class EnemyDummyIntro : MonoBehaviour
 
         //!!! Better randomize movement later
 
-        if (xPos > Player.transform.position.x / roomLength)
-        {
-            agent.SetDestination(new Vector3(transform.position.x - roomLength, transform.position.y, transform.position.z));
-        }
-        else if (xPos < Player.transform.position.x / roomLength)
-        {
-            agent.SetDestination(new Vector3(transform.position.x + roomLength, transform.position.y, transform.position.z));
-        }
+        //if (xPos > Player.transform.position.x / roomLength)
+        //{
+        //    agent.SetDestination(new Vector3(transform.position.x - roomLength, transform.position.y, transform.position.z));
+        //}
+        //else if (xPos < Player.transform.position.x / roomLength)
+        //{
+        //    agent.SetDestination(new Vector3(transform.position.x + roomLength, transform.position.y, transform.position.z));
+        //}
 
-        else if (yPos > Player.transform.position.z / roomLength)
+        //else if (yPos > Player.transform.position.z / roomLength)
+        //{
+        //    agent.SetDestination(new Vector3(transform.position.x, transform.position.y, transform.position.z - roomLength));
+        //}
+        //else if (yPos < Player.transform.position.z / roomLength)
+        //{
+        //    agent.SetDestination(new Vector3(transform.position.x, transform.position.y, transform.position.z + roomLength));
+        //}
+        //else
+        //{
+        //    agent.SetDestination(Player.transform.position);
+        //}
+
+        int playerXPos = (int)(Player.transform.position.x / roomLength);
+
+        if (xPos != playerXPos)
         {
-            agent.SetDestination(new Vector3(transform.position.x, transform.position.y, transform.position.z - roomLength));
-        }
-        else if (yPos < Player.transform.position.z / roomLength)
-        {
-            agent.SetDestination(new Vector3(transform.position.x, transform.position.y, transform.position.z + roomLength));
+            agent.SetDestination(new Vector3 (Player.transform.position.x, transform.position.y, transform.position.z));
         }
         else
         {
+            Debug.Log("no");
             agent.SetDestination(Player.transform.position);
-        }      
+        }
     }
 
     private void OnTriggerEnter(Collider other)
