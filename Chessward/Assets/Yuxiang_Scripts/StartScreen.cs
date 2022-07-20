@@ -20,6 +20,8 @@ public class StartScreen : MonoBehaviour
     public GameObject WhiteRookImage;
     public GameObject WhiteQueenImage;
 
+    public SpawnEnemy spawnEnemyScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,6 +95,7 @@ public class StartScreen : MonoBehaviour
         mapBuilder.StartBuild(true);
         miniMapScreen.SetActive(true);
         statScreen.SetActive(true);
+        spawnEnemyScript.startGame(1);
     }
 
     public void tagKnight()
