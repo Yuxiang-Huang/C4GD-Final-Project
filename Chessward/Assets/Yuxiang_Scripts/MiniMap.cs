@@ -41,7 +41,6 @@ public class MiniMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         xPos = (int)(
             player.transform.position.x
             / roomLength);

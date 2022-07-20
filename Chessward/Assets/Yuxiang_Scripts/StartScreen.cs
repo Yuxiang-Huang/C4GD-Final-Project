@@ -45,6 +45,7 @@ public class StartScreen : MonoBehaviour
         notTutorial();
 
         teleportManager.pieceName = "Knight";
+        WhiteKnightImage.SetActive(true);
         minimapScript.playerImage = WhiteKnightImage;
     }
 
@@ -53,6 +54,7 @@ public class StartScreen : MonoBehaviour
         notTutorial();
 
         teleportManager.pieceName = "Rook";
+        WhiteRookImage.SetActive(true);
         minimapScript.playerImage = WhiteRookImage;
     }
 
@@ -61,6 +63,7 @@ public class StartScreen : MonoBehaviour
         notTutorial();
 
         teleportManager.pieceName = "Bishop";
+        WhiteBishopImage.SetActive(true);
         minimapScript.playerImage = WhiteBishopImage;
     }
 
@@ -69,6 +72,7 @@ public class StartScreen : MonoBehaviour
         notTutorial();
 
         teleportManager.pieceName = "Queen";
+        WhiteQueenImage.SetActive(true);
         minimapScript.playerImage = WhiteQueenImage;
     }
 
@@ -77,6 +81,7 @@ public class StartScreen : MonoBehaviour
         notTutorial();
 
         teleportManager.pieceName = "Pawn";
+        WhitePawnImage.SetActive(true);
         minimapScript.playerImage = WhitePawnImage;
     }
 
@@ -92,29 +97,37 @@ public class StartScreen : MonoBehaviour
 
     public void tagKnight()
     {
+        WhitePawnImage.SetActive(false);
         teleportManager.pieceName = "Knight";
         teleportManager.promotionScreen.SetActive(false);
+        WhiteKnightImage.SetActive(true);
         minimapScript.playerImage = WhiteKnightImage;
     }
 
     public void tagBishop()
     {
+        WhitePawnImage.SetActive(false);
         teleportManager.pieceName = "Bishop";
         teleportManager.promotionScreen.SetActive(false);
+        WhiteBishopImage.SetActive(true);
         minimapScript.playerImage = WhiteBishopImage;
     }
 
     public void tagRook()
     {
+        WhitePawnImage.SetActive(false);
         teleportManager.pieceName = "Rook";
         teleportManager.promotionScreen.SetActive(false);
+        WhiteRookImage.SetActive(true);
         minimapScript.playerImage = WhiteRookImage;
     }
 
     public void tagQueen()
     {
+        WhitePawnImage.SetActive(false);
         teleportManager.pieceName = "Queen";
         teleportManager.promotionScreen.SetActive(false);
+        WhiteQueenImage.SetActive(true);
         minimapScript.playerImage = WhiteQueenImage;
     }
 }
