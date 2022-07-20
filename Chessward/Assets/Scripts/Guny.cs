@@ -50,7 +50,6 @@ public class Guny : MonoBehaviour
             magSize = magSize - 1;
             StartCoroutine(MagCheck());
             Instantiate(shootParticlePrefab, transform.position + offset2, transform.rotation);
-            Debug.Log("shot");
         }
         if (reloadDone == true)
         {
