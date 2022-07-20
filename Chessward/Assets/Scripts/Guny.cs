@@ -14,6 +14,7 @@ public class Guny : MonoBehaviour
     private AudioSource SCARAudio;
     public AudioClip shootSound;
     public AudioClip reloadSound;
+    public GameObject shootParticlePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +41,7 @@ public class Guny : MonoBehaviour
                 reloadRot = -45;
             }
         }
-        if (Input.GetKey(KeyCode.Q) && shootTime > 0.2 && magSize > 0)
+        if (Input.GetKey(KeyCode.Mouse0) && shootTime > 0.2 && magSize > 0)
         {
             Vector3 offset2 = transform.up * 0.5f + transform.forward * 8f;
             shootTime = 0;
@@ -48,6 +49,8 @@ public class Guny : MonoBehaviour
             Instantiate(projectilePrefab, transform.position + offset2, transform.rotation);
             magSize = magSize - 1;
             StartCoroutine(MagCheck());
+            Instantiate(shootParticlePrefab, transform.position + offset2, transform.rotation);
+            Debug.Log("shot");
         }
         if (reloadDone == true)
         {
