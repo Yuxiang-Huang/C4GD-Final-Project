@@ -7,13 +7,14 @@ public class EnemyDummyIntro : MonoBehaviour
     public int health;
     private int damage;
     public GameObject Player;
-
+    public GameObject EnemyWeapon;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.Find("Player");
         health = 100;
         damage = 10;
+        EnemyWeapon.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -33,6 +34,7 @@ public class EnemyDummyIntro : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            EnemyWeapon.gameObject.SetActive(false);
         }
     }
 

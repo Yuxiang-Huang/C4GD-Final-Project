@@ -37,7 +37,7 @@ public class EnemyGun : MonoBehaviour
     {
         if (magSize <= 0)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
             magSize = 30;
         }
     }
