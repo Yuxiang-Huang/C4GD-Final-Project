@@ -12,7 +12,7 @@ public class EnemyGun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Enemy = GameObject.Find("Enemy");
+        //Enemy = GameObject.Find("Enemy");
         magSize = 30;
     }
 

@@ -19,6 +19,8 @@ public class EnemyDummyIntro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Player = GameObject.Find("Player");
+
         Vector3 targetPostition = new Vector3(Player.transform.position.x,
                                         this.transform.position.y,
                                         Player.transform.position.z);

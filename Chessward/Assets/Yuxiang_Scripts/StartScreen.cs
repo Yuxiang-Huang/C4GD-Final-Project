@@ -80,11 +80,13 @@ public class StartScreen : MonoBehaviour
 
     public void startPawnGame()
     {
-        notTutorial();
+        //notTutorial();
 
         teleportManager.pieceName = "Pawn";
         WhitePawnImage.SetActive(true);
         minimapScript.playerImage = WhitePawnImage;
+
+        notTutorial();
     }
 
     void notTutorial()
@@ -95,7 +97,7 @@ public class StartScreen : MonoBehaviour
         mapBuilder.StartBuild(true);
         miniMapScreen.SetActive(true);
         statScreen.SetActive(true);
-        //spawnEnemyScript.startGame(1);
+        spawnEnemyScript.startGame(1);
     }
 
     public void tagKnight()

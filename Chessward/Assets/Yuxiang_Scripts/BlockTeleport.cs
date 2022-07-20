@@ -13,7 +13,7 @@ public class BlockTeleport : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        teleportManager = GameObject.Find("Teleport Manager").GetComponent<TeleportManager>();
     }
 
     // Update is called once per frame
