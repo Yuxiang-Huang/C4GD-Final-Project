@@ -13,12 +13,14 @@ public class PlayerControll : MonoBehaviour
     private bool touchingWall;
     public int health;
     private int damage;
-
+    private AudioSource PlayerAudio;
     public bool gameOver;
-
+    public AudioClip jumpSound;
+    public AudioClip landSound;
     // Start is called before the first frame update
     void Start()
     {
+        PlayerAudio = GetComponent<AudioSource>();
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
         health = 100;
@@ -43,6 +45,7 @@ public class PlayerControll : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
+            PlayerAudio.PlayOneShot(jumpSound, 1.0f);
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
@@ -56,6 +59,10 @@ public class PlayerControll : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            if (isOnGround == false)
+            {
+                PlayerAudio.PlayOneShot(landSound, 1.0f);
+            }
             isOnGround = true;
         }
         else if (collision.gameObject.CompareTag("Wall")){
