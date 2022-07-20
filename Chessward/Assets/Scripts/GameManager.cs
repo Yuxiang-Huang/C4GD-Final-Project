@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
         playercontrollScript = GameObject.Find("Player").GetComponent<PlayerControll>();
         UpdateAmmo(30);
         UpdateHealth(100);
-        ammoText = GameObject.Find("ammoText").GetComponent<TextMeshProUGUI>();
-        healthText = GameObject.Find("healthText").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
