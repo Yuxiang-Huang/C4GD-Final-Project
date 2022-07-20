@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MapBuilder : MonoBehaviour
 {
     //looking from 0, 0, 0
+    public List<NavMeshSurface> forAI;
 
     public GameObject WhiteFloor;
     public GameObject WhiteWall;
@@ -87,6 +89,11 @@ public class MapBuilder : MonoBehaviour
             }
 
             CreatFourCornerRooms();
+
+            for (int i = 0; i < forAI.Count; i++)
+            {
+                forAI[i].BuildNavMesh();
+            }
         }
 
         else
@@ -333,7 +340,8 @@ public class MapBuilder : MonoBehaviour
 
     void CreateWhiteFloor(Vector3 center)
     {
-        Instantiate(WhiteFloor, center, WhiteFloor.transform.rotation);
+        GameObject floor = Instantiate(WhiteFloor, center, BlackFloor.transform.rotation);
+        forAI.Add(floor.GetComponent<NavMeshSurface>());
     }
 
     void CreateWhiteFrontWall(Vector3 center)
@@ -402,7 +410,8 @@ public class MapBuilder : MonoBehaviour
 
     void CreateBlackFloor(Vector3 center)
     {
-        Instantiate(BlackFloor, center, BlackFloor.transform.rotation);
+        GameObject floor = Instantiate(BlackFloor, center, BlackFloor.transform.rotation);
+        forAI.Add(floor.GetComponent<NavMeshSurface>());
     }
 
     void CreateBlackFrontWall(Vector3 center)

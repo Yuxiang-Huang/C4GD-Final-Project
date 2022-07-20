@@ -57,6 +57,7 @@ public class DoorControl : MonoBehaviour
             if (doorClose)
             {
                 openDoor();
+                close.gameObject.SetActive(false);
             }
         }
     }
