@@ -6,7 +6,12 @@ public class SpawnEnemy : MonoBehaviour
 {
 
     float roomLength = 100;
+
+    public float numOfEnemies;
+
     public GameObject EnemyPawn;
+    public GameObject EnemyKnight;
+    public StartScreen startScreenScript;
 
     // Start is called before the first frame update
     void Start()
@@ -17,12 +22,18 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (numOfEnemies == 0 && startScreenScript.GameStarted)
+        {
+            Debug.Log("Enemy Created");
+            startGame(1);
+        }
     }
 
-    public void startGame(int numOfEnemy)
+    public void startGame(int difficulty)
     {
+        numOfEnemies = difficulty;
         Instantiate(EnemyPawn, randomPosition(), EnemyPawn.transform.rotation);
+        //Instantiate(EnemyKnight, randomPosition(), EnemyKnight.transform.rotation);
     }
 
     Vector3 randomPosition()

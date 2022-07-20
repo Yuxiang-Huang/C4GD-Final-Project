@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartScreen : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class StartScreen : MonoBehaviour
     public GameObject gun;
     public GameObject miniMapScreen;
     public GameObject statScreen;
+    public GameObject endScreen;
 
     public TeleportManager teleportManager;
     public MiniMap minimapScript;
     public MapBuilder mapBuilder;
+    public PlayerControll playerControllScript;
 
     public GameObject WhitePawnImage;
     public GameObject WhiteKnightImage;
@@ -21,6 +24,8 @@ public class StartScreen : MonoBehaviour
     public GameObject WhiteQueenImage;
 
     public SpawnEnemy spawnEnemyScript;
+
+    public bool GameStarted;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +36,24 @@ public class StartScreen : MonoBehaviour
         miniMapScreen.SetActive(false);
         statScreen.SetActive(false);
         teleportManager.promotionScreen.SetActive(false);
+        endScreen.SetActive(false);
+        GameStarted = false;
+    }
+
+    void Update()
+    {
+        if (playerControllScript.gameOver)
+        {
+            displayEndScreen();
+        }
+    }
+
+    void displayEndScreen()
+    {
+        player.SetActive(false);
+        gun.SetActive(false);
+        miniMapScreen.SetActive(false);
+        endScreen.SetActive(true);
     }
 
     public void startTutorial()
@@ -40,6 +63,7 @@ public class StartScreen : MonoBehaviour
         gun.SetActive(true);
         mapBuilder.StartBuild(false);
         statScreen.SetActive(true);
+        GameStarted = true;
     }
 
     public void startKnightGame()
@@ -80,13 +104,11 @@ public class StartScreen : MonoBehaviour
 
     public void startPawnGame()
     {
-        //notTutorial();
+        notTutorial();
 
         teleportManager.pieceName = "Pawn";
         WhitePawnImage.SetActive(true);
         minimapScript.playerImage = WhitePawnImage;
-
-        notTutorial();
     }
 
     void notTutorial()
@@ -98,6 +120,7 @@ public class StartScreen : MonoBehaviour
         miniMapScreen.SetActive(true);
         statScreen.SetActive(true);
         spawnEnemyScript.startGame(1);
+        GameStarted = true;
     }
 
     public void tagKnight()
@@ -135,4 +158,10 @@ public class StartScreen : MonoBehaviour
         WhiteQueenImage.SetActive(true);
         minimapScript.playerImage = WhiteQueenImage;
     }
+
+    public void restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+   
 }

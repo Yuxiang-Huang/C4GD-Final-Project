@@ -13,6 +13,9 @@ public class PlayerControll : MonoBehaviour
     private bool touchingWall;
     public int health;
     private int damage;
+
+    public bool gameOver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +49,7 @@ public class PlayerControll : MonoBehaviour
         transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rSpeed);
         if (health <= 0)
         {
-            Debug.Log("Game Over");
+            gameOver = true;
         }
     }
     private void OnCollisionEnter(Collision collision)

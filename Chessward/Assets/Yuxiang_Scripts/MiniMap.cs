@@ -15,8 +15,6 @@ public class MiniMap : MonoBehaviour
     public GameObject BlackRookImage;
     public GameObject BlackQueenImage;
 
-    public GameObject enemyImage;
-
     RectTransform size;
 
     public float xSpace;
@@ -56,7 +54,7 @@ public class MiniMap : MonoBehaviour
             {
                 if (teleportManager.enemySquare[row][col])
                 {
-                    enemyImage.transform.localPosition = new Vector3(xStart + row * xSpace, yStart + col * ySpace, 0);
+                    BlackPawnImage.transform.localPosition = new Vector3(xStart + row * xSpace, yStart + col * ySpace, 0);
                 }
             }
         }

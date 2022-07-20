@@ -8,6 +8,7 @@ public class EnemyDummyIntro : MonoBehaviour
     private int damage;
     public GameObject Player;
     public GameObject EnemyWeapon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,7 @@ public class EnemyDummyIntro : MonoBehaviour
         {
             Destroy(gameObject);
             EnemyWeapon.gameObject.SetActive(false);
+
         }
     }
 
