@@ -1220,7 +1220,6 @@ GameObject:
   - component: {fileID: 2530497365990008991}
   - component: {fileID: 6394975179601063342}
   - component: {fileID: 7299221313946265274}
-  - component: {fileID: 1621704035321597593}
   m_Layer: 0
   m_Name: EnemyPawn
   m_TagString: Enemy
@@ -1288,23 +1287,12 @@ MonoBehaviour:
   health: 0
   Player: {fileID: 0}
   EnemyWeapon: {fileID: 2094201999624250865}
---- !u!114 &1621704035321597593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5202100947696472551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33c72432faed6410cb57599933aeda7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  spawnEnemyScript: {fileID: 0}
   teleportManager: {fileID: 0}
   xPos: 0
   yPos: 0
   roomLength: 100
-  pieceName: Pawn
+  pieceName: 
 --- !u!1 &5518978163714387951
 GameObject:
   m_ObjectHideFlags: 0

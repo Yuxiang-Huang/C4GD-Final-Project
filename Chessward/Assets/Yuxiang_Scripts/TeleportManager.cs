@@ -43,7 +43,15 @@ public class TeleportManager : MonoBehaviour
             enemySquare[i] = new bool[8];
         }
 
-        cdText.text = "CD: " + coolDown;
+        if (coolDown > 1)
+        {
+            cdText.text = "CD: " + Mathf.Round(coolDown);
+        }
+        else
+        {
+            cdText.text = "CD: " + coolDown;
+        }
+
     }
 
     // Update is called once per frame
@@ -64,7 +72,14 @@ public class TeleportManager : MonoBehaviour
         {
             coolDown -= Time.deltaTime;
             coolDown = Mathf.Max(coolDown, 0);
-            cdText.text = "CD: " + coolDown;
+            if (coolDown > 1)
+            {
+                cdText.text = "CD: " + Mathf.Round(coolDown);
+            }
+            else
+            {
+                cdText.text = "CD: " + coolDown;
+            }
         }
 
         else
