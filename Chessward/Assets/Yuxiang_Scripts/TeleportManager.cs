@@ -126,36 +126,52 @@ public class TeleportManager : MonoBehaviour
         int x = xPos;
         int y = yPos + 1;
 
-        while (inBound(x, y) && !enemySquare[x][y])
+        while (inBound(x, y))
         {
             allButtons[y][x].gameObject.SetActive(true);
+            if (enemySquare[x][y])
+            {
+                break;
+            }
             y++;
         }
 
         x = xPos;
         y = yPos - 1;
 
-        while (inBound(x, y) && !enemySquare[x][y])
+        while (inBound(x, y))
         {
             allButtons[y][x].gameObject.SetActive(true);
+            if (enemySquare[x][y])
+            {
+                break;
+            }
             y--;
         }
 
         x = xPos + 1;
         y = yPos;
 
-        while (inBound(x, y) && !enemySquare[x][y])
+        while (inBound(x, y))
         {
             allButtons[y][x].gameObject.SetActive(true);
+            if (enemySquare[x][y])
+            {
+                break;
+            }
             x++;
         }
 
         x = xPos - 1;
         y = yPos;
 
-        while (inBound(x, y) && !enemySquare[x][y])
+        while (inBound(x, y))
         {
             allButtons[y][x].gameObject.SetActive(true);
+            if (enemySquare[x][y])
+            {
+                break;
+            }
             x--;
         }
     }

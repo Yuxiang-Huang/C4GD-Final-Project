@@ -23,10 +23,10 @@ public class BlockTeleport : MonoBehaviour
 
         if (xPosNow != xPos || yPosNow != yPos)
         {
-            teleportManager.enemySquare[yPos][xPos] = false;
+            teleportManager.enemySquare[xPos][yPos] = false;
             xPos = xPosNow;
             yPos = yPosNow;
-            teleportManager.enemySquare[yPos][xPos] = true;
+            teleportManager.enemySquare[xPos][yPos] = true;
         }
 
 
