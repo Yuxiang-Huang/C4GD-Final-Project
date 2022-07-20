@@ -5,8 +5,16 @@ using UnityEngine;
 public class MiniMap : MonoBehaviour
 {
     private GameObject player;
-    public GameObject image;
     public TeleportManager teleportManager;
+
+    public GameObject playerImage;
+
+    public GameObject BlackPawnImage;
+    public GameObject BlackKnightImage;
+    public GameObject BlackBishopImage;
+    public GameObject BlackRookImage;
+    public GameObject BlackQueenImage;
+
     public GameObject enemyImage;
 
     RectTransform size;
@@ -45,7 +53,7 @@ public class MiniMap : MonoBehaviour
         xSpace = size.rect.width / 8;
         ySpace = size.rect.height / 8;
 
-        image.transform.localPosition = new Vector3(xStart + xPos * xSpace, yStart + yPos * ySpace, 0);
+        playerImage.transform.localPosition = new Vector3(xStart + xPos * xSpace, yStart + yPos * ySpace, 0);
 
         for (int row = 0; row < teleportManager.enemySquare.Length; row++)
         {

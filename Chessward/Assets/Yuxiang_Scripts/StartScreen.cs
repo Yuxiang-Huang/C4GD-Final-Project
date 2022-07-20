@@ -7,12 +7,18 @@ public class StartScreen : MonoBehaviour
     public GameObject startCanvas;
     public GameObject player;
     public GameObject gun;
-    public GameObject miniMap;
+    public GameObject miniMapScreen;
     public GameObject statScreen;
 
     public TeleportManager teleportManager;
-
+    public MiniMap minimapScript;
     public MapBuilder mapBuilder;
+
+    public GameObject WhitePawnImage;
+    public GameObject WhiteKnightImage;
+    public GameObject WhiteBishopImage;
+    public GameObject WhiteRookImage;
+    public GameObject WhiteQueenImage;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +26,7 @@ public class StartScreen : MonoBehaviour
         startCanvas.SetActive(true);
         player.SetActive(false);
         gun.SetActive(false);
-        miniMap.SetActive(false);
+        miniMapScreen.SetActive(false);
         statScreen.SetActive(false);
         teleportManager.promotionScreen.SetActive(false);
     }
@@ -39,6 +45,7 @@ public class StartScreen : MonoBehaviour
         notTutorial();
 
         teleportManager.pieceName = "Knight";
+        minimapScript.playerImage = WhiteKnightImage;
     }
 
     public void startRookGame()
@@ -46,6 +53,7 @@ public class StartScreen : MonoBehaviour
         notTutorial();
 
         teleportManager.pieceName = "Rook";
+        minimapScript.playerImage = WhiteRookImage;
     }
 
     public void startBishopGame()
@@ -53,6 +61,7 @@ public class StartScreen : MonoBehaviour
         notTutorial();
 
         teleportManager.pieceName = "Bishop";
+        minimapScript.playerImage = WhiteBishopImage;
     }
 
     public void startQueenGame()
@@ -60,6 +69,7 @@ public class StartScreen : MonoBehaviour
         notTutorial();
 
         teleportManager.pieceName = "Queen";
+        minimapScript.playerImage = WhiteQueenImage;
     }
 
     public void startPawnGame()
@@ -67,6 +77,7 @@ public class StartScreen : MonoBehaviour
         notTutorial();
 
         teleportManager.pieceName = "Pawn";
+        minimapScript.playerImage = WhitePawnImage;
     }
 
     void notTutorial()
@@ -75,7 +86,7 @@ public class StartScreen : MonoBehaviour
         player.SetActive(true);
         gun.SetActive(true);
         mapBuilder.StartBuild(true);
-        miniMap.SetActive(true);
+        miniMapScreen.SetActive(true);
         statScreen.SetActive(true);
     }
 
@@ -83,23 +94,27 @@ public class StartScreen : MonoBehaviour
     {
         teleportManager.pieceName = "Knight";
         teleportManager.promotionScreen.SetActive(false);
+        minimapScript.playerImage = WhiteKnightImage;
     }
 
     public void tagBishop()
     {
         teleportManager.pieceName = "Bishop";
         teleportManager.promotionScreen.SetActive(false);
+        minimapScript.playerImage = WhiteBishopImage;
     }
 
     public void tagRook()
     {
         teleportManager.pieceName = "Rook";
         teleportManager.promotionScreen.SetActive(false);
+        minimapScript.playerImage = WhiteRookImage;
     }
 
     public void tagQueen()
     {
         teleportManager.pieceName = "Queen";
         teleportManager.promotionScreen.SetActive(false);
+        minimapScript.playerImage = WhiteQueenImage;
     }
 }

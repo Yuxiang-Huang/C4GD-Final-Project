@@ -6363,7 +6363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &612470462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8035,6 +8035,7 @@ MonoBehaviour:
   xPos: 0
   yPos: 0
   roomLength: 100
+  pieceName: Pawn
 --- !u!1 &726639251
 GameObject:
   m_ObjectHideFlags: 0
@@ -13138,8 +13139,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df8a4b71d5574330abee075b35196e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 346031334}
   teleportManager: {fileID: 660388096}
+  playerImage: {fileID: 0}
+  BlackPawnImage: {fileID: 0}
+  BlackKnightImage: {fileID: 0}
+  BlackBishopImage: {fileID: 0}
+  BlackRookImage: {fileID: 0}
+  BlackQuuenImage: {fileID: 0}
   enemyImage: {fileID: 812975947}
   xSpace: 0
   xStart: 0
@@ -18537,10 +18543,16 @@ MonoBehaviour:
   startCanvas: {fileID: 385774181}
   player: {fileID: 1921103545}
   gun: {fileID: 571266762}
-  miniMap: {fileID: 1796146770}
+  miniMapScreen: {fileID: 1796146770}
   statScreen: {fileID: 1430989438}
   teleportManager: {fileID: 660388096}
+  minimapScript: {fileID: 1156948421}
   mapBuilder: {fileID: 474445439}
+  WhitePawnImage: {fileID: 0}
+  WhiteKnightImage: {fileID: 0}
+  WhiteBishopImage: {fileID: 0}
+  WhiteRookImage: {fileID: 0}
+  WhiteQuuenImage: {fileID: 0}
 --- !u!1 &1605356256
 GameObject:
   m_ObjectHideFlags: 0

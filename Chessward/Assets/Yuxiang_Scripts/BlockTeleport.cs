@@ -8,6 +8,7 @@ public class BlockTeleport : MonoBehaviour
     public int xPos;
     public int yPos;
     public float roomLength = 100;
+    public string pieceName = "Pawn";
 
     // Start is called before the first frame update
     void Start()
