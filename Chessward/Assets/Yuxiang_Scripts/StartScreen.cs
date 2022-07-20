@@ -95,7 +95,7 @@ public class StartScreen : MonoBehaviour
         mapBuilder.StartBuild(true);
         miniMapScreen.SetActive(true);
         statScreen.SetActive(true);
-        spawnEnemyScript.startGame(1);
+        //spawnEnemyScript.startGame(1);
     }
 
     public void tagKnight()

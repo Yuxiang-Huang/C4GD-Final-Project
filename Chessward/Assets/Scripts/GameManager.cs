@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gunyScript = GameObject.Find("SCAR").GetComponent<Guny>();
-        playercontrollScript = GameObject.Find("Player").GetComponent<PlayerControll>();
         UpdateAmmo(30);
         UpdateHealth(100);
     }
