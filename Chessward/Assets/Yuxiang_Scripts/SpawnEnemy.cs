@@ -13,6 +13,8 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject EnemyKnight;
     public StartScreen startScreenScript;
 
+    public GameObject EnemyDummy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,15 +26,24 @@ public class SpawnEnemy : MonoBehaviour
     {
         if (numOfEnemies == 0 && startScreenScript.GameStarted)
         {
-            startGame(1);
+            startScreenScript.displayWinEndScreen();
         }
     }
 
-    public void startGame(int difficulty)
+    public void startGame(string difficulty)
     {
-        numOfEnemies = difficulty;
-        Instantiate(EnemyPawn, randomPosition(), EnemyPawn.transform.rotation);
-        //Instantiate(EnemyKnight, randomPosition(), EnemyKnight.transform.rotation);
+        if (difficulty == "tutorial")
+        {
+            numOfEnemies = 1;
+            Instantiate(EnemyDummy, new Vector3(50, 0, 150), EnemyDummy.transform.rotation);
+        }
+
+        else
+        {
+            numOfEnemies = 6;
+            Instantiate(EnemyPawn, randomPosition(), EnemyPawn.transform.rotation);
+            //Instantiate(EnemyKnight, randomPosition(), EnemyKnight.transform.rotation);
+        }
     }
 
     Vector3 randomPosition()

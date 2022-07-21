@@ -11,6 +11,8 @@ public class StartScreen : MonoBehaviour
     public GameObject miniMapScreen;
     public GameObject statScreen;
     public GameObject endScreen;
+    public GameObject won;
+    public GameObject lose;
 
     public TeleportManager teleportManager;
     public MiniMap minimapScript;
@@ -43,16 +45,28 @@ public class StartScreen : MonoBehaviour
     {
         if (playerControllScript.gameOver)
         {
-            displayEndScreen();
+            displayLoseEndScreen();
         }
     }
 
-    void displayEndScreen()
+    void displayLoseEndScreen()
     {
         player.SetActive(false);
         gun.SetActive(false);
         miniMapScreen.SetActive(false);
         endScreen.SetActive(true);
+        won.SetActive(false);
+        lose.SetActive(true);
+    }
+
+    public void displayWinEndScreen()
+    {
+        player.SetActive(false);
+        gun.SetActive(false);
+        miniMapScreen.SetActive(false);
+        endScreen.SetActive(true);
+        won.SetActive(true);
+        lose.SetActive(false);
     }
 
     public void startTutorial()
@@ -62,6 +76,8 @@ public class StartScreen : MonoBehaviour
         gun.SetActive(true);
         mapBuilder.StartBuild(false);
         statScreen.SetActive(true);
+        GameStarted = true;
+        spawnEnemyScript.startGame("tutorial");
     }
 
     public void startKnightGame()
@@ -117,7 +133,7 @@ public class StartScreen : MonoBehaviour
         mapBuilder.StartBuild(true);
         miniMapScreen.SetActive(true);
         statScreen.SetActive(true);
-        spawnEnemyScript.startGame(1);
+        spawnEnemyScript.startGame("full");
         GameStarted = true;
     }
 

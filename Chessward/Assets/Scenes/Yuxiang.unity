@@ -3969,6 +3969,7 @@ MonoBehaviour:
   EnemyPawn: {fileID: 5202100947696472551, guid: e13c1d83da72d4d7890a3794b5f29a4b, type: 3}
   EnemyKnight: {fileID: 919132149582652862}
   startScreenScript: {fileID: 1604664955}
+  EnemyDummy: {fileID: 2642814962712312964, guid: 1793501b8c79b400f855aabd13e43839, type: 3}
 --- !u!4 &270152154
 Transform:
   m_ObjectHideFlags: 0
@@ -18813,7 +18814,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1225973878}
   - component: {fileID: 1225973877}
-  - component: {fileID: 1225973879}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -18851,19 +18851,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1225973879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1225973876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23d8864dd789042db9b935cbd82d6058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyDummy: {fileID: 2642814962712312964, guid: 1793501b8c79b400f855aabd13e43839, type: 3}
 --- !u!1 &1232010614
 GameObject:
   m_ObjectHideFlags: 0
@@ -23081,7 +23068,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1225973879}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -24723,6 +24710,8 @@ MonoBehaviour:
   miniMapScreen: {fileID: 1796146770}
   statScreen: {fileID: 1430989438}
   endScreen: {fileID: 1620425754}
+  won: {fileID: 1985961089}
+  lose: {fileID: 1091495980}
   teleportManager: {fileID: 660388096}
   minimapScript: {fileID: 1156948421}
   mapBuilder: {fileID: 474445439}
@@ -28957,7 +28946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Congratulation. You won.
+  m_text: Congratulation! You won.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
