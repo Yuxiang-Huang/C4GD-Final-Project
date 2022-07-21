@@ -26334,6 +26334,7 @@ MonoBehaviour:
   WhiteRookImage: {fileID: 1513074488}
   WhiteQueenImage: {fileID: 1444374952}
   GameStarted: 0
+  difficulty: 
 --- !u!1 &1605356256
 GameObject:
   m_ObjectHideFlags: 0
