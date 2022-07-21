@@ -15,6 +15,8 @@ public class RevolverGuny : MonoBehaviour
     public AudioClip shootSound;
     public AudioClip reloadSound;
     public GameObject shootParticlePrefab;
+    public TeleportManager teleportManagerScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,7 @@ public class RevolverGuny : MonoBehaviour
                 reloadRot = -45;
             }
         }
-        if (Input.GetKey(KeyCode.Mouse0) && shootTime > 0.1 && magSize > 0)
+        if (Input.GetKey(KeyCode.Mouse0) && shootTime > 0.1 && magSize > 0 && !teleportManagerScript.isPowerActive)
         {
             Vector3 offset2 = transform.up * 0.5f + transform.forward * 6f;
             shootTime = 0;

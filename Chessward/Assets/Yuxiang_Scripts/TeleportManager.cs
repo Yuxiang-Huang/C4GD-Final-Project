@@ -84,7 +84,7 @@ public class TeleportManager : MonoBehaviour
 
         else
         {
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (isPowerActive)
                 {

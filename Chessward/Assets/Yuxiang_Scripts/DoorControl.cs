@@ -21,7 +21,7 @@ public class DoorControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(interactable && Input.GetKeyDown(KeyCode.O))
+        if(interactable && Input.GetKeyDown(KeyCode.Q))
         {
 
             if (doorClose)
@@ -64,8 +64,6 @@ public class DoorControl : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-    //!!! Need Enemy closing half half chance
-
         if (other.CompareTag("Player")){
             if (doorClose)
             {
@@ -97,10 +95,5 @@ public class DoorControl : MonoBehaviour
         close.gameObject.SetActive(false);
         doorClose = true;
         open.gameObject.SetActive(true);
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        
     }
 }

@@ -15,6 +15,7 @@ public class Guny : MonoBehaviour
     public AudioClip shootSound;
     public AudioClip reloadSound;
     public GameObject shootParticlePrefab;
+    public TeleportManager teleportManagerScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,7 @@ public class Guny : MonoBehaviour
         transform.rotation = Player.transform.rotation;
         transform.position += transform.right;
         transform.position += transform.forward;
-        if (magSize <= 0 && reloadDone == false)
+        if (magSize <= 0 && reloadDone == false && !teleportManagerScript.isPowerActive)
         {
             transform.Rotate(reloadRot, 0, 0);
             reloadRot = reloadRot - 60f * Time.deltaTime;

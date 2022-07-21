@@ -28,27 +28,27 @@ public class EnemyDummyIntro : MonoBehaviour
         Player = GameObject.Find("Player");
         health = 100;
 
-        switch (pieceName)
-        {
-            case "Rook":
-                health = 150;
-                break;
-            case "Knight":
-                health = 150;
-                break;
-            case "Bishop":
-                health = 200;
-                break;
-            case "Queen":
-                health = 100;
-                break;
-            case "Pawn":
-                health = 200;
-                break;
-            case "King":
-                health = 200;
-                break;
-        }
+        //switch (pieceName)
+        //{
+        //    case "Rook":
+        //        health = 150;
+        //        break;
+        //    case "Knight":
+        //        health = 150;
+        //        break;
+        //    case "Bishop":
+        //        health = 200;
+        //        break;
+        //    case "Queen":
+        //        health = 100;
+        //        break;
+        //    case "Pawn":
+        //        health = 200;
+        //        break;
+        //    case "King":
+        //        health = 200;
+        //        break;
+        //}
 
         damage = 10;
         sniperdamage = 100;
@@ -106,6 +106,9 @@ public class EnemyDummyIntro : MonoBehaviour
         {
             health = health - sniperdamage;
         }
+
+        Destroy(other.gameObject);
+
         if (health <= 0)
         {
             Destroy(gameObject);

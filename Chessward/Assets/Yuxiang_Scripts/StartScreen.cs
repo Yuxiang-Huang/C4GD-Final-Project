@@ -37,6 +37,8 @@ public class StartScreen : MonoBehaviour
     public GameObject sniperAmmoText;
     public GameObject revolver;
     public GameObject revolverText;
+    public GameObject SMG;
+    public GameObject SMGText;
 
     public bool GameStarted;
 
@@ -134,6 +136,9 @@ public class StartScreen : MonoBehaviour
 
     public void startBishopGame()
     {
+        gun = SMG;
+        SMGText.SetActive(true);
+
         notTutorial();
 
         teleportManager.pieceName = "Bishop";

@@ -95,5 +95,6 @@ public class PlayerControll : MonoBehaviour
         {
             health = health - damage;
         }
+        Destroy(other.gameObject);
     }
 }
