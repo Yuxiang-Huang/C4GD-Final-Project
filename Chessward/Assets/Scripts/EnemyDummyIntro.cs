@@ -7,6 +7,7 @@ public class EnemyDummyIntro : MonoBehaviour
 {
     public int health;
     private int damage;
+    private int sniperdamage;
     public GameObject Player;
     public GameObject EnemyWeapon;
     public SpawnEnemy spawnEnemyScript;
@@ -25,6 +26,7 @@ public class EnemyDummyIntro : MonoBehaviour
         Player = GameObject.Find("Player");
         health = 100;
         damage = 10;
+        sniperdamage = 100;
         EnemyWeapon.gameObject.SetActive(true);
         spawnEnemyScript = GameObject.Find("SpawnManager").GetComponent<SpawnEnemy>();
         teleportManager = GameObject.Find("Teleport Manager").GetComponent<TeleportManager>();
@@ -58,6 +60,10 @@ public class EnemyDummyIntro : MonoBehaviour
         if (other.gameObject.CompareTag("bullet"))
         {
             health = health - damage;
+        }
+        if (other.gameObject.CompareTag("SniperBullet"))
+        {
+            health = health - sniperdamage;
         }
         if (health <= 0)
         {
