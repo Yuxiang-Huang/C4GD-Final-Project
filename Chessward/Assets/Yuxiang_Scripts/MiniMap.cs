@@ -47,6 +47,7 @@ public class MiniMap : MonoBehaviour
         ySpace = size.rect.height / 8;
 
         playerImage.transform.localPosition = new Vector3(xStart + xPos * xSpace, yStart + yPos * ySpace, 0);
+        playerImage.transform.rotation = Quaternion.AngleAxis(-player.transform.eulerAngles.y, Vector3.forward);
 
         for (int row = 0; row < teleportManager.enemySquare.Length; row++)
         {
