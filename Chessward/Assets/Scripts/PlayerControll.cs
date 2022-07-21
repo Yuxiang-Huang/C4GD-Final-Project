@@ -29,22 +29,22 @@ public class PlayerControll : MonoBehaviour
         switch (teleportManager.pieceName)
         {
             case "Rook":
-                health = 200;
+                health = 150;
                 break;
             case "Knight":
-                health = 300;
+                health = 150;
                 break;
             case "Bishop":
-                health = 400;
+                health = 200;
                 break;
             case "Queen":
                 health = 100;
                 break;
             case "Pawn":
-                health = 500;
+                health = 200;
                 break;
             case "King":
-                health = 500;
+                health = 200;
                 break;
         }
 
