@@ -9,6 +9,7 @@ TagManager:
   - bullet
   - BulletBad
   - Enemy
+  - SniperBullet
   layers:
   - Default
   - TransparentFX
