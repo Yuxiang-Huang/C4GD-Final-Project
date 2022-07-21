@@ -28,14 +28,7 @@ public class SpawnEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (startScreenScript.difficulty == "easy" || startScreenScript.difficulty == "hard")
-        {
-            Objective1.SetActive(true);
-        }
-        else if (startScreenScript.difficulty == "hard" || startScreenScript.difficulty == "impossible")
-        {
-            Objective2.SetActive(true);
-        }
+     
     }
 
     // Update is called once per frame
@@ -75,6 +68,17 @@ public class SpawnEnemy : MonoBehaviour
 
             GameObject King = Instantiate(EnemyKing, randomPosition(), EnemyKing.transform.rotation);
             enemies.Add(King.GetComponent<EnemyDummyIntro>());
+        }
+
+        if (startScreenScript.difficulty == "easy" || startScreenScript.difficulty == "hard")
+        {
+            Objective1.SetActive(true);
+            Objective2.SetActive(false);
+        }
+        else if (startScreenScript.difficulty == "hard" || startScreenScript.difficulty == "impossible")
+        {
+            Objective2.SetActive(true);
+            Objective1.SetActive(false);
         }
     }
 
