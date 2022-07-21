@@ -1222,7 +1222,7 @@ GameObject:
   - component: {fileID: 6422425364609669697}
   - component: {fileID: -288137701707474095}
   m_Layer: 0
-  m_Name: EnemyPawn
+  m_Name: EnemyKnight
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,7 +1293,7 @@ MonoBehaviour:
   xPos: 0
   yPos: 0
   roomLength: 100
-  pieceName: Pawn
+  pieceName: Knight
 --- !u!195 &6422425364609669697
 NavMeshAgent:
   m_ObjectHideFlags: 0

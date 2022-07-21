@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MapBuilder : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class MapBuilder : MonoBehaviour
     public GameObject BlackWall;
     public GameObject BlackWallWDoor;
 
+    public GameObject BoardFloor;
+
     public float roomLength = 100;
 
     private float yForDoors = 69.5f;
@@ -21,14 +24,15 @@ public class MapBuilder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
+   
     }
 
     public void StartBuild(bool fullGame)
     {
         if (fullGame)
         {
+            BoardFloor.SetActive(true);
+
             for (int row = 1; row < 7; row++)
             {
                 for (int col = 1; col < 7; col++)
@@ -92,20 +96,21 @@ public class MapBuilder : MonoBehaviour
         else
         {
             BuildTutorialMap();
+            
         }
     }
 
     void BuildTutorialMap()
     {
         Vector3 center = new Vector3(50, 0, 50);
-        CreateWhiteFloor(center);
+        Instantiate(WhiteFloor, center, WhiteFloor.transform.rotation);
         CreateWhiteFrontWallWDoor(center);
         CreateWhiteLeftWall(center);
         CreateWhiteRightWall(center);
         CreateWhiteBackWall(center);
 
         Vector3 center2 = new Vector3(50, 0, 150);
-        CreateBlackFloor(center2);
+        Instantiate(BlackFloor, center2, BlackFloor.transform.rotation);
         CreateBlackFrontWall(center2);
         CreateBlackLeftWall(center2);
         CreateBlackRightWall(center2);
@@ -333,7 +338,7 @@ public class MapBuilder : MonoBehaviour
 
     void CreateWhiteFloor(Vector3 center)
     {
-        Instantiate(WhiteFloor, center, WhiteFloor.transform.rotation);
+        //Instantiate(WhiteFloor, center, BlackFloor.transform.rotation);
     }
 
     void CreateWhiteFrontWall(Vector3 center)
@@ -402,7 +407,7 @@ public class MapBuilder : MonoBehaviour
 
     void CreateBlackFloor(Vector3 center)
     {
-        Instantiate(BlackFloor, center, BlackFloor.transform.rotation);
+        //Instantiate(BlackFloor, center, BlackFloor.transform.rotation);
     }
 
     void CreateBlackFrontWall(Vector3 center)

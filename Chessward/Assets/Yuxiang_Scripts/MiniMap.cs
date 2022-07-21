@@ -6,6 +6,7 @@ public class MiniMap : MonoBehaviour
 {
     public GameObject player;
     public TeleportManager teleportManager;
+    public SpawnEnemy spawnEnemyScript;
 
     public GameObject playerImage;
 
@@ -14,6 +15,7 @@ public class MiniMap : MonoBehaviour
     public GameObject BlackBishopImage;
     public GameObject BlackRookImage;
     public GameObject BlackQueenImage;
+    public GameObject BlackKingImage;
 
     RectTransform size;
 
@@ -47,15 +49,36 @@ public class MiniMap : MonoBehaviour
         ySpace = size.rect.height / 8;
 
         playerImage.transform.localPosition = new Vector3(xStart + xPos * xSpace, yStart + yPos * ySpace, 0);
+        playerImage.transform.rotation = Quaternion.AngleAxis(-player.transform.eulerAngles.y, Vector3.forward);
 
-        for (int row = 0; row < teleportManager.enemySquare.Length; row++)
+        foreach (EnemyDummyIntro now in spawnEnemyScript.enemies)
         {
-            for (int col = 0; col < teleportManager.enemySquare[0].Length; col++)
+            switch (now.pieceName)
             {
-                if (teleportManager.enemySquare[row][col])
-                {
-                    BlackPawnImage.transform.localPosition = new Vector3(xStart + row * xSpace, yStart + col * ySpace, 0);
-                }
+                case "Pawn":
+                    BlackPawnImage.transform.localPosition
+                        = new Vector3(xStart + now.xPos * xSpace, yStart + now.yPos * ySpace, 0);
+                    break;
+                case "Knight":
+                    BlackKnightImage.transform.localPosition
+                        = new Vector3(xStart + now.xPos * xSpace, yStart + now.yPos * ySpace, 0);
+                    break;
+                case "Bishop":
+                    BlackBishopImage.transform.localPosition
+                        = new Vector3(xStart + now.xPos * xSpace, yStart + now.yPos * ySpace, 0);
+                    break;
+                case "Rook":
+                    BlackRookImage.transform.localPosition
+                        = new Vector3(xStart + now.xPos * xSpace, yStart + now.yPos * ySpace, 0);
+                    break;
+                case "Queen":
+                    BlackQueenImage.transform.localPosition
+                        = new Vector3(xStart + now.xPos * xSpace, yStart + now.yPos * ySpace, 0);
+                    break;
+                case "King":
+                    BlackKingImage.transform.localPosition
+                        = new Vector3(xStart + now.xPos * xSpace, yStart + now.yPos * ySpace, 0);
+                    break;
             }
         }
 

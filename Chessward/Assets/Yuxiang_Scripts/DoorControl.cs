@@ -50,11 +50,22 @@ public class DoorControl : MonoBehaviour
                 close.gameObject.SetActive(true);
             }
             interactable = true;
-        }      
+        }
+
+        else if (other.CompareTag("Enemy"))
+        {
+            if (doorClose)
+            {
+                openDoor();
+                close.gameObject.SetActive(false);
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
+    //!!! Need Enemy closing half half chance
+
         if (other.CompareTag("Player")){
             if (doorClose)
             {

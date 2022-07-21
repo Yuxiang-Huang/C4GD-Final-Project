@@ -11,7 +11,16 @@ public class SpawnEnemy : MonoBehaviour
 
     public GameObject EnemyPawn;
     public GameObject EnemyKnight;
+    public GameObject EnemyBishop;
+    public GameObject EnemyRook;
+    public GameObject EnemyQueen;
+    public GameObject EnemyKing;
+
+    public List<EnemyDummyIntro> enemies; 
+
     public StartScreen startScreenScript;
+
+    public GameObject EnemyDummy;
 
     // Start is called before the first frame update
     void Start()
@@ -23,16 +32,40 @@ public class SpawnEnemy : MonoBehaviour
     void Update()
     {
         if (numOfEnemies == 0 && startScreenScript.GameStarted)
-        {
-            startGame(1);
+        { 
+            startScreenScript.displayWinEndScreen();
         }
     }
 
-    public void startGame(int difficulty)
+    public void startGame(string difficulty)
     {
-        numOfEnemies = difficulty;
-        Instantiate(EnemyPawn, randomPosition(), EnemyPawn.transform.rotation);
-        //Instantiate(EnemyKnight, randomPosition(), EnemyKnight.transform.rotation);
+        if (difficulty == "tutorial")
+        {
+            numOfEnemies = 1;
+            Instantiate(EnemyDummy, new Vector3(50, 0, 150), EnemyDummy.transform.rotation);
+        }
+
+        else
+        {
+            numOfEnemies = 6;
+            GameObject Pawn = Instantiate(EnemyPawn, randomPosition(), EnemyPawn.transform.rotation);
+            enemies.Add(Pawn.GetComponent<EnemyDummyIntro>());
+            
+            GameObject Knight = Instantiate(EnemyKnight, randomPosition(), EnemyKnight.transform.rotation);
+            enemies.Add(Knight.GetComponent<EnemyDummyIntro>());
+
+            GameObject Bishop = Instantiate(EnemyBishop, randomPosition(), EnemyBishop.transform.rotation);
+            enemies.Add(Bishop.GetComponent<EnemyDummyIntro>());
+
+            GameObject Rook = Instantiate(EnemyRook, randomPosition(), EnemyRook.transform.rotation);
+            enemies.Add(Rook.GetComponent<EnemyDummyIntro>());
+
+            GameObject Queen = Instantiate(EnemyQueen, randomPosition(), EnemyQueen.transform.rotation);
+            enemies.Add(Queen.GetComponent<EnemyDummyIntro>());
+
+            GameObject King = Instantiate(EnemyKing, randomPosition(), EnemyKing.transform.rotation);
+            enemies.Add(King.GetComponent<EnemyDummyIntro>());
+        }
     }
 
     Vector3 randomPosition()

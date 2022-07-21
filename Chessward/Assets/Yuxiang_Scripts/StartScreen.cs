@@ -6,16 +6,21 @@ using UnityEngine.SceneManagement;
 public class StartScreen : MonoBehaviour
 {
     public GameObject startCanvas;
+    public GameObject levelScreen;
+    public GameObject PieceScreen;
     public GameObject player;
     public GameObject gun;
     public GameObject miniMapScreen;
     public GameObject statScreen;
     public GameObject endScreen;
+    public GameObject won;
+    public GameObject lose;
 
     public TeleportManager teleportManager;
     public MiniMap minimapScript;
     public MapBuilder mapBuilder;
     public PlayerControll playerControllScript;
+    public SpawnEnemy spawnEnemyScript;
 
     public GameObject WhitePawnImage;
     public GameObject WhiteKnightImage;
@@ -23,9 +28,9 @@ public class StartScreen : MonoBehaviour
     public GameObject WhiteRookImage;
     public GameObject WhiteQueenImage;
 
-    public SpawnEnemy spawnEnemyScript;
-
     public bool GameStarted;
+
+    public string difficulty;
 
     // Start is called before the first frame update
     void Start()
@@ -44,16 +49,42 @@ public class StartScreen : MonoBehaviour
     {
         if (playerControllScript.gameOver)
         {
-            displayEndScreen();
+            displayLoseEndScreen();
         }
     }
 
-    void displayEndScreen()
+    public void displayLevelScreen()
+    {
+        startCanvas.SetActive(false);
+        levelScreen.SetActive(true);
+    }
+
+    public void displayPieceScreen()
+    {
+        levelScreen.SetActive(false);
+        PieceScreen.SetActive(true);    
+    }
+
+    void displayLoseEndScreen()
     {
         player.SetActive(false);
         gun.SetActive(false);
         miniMapScreen.SetActive(false);
         endScreen.SetActive(true);
+        statScreen.SetActive(false);
+        won.SetActive(false);
+        lose.SetActive(true);
+    }
+
+    public void displayWinEndScreen()
+    {
+        player.SetActive(false);
+        gun.SetActive(false);
+        miniMapScreen.SetActive(false);
+        endScreen.SetActive(true);
+        statScreen.SetActive(false);
+        won.SetActive(true);
+        lose.SetActive(false);
     }
 
     public void startTutorial()
@@ -64,6 +95,7 @@ public class StartScreen : MonoBehaviour
         mapBuilder.StartBuild(false);
         statScreen.SetActive(true);
         GameStarted = true;
+        spawnEnemyScript.startGame("tutorial");
     }
 
     public void startKnightGame()
@@ -113,13 +145,13 @@ public class StartScreen : MonoBehaviour
 
     void notTutorial()
     {
-        startCanvas.SetActive(false);
+        PieceScreen.SetActive(false);
         player.SetActive(true);
         gun.SetActive(true);
         mapBuilder.StartBuild(true);
         miniMapScreen.SetActive(true);
         statScreen.SetActive(true);
-        spawnEnemyScript.startGame(1);
+        spawnEnemyScript.startGame(difficulty);
         GameStarted = true;
     }
 
@@ -163,5 +195,19 @@ public class StartScreen : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-   
+
+    public void setDifficultyEasy()
+    {
+        difficulty = "easy";
+    }
+
+    public void setDifficultyMedium()
+    {
+        difficulty = "medium";
+    }
+
+    public void setDifficultyHard()
+    {
+        difficulty = "hard";
+    }
 }
