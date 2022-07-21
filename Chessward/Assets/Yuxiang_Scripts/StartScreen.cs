@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class StartScreen : MonoBehaviour
 {
     public GameObject startCanvas;
+    public GameObject levelScreen;
+    public GameObject PieceScreen;
     public GameObject player;
     public GameObject gun;
     public GameObject miniMapScreen;
@@ -28,6 +30,8 @@ public class StartScreen : MonoBehaviour
 
     public bool GameStarted;
 
+    public string difficulty;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +51,18 @@ public class StartScreen : MonoBehaviour
         {
             displayLoseEndScreen();
         }
+    }
+
+    public void displayLevelScreen()
+    {
+        startCanvas.SetActive(false);
+        levelScreen.SetActive(true);
+    }
+
+    public void displayPieceScreen()
+    {
+        levelScreen.SetActive(false);
+        PieceScreen.SetActive(true);    
     }
 
     void displayLoseEndScreen()
@@ -129,13 +145,13 @@ public class StartScreen : MonoBehaviour
 
     void notTutorial()
     {
-        startCanvas.SetActive(false);
+        PieceScreen.SetActive(false);
         player.SetActive(true);
         gun.SetActive(true);
         mapBuilder.StartBuild(true);
         miniMapScreen.SetActive(true);
         statScreen.SetActive(true);
-        spawnEnemyScript.startGame("full");
+        spawnEnemyScript.startGame(difficulty);
         GameStarted = true;
     }
 
@@ -179,5 +195,19 @@ public class StartScreen : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-   
+
+    public void setDifficultyEasy()
+    {
+        difficulty = "easy";
+    }
+
+    public void setDifficultyMedium()
+    {
+        difficulty = "medium";
+    }
+
+    public void setDifficultyHard()
+    {
+        difficulty = "hard";
+    }
 }

@@ -32,7 +32,7 @@ public class SpawnEnemy : MonoBehaviour
     void Update()
     {
         if (numOfEnemies == 0 && startScreenScript.GameStarted)
-        {
+        { 
             startScreenScript.displayWinEndScreen();
         }
     }

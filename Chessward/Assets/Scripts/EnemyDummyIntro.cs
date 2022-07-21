@@ -11,6 +11,7 @@ public class EnemyDummyIntro : MonoBehaviour
     public GameObject EnemyWeapon;
     public SpawnEnemy spawnEnemyScript;
     public MiniMap minimapScript;
+    public StartScreen startScreenScript;
 
     public TeleportManager teleportManager;
     public int xPos;
@@ -28,6 +29,7 @@ public class EnemyDummyIntro : MonoBehaviour
         spawnEnemyScript = GameObject.Find("SpawnManager").GetComponent<SpawnEnemy>();
         teleportManager = GameObject.Find("Teleport Manager").GetComponent<TeleportManager>();
         minimapScript = GameObject.Find("MiniMap").GetComponent<MiniMap>();
+        startScreenScript = GameObject.Find("Screen Manager").GetComponent<StartScreen>();
     }
 
     // Update is called once per frame
@@ -81,6 +83,10 @@ public class EnemyDummyIntro : MonoBehaviour
                     minimapScript.BlackQueenImage.SetActive(false);
                     break;
                 case "King":
+                    if (startScreenScript.difficulty == "easy")
+                    {
+                        spawnEnemyScript.numOfEnemies = 0;
+                    }
                     minimapScript.BlackKingImage.SetActive(false);
                     break;
             }
