@@ -25,6 +25,29 @@ public class EnemyDummyIntro : MonoBehaviour
     {
         Player = GameObject.Find("Player");
         health = 100;
+
+        switch (pieceName)
+        {
+            case "Rook":
+                health = 200;
+                break;
+            case "Knight":
+                health = 300;
+                break;
+            case "Bishop":
+                health = 400;
+                break;
+            case "Queen":
+                health = 100;
+                break;
+            case "Pawn":
+                health = 500;
+                break;
+            case "King":
+                health = 500;
+                break;
+        }
+
         damage = 10;
         sniperdamage = 100;
         EnemyWeapon.gameObject.SetActive(true);

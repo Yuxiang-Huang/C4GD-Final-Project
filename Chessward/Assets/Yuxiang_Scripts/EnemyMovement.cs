@@ -18,6 +18,19 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(player.transform.position);
+        if (findDistance(player.transform, transform) > 50 )
+        {
+            agent.SetDestination(player.transform.position);
+        }
+        else
+        {
+            agent.SetDestination(transform.position);
+        }
+    }
+
+    float findDistance(Transform pointA, Transform pointB)
+    {
+        return Mathf.Sqrt(Mathf.Pow((pointA.transform.position.x - pointB.transform.position.x), 2)
+          + Mathf.Pow((pointA.transform.position.z - pointB.transform.position.z), 2));
     }
 }
