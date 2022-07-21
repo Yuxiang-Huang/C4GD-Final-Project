@@ -10,6 +10,7 @@ public class EnemyDummyIntro : MonoBehaviour
     public GameObject Player;
     public GameObject EnemyWeapon;
     public SpawnEnemy spawnEnemyScript;
+    public MiniMap minimapScript;
 
     public TeleportManager teleportManager;
     public int xPos;
@@ -26,6 +27,7 @@ public class EnemyDummyIntro : MonoBehaviour
         EnemyWeapon.gameObject.SetActive(true);
         spawnEnemyScript = GameObject.Find("SpawnManager").GetComponent<SpawnEnemy>();
         teleportManager = GameObject.Find("Teleport Manager").GetComponent<TeleportManager>();
+        minimapScript = GameObject.Find("MiniMap").GetComponent<MiniMap>();
     }
 
     // Update is called once per frame
@@ -61,6 +63,27 @@ public class EnemyDummyIntro : MonoBehaviour
             EnemyWeapon.gameObject.SetActive(false);
             spawnEnemyScript.numOfEnemies--;
             teleportManager.enemySquare[xPos][yPos] = false;
+            switch (pieceName)
+            {
+                case "Pawn":
+                    minimapScript.BlackPawnImage.SetActive(false);
+                    break;
+                case "Knight":
+                    minimapScript.BlackKnightImage.SetActive(false);
+                    break;
+                case "Bishop":
+                    minimapScript.BlackBishopImage.SetActive(false);
+                    break;
+                case "Rook":
+                    minimapScript.BlackRookImage.SetActive(false);
+                    break;
+                case "Queen":
+                    minimapScript.BlackQueenImage.SetActive(false);
+                    break;
+                case "King":
+                    minimapScript.BlackKingImage.SetActive(false);
+                    break;
+            }
         }
     }
 

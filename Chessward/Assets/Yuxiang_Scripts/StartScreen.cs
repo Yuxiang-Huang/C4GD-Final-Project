@@ -55,6 +55,7 @@ public class StartScreen : MonoBehaviour
         gun.SetActive(false);
         miniMapScreen.SetActive(false);
         endScreen.SetActive(true);
+        statScreen.SetActive(false);
         won.SetActive(false);
         lose.SetActive(true);
     }
@@ -65,6 +66,7 @@ public class StartScreen : MonoBehaviour
         gun.SetActive(false);
         miniMapScreen.SetActive(false);
         endScreen.SetActive(true);
+        statScreen.SetActive(false);
         won.SetActive(true);
         lose.SetActive(false);
     }

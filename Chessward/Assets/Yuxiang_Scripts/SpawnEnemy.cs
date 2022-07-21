@@ -11,6 +11,13 @@ public class SpawnEnemy : MonoBehaviour
 
     public GameObject EnemyPawn;
     public GameObject EnemyKnight;
+    public GameObject EnemyBishop;
+    public GameObject EnemyRook;
+    public GameObject EnemyQueen;
+    public GameObject EnemyKing;
+
+    public List<EnemyDummyIntro> enemies; 
+
     public StartScreen startScreenScript;
 
     public GameObject EnemyDummy;
@@ -41,8 +48,23 @@ public class SpawnEnemy : MonoBehaviour
         else
         {
             numOfEnemies = 6;
-            Instantiate(EnemyPawn, randomPosition(), EnemyPawn.transform.rotation);
-            //Instantiate(EnemyKnight, randomPosition(), EnemyKnight.transform.rotation);
+            GameObject Pawn = Instantiate(EnemyPawn, randomPosition(), EnemyPawn.transform.rotation);
+            enemies.Add(Pawn.GetComponent<EnemyDummyIntro>());
+            
+            GameObject Knight = Instantiate(EnemyKnight, randomPosition(), EnemyKnight.transform.rotation);
+            enemies.Add(Knight.GetComponent<EnemyDummyIntro>());
+
+            GameObject Bishop = Instantiate(EnemyBishop, randomPosition(), EnemyBishop.transform.rotation);
+            enemies.Add(Bishop.GetComponent<EnemyDummyIntro>());
+
+            GameObject Rook = Instantiate(EnemyRook, randomPosition(), EnemyRook.transform.rotation);
+            enemies.Add(Rook.GetComponent<EnemyDummyIntro>());
+
+            GameObject Queen = Instantiate(EnemyQueen, randomPosition(), EnemyQueen.transform.rotation);
+            enemies.Add(Queen.GetComponent<EnemyDummyIntro>());
+
+            GameObject King = Instantiate(EnemyKing, randomPosition(), EnemyKing.transform.rotation);
+            enemies.Add(King.GetComponent<EnemyDummyIntro>());
         }
     }
 

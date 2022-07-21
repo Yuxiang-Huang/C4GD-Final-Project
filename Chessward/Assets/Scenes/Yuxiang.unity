@@ -3967,7 +3967,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfEnemies: 0
   EnemyPawn: {fileID: 5202100947696472551, guid: e13c1d83da72d4d7890a3794b5f29a4b, type: 3}
-  EnemyKnight: {fileID: 919132149582652862}
+  EnemyKnight: {fileID: 5202100947696472551, guid: f9475bc9ac6a84a4db1f0c695e4a6271, type: 3}
+  EnemyBishop: {fileID: 5202100947696472551, guid: 37960f77721c84d57ac09a0d3db9c2ca, type: 3}
+  EnemyRook: {fileID: 5202100947696472551, guid: 893d8ba64559b421fba9ea9d792c00f6, type: 3}
+  EnemyQueen: {fileID: 5202100947696472551, guid: 48e95c6a3cdcb4be6806e70cdf3d87e1, type: 3}
+  EnemyKing: {fileID: 5202100947696472551, guid: ab6aa47a3d5e64685bb895e72b03497c, type: 3}
+  enemies: []
   startScreenScript: {fileID: 1604664955}
   EnemyDummy: {fileID: 2642814962712312964, guid: 1793501b8c79b400f855aabd13e43839, type: 3}
 --- !u!4 &270152154
@@ -9587,7 +9592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &624668918
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16314,7 +16319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1085407765
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17783,12 +17788,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1921103545}
   teleportManager: {fileID: 660388096}
-  playerImage: {fileID: 0}
+  spawnEnemyScript: {fileID: 270152153}
+  playerImage: {fileID: 1921103545}
   BlackPawnImage: {fileID: 236170642}
   BlackKnightImage: {fileID: 1171893598}
   BlackBishopImage: {fileID: 1085407764}
   BlackRookImage: {fileID: 624668917}
   BlackQueenImage: {fileID: 1983262830}
+  BlackKingImage: {fileID: 1551402490}
   xSpace: 0
   xStart: 0
   ySpace: 0
@@ -18086,7 +18093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1171893599
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24003,7 +24010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1551402491
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29065,7 +29072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1983262831
 RectTransform:
   m_ObjectHideFlags: 0
