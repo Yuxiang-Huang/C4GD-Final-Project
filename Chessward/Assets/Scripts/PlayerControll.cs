@@ -24,7 +24,31 @@ public class PlayerControll : MonoBehaviour
         PlayerAudio = GetComponent<AudioSource>();
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
-        health = 100;
+
+        health = 1000;
+
+        switch (teleportManager.pieceName)
+        {
+            case "Rook":
+                health = 200;
+                break;
+            case "Knight":
+                health = 300;
+                break;
+            case "Bishop":
+                health = 400;
+                break;
+            case "Queen":
+                health = 100;
+                break;
+            case "Pawn":
+                health = 500;
+                break;
+            case "King":
+                health = 500;
+                break;
+        }
+
         damage = 5;
     }
 
