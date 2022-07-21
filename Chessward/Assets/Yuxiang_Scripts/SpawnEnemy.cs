@@ -16,6 +16,9 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject EnemyQueen;
     public GameObject EnemyKing;
 
+    public GameObject Objective1;
+    public GameObject Objective2;
+
     public List<EnemyDummyIntro> enemies; 
 
     public StartScreen startScreenScript;
@@ -25,7 +28,14 @@ public class SpawnEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (startScreenScript.difficulty == "easy" || startScreenScript.difficulty == "hard")
+        {
+            Objective1.SetActive(true);
+        }
+        else if (startScreenScript.difficulty == "hard" || startScreenScript.difficulty == "impossible")
+        {
+            Objective2.SetActive(true);
+        }
     }
 
     // Update is called once per frame
