@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI ShotGunAmmoText;
     private float sAmmo;
     public GunyShotGun sgunyScript;
+
+    public TextMeshProUGUI RevolverText;
+    private float rAmmo;
+    public RevolverGuny rgunyScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +32,7 @@ public class GameManager : MonoBehaviour
         UpdateHealth(100);
         UpdateSAmmo(6);
         UpdateSNAmmo(5);
+        UpdateRAmmo(6);
     }
 
     // Update is called once per frame
@@ -37,6 +42,7 @@ public class GameManager : MonoBehaviour
         UpdateHealth(playercontrollScript.health);
         UpdateSAmmo(sgunyScript.magSize);
         UpdateSNAmmo(sniperScript.magSize);
+        UpdateRAmmo(rgunyScript.magSize);
     }
     public void UpdateAmmo(int ammoLeft)
     {
@@ -72,6 +78,15 @@ public class GameManager : MonoBehaviour
         if (snAmmo == 0)
         {
             SniperAmmoText.text = "Reloading";
+        }
+    }
+    public void UpdateRAmmo(int rAmmoLeft)
+    {
+        rAmmo = rgunyScript.magSize;
+        RevolverText.text = "Ammo: " + rAmmo;
+        if (rAmmo == 0)
+        {
+            RevolverText.text = "Reloading";
         }
     }
 }

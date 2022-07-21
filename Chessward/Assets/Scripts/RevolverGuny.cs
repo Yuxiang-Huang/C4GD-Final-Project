@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunySniperScript : MonoBehaviour
+public class RevolverGuny : MonoBehaviour
 {
     public GameObject Player;
     private Vector3 offset = new Vector3(0, 15, 0);
@@ -11,15 +11,15 @@ public class GunySniperScript : MonoBehaviour
     public int magSize;
     private float reloadRot;
     private bool reloadDone;
-    private AudioSource SniperAudio;
+    private AudioSource RevolvAudio;
     public AudioClip shootSound;
     public AudioClip reloadSound;
     public GameObject shootParticlePrefab;
     // Start is called before the first frame update
     void Start()
     {
-        SniperAudio = GetComponent<AudioSource>();
-        magSize = 3;
+        RevolvAudio = GetComponent<AudioSource>();
+        magSize = 6;
         reloadRot = 0;
         reloadDone = false;
     }
@@ -40,16 +40,15 @@ public class GunySniperScript : MonoBehaviour
                 reloadRot = -45;
             }
         }
-        if (Input.GetKey(KeyCode.Mouse0) && shootTime > 4 && magSize > 0)
+        if (Input.GetKey(KeyCode.Mouse0) && shootTime > 0.1 && magSize > 0)
         {
-            Vector3 offset2 = transform.up * 0.5f + transform.forward * 12f;
+            Vector3 offset2 = transform.up * 0.5f + transform.forward * 6f;
             shootTime = 0;
-            SniperAudio.PlayOneShot(shootSound, 1.4f);
+            RevolvAudio.PlayOneShot(shootSound, 1.0f);
             Instantiate(projectilePrefab, transform.position + offset2, transform.rotation);
             magSize = magSize - 1;
             StartCoroutine(MagCheck());
             Instantiate(shootParticlePrefab, transform.position + offset2, transform.rotation);
-            SniperAudio.PlayOneShot(reloadSound, 1.0f);
         }
         if (reloadDone == true)
         {
@@ -62,12 +61,13 @@ public class GunySniperScript : MonoBehaviour
         }
         transform.Rotate(-90, 90, 0);
     }
-    IEnumerator MagCheck() {
+    IEnumerator MagCheck()
+    {
         if (magSize <= 0)
         {
-            SniperAudio.PlayOneShot(reloadSound, 1.0f);
-            yield return new WaitForSeconds(8.25f);
-            SniperAudio.PlayOneShot(reloadSound, 1.0f);
+            RevolvAudio.PlayOneShot(reloadSound, 1.0f);
+            yield return new WaitForSeconds(2.25f);
+            RevolvAudio.PlayOneShot(reloadSound, 1.0f);
             StartCoroutine(DownGun());
         }
     }
@@ -76,7 +76,7 @@ public class GunySniperScript : MonoBehaviour
         reloadDone = true;
         yield return new WaitForSeconds(0.75f);
         reloadRot = 0;
-        magSize = 3;
+        magSize = 6;
         reloadDone = false;
     }
 }
