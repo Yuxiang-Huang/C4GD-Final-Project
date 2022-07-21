@@ -112,6 +112,9 @@ public class TeleportManager : MonoBehaviour
                         case "Pawn":
                             FindSquareForPawn();
                             break;
+                        case "King":
+                            FindSquareForKing();
+                            break;
                     }             
                 }
             }
@@ -184,6 +187,11 @@ public class TeleportManager : MonoBehaviour
 
     void FindSquareForPawn()
     {
+        if (inBound(xPos, yPos + 1))
+        {
+            allButtons[yPos + 1][xPos].gameObject.SetActive(true);
+        }
+
         if (inBound(xPos + 1, yPos + 1) && enemySquare[xPos + 1][yPos + 1])
         {
             allButtons[yPos+1][xPos+1].gameObject.SetActive(true);
@@ -192,6 +200,23 @@ public class TeleportManager : MonoBehaviour
         if (inBound(xPos - 1, yPos + 1) && enemySquare[xPos - 1][yPos + 1])
         {
             allButtons[yPos+1][xPos-1].gameObject.SetActive(true);
+        }
+    }
+
+    void FindSquareForKing()
+    {
+        for (int rowInc = -1; rowInc <= 1; rowInc++)
+        {
+            for (int colInc = -1; colInc <= 1; colInc++)
+            {
+                if (! (rowInc == 0 && colInc == 0))
+                {
+                    if (inBound(xPos + rowInc, yPos + colInc))
+                    {
+                        allButtons[yPos + colInc][xPos + rowInc].gameObject.SetActive(true);
+                    }
+                }
+            }
         }
     }
 
@@ -229,6 +254,9 @@ public class TeleportManager : MonoBehaviour
                 coolDown = 9;
                 break;
             case "Pawn":
+                coolDown = 1;
+                break;
+            case "King":
                 coolDown = 1;
                 break;
         }
