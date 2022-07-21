@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyDummyIntro : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent agent;
-
     public int health;
     private int damage;
     public GameObject Player;

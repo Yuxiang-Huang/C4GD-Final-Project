@@ -17,6 +17,7 @@ public class PlayerControll : MonoBehaviour
     public bool gameOver;
     public AudioClip jumpSound;
     public AudioClip landSound;
+    public TeleportManager teleportManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +50,13 @@ public class PlayerControll : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
-        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rSpeed);
+
+        if (!teleportManager.isPowerActive)
+        {
+            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rSpeed);
+        }
+            
+
         if (health <= 0)
         {
             gameOver = true;

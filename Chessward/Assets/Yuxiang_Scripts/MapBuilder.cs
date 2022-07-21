@@ -24,35 +24,7 @@ public class MapBuilder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //for (int row = 0; row < 8; row++)
-        //{
-        //    for (int col = 0; col < 8; col++)
-        //    {
-        //        if (row % 2 == 0)
-        //        {
-        //            if (col % 2 == 0)
-        //            {
-        //                CreateBlackFloor(new Vector3(row * roomLength + roomLength / 2, 0, col * roomLength + roomLength / 2));
-        //            }
-        //            else
-        //            {
-        //                CreateWhiteFloor(new Vector3(row * roomLength + roomLength / 2, 0, col * roomLength + roomLength / 2));
-        //            }
-
-        //        }
-        //        else
-        //        {
-        //            if (col % 2 == 1)
-        //            {
-        //                CreateBlackFloor(new Vector3(row * roomLength + roomLength / 2, 0, col * roomLength + roomLength / 2));
-        //            }
-        //            else
-        //            {
-        //                CreateWhiteFloor(new Vector3(row * roomLength + roomLength / 2, 0, col * roomLength + roomLength / 2));
-        //            }
-        //        }
-        //    }
-        //}
+   
     }
 
     public void StartBuild(bool fullGame)
@@ -60,6 +32,7 @@ public class MapBuilder : MonoBehaviour
         if (fullGame)
         {
             BoardFloor.SetActive(true);
+
             for (int row = 1; row < 7; row++)
             {
                 for (int col = 1; col < 7; col++)
@@ -122,22 +95,22 @@ public class MapBuilder : MonoBehaviour
 
         else
         {
-            BoardFloor.SetActive(false);
             BuildTutorialMap();
+            
         }
     }
 
     void BuildTutorialMap()
     {
         Vector3 center = new Vector3(50, 0, 50);
-        CreateWhiteFloor(center);
+        Instantiate(WhiteFloor, center, WhiteFloor.transform.rotation);
         CreateWhiteFrontWallWDoor(center);
         CreateWhiteLeftWall(center);
         CreateWhiteRightWall(center);
         CreateWhiteBackWall(center);
 
         Vector3 center2 = new Vector3(50, 0, 150);
-        CreateBlackFloor(center2);
+        Instantiate(BlackFloor, center2, BlackFloor.transform.rotation);
         CreateBlackFrontWall(center2);
         CreateBlackLeftWall(center2);
         CreateBlackRightWall(center2);

@@ -3505,7 +3505,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236170642}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.75, z: 0}
   m_Children: []
@@ -18813,6 +18813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1225973878}
   - component: {fileID: 1225973877}
+  - component: {fileID: 1225973879}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -18850,6 +18851,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1225973879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225973876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d8864dd789042db9b935cbd82d6058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyDummy: {fileID: 2642814962712312964, guid: 1793501b8c79b400f855aabd13e43839, type: 3}
 --- !u!1 &1232010614
 GameObject:
   m_ObjectHideFlags: 0
@@ -23067,6 +23081,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1225973879}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1509666754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24701,12 +24727,12 @@ MonoBehaviour:
   minimapScript: {fileID: 1156948421}
   mapBuilder: {fileID: 474445439}
   playerControllScript: {fileID: 1921103546}
+  spawnEnemyScript: {fileID: 270152153}
   WhitePawnImage: {fileID: 346031334}
   WhiteKnightImage: {fileID: 216196673}
   WhiteBishopImage: {fileID: 601570170}
   WhiteRookImage: {fileID: 1513074488}
   WhiteQueenImage: {fileID: 1444374952}
-  spawnEnemyScript: {fileID: 270152153}
   GameStarted: 0
 --- !u!1 &1605356256
 GameObject:
@@ -27847,6 +27873,7 @@ MonoBehaviour:
   gameOver: 0
   jumpSound: {fileID: 0}
   landSound: {fileID: 0}
+  teleportManager: {fileID: 660388096}
 --- !u!65 &1921103547
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30893,6 +30920,10 @@ PrefabInstance:
     - target: {fileID: 5054975753185742052, guid: 68481dfeb10ba4dfd935ffe7e02b3155, type: 3}
       propertyPath: m_Name
       value: SCAR
+      objectReference: {fileID: 0}
+    - target: {fileID: 5054975753185742052, guid: 68481dfeb10ba4dfd935ffe7e02b3155, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5397432742987461032, guid: 68481dfeb10ba4dfd935ffe7e02b3155, type: 3}
       propertyPath: Player

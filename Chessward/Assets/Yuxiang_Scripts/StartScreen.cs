@@ -16,14 +16,13 @@ public class StartScreen : MonoBehaviour
     public MiniMap minimapScript;
     public MapBuilder mapBuilder;
     public PlayerControll playerControllScript;
+    public SpawnEnemy spawnEnemyScript;
 
     public GameObject WhitePawnImage;
     public GameObject WhiteKnightImage;
     public GameObject WhiteBishopImage;
     public GameObject WhiteRookImage;
     public GameObject WhiteQueenImage;
-
-    public SpawnEnemy spawnEnemyScript;
 
     public bool GameStarted;
 
@@ -63,7 +62,6 @@ public class StartScreen : MonoBehaviour
         gun.SetActive(true);
         mapBuilder.StartBuild(false);
         statScreen.SetActive(true);
-        GameStarted = true;
     }
 
     public void startKnightGame()

@@ -5,25 +5,21 @@ using UnityEngine;
 public class BulletMove : MonoBehaviour
 {
     private float bSpeed = 80.0f;
-    //public GameObject Player;
-    //private float maxDist = 80.0f;
+    Rigidbody rb;
+    public float gravity = -9.8f; 
 
     // Start is called before the first frame update
     void Start()
     {
         transform.Rotate(new Vector3(90, 0, 0));
-        //Player = GameObject.Find("Player");
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.up * Time.deltaTime * bSpeed);
-        //float dist = (transform.position - Player.transform.position).magnitude;
-        //if (dist > maxDist)
-        //{
-        //    Destroy(gameObject);
-        //}
+        rb.AddForce(new Vector3(0, gravity, 0), ForceMode.Acceleration);
     }
 
     private void OnTriggerEnter(Collider other)
