@@ -29,6 +29,9 @@ public class StartScreen : MonoBehaviour
     public GameObject WhiteQueenImage;
     public GameObject WhiteKingImage;
 
+    public GameObject Scar;
+    public GameObject shotGun;
+
     public bool GameStarted;
 
     public string difficulty;
@@ -137,6 +140,8 @@ public class StartScreen : MonoBehaviour
 
     public void startPawnGame()
     {
+        gun = shotGun;
+
         notTutorial();
 
         teleportManager.pieceName = "Pawn";
