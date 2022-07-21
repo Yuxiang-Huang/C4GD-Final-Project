@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI ammoText;
     public Guny gunyScript;
 
+    private float SMGammo;
+    public TextMeshProUGUI SMGText;
+    public SMGguny SMGgunyScript;
+
     public GunySniperScript sniperScript;
     private float snAmmo;
     public TextMeshProUGUI SniperAmmoText;
@@ -33,6 +37,7 @@ public class GameManager : MonoBehaviour
         UpdateSAmmo(6);
         UpdateSNAmmo(5);
         UpdateRAmmo(6);
+        UpdateSMGAmmo(50);
     }
 
     // Update is called once per frame
@@ -43,6 +48,7 @@ public class GameManager : MonoBehaviour
         UpdateSAmmo(sgunyScript.magSize);
         UpdateSNAmmo(sniperScript.magSize);
         UpdateRAmmo(rgunyScript.magSize);
+        UpdateSMGAmmo(SMGgunyScript.magSize);
     }
     public void UpdateAmmo(int ammoLeft)
     {
@@ -87,6 +93,15 @@ public class GameManager : MonoBehaviour
         if (rAmmo == 0)
         {
             RevolverText.text = "Reloading";
+        }
+    }
+    public void UpdateSMGAmmo(int SMGAmmoLeft)
+    {
+        SMGammo = SMGgunyScript.magSize;
+        SMGText.text = "Ammo: " + SMGammo;
+        if (SMGammo == 0)
+        {
+            SMGText.text = "Reloading";
         }
     }
 }
