@@ -55,8 +55,11 @@ public class EnemyDummyIntro : MonoBehaviour
         EnemyWeapon.gameObject.SetActive(true);
         spawnEnemyScript = GameObject.Find("SpawnManager").GetComponent<SpawnEnemy>();
         teleportManager = GameObject.Find("Teleport Manager").GetComponent<TeleportManager>();
-        minimapScript = GameObject.Find("MiniMap").GetComponent<MiniMap>();
         startScreenScript = GameObject.Find("Screen Manager").GetComponent<StartScreen>();
+        if (!startScreenScript.isTutorial)
+        {
+            minimapScript = GameObject.Find("MiniMap").GetComponent<MiniMap>();
+        }
     }
 
     // Update is called once per frame
@@ -77,20 +80,22 @@ public class EnemyDummyIntro : MonoBehaviour
             yPos = yPosNow;
             teleportManager.enemySquare[xPos][yPos] = true;
         }
-
-        if (pieceName == "Pawn")
+        if (!startScreenScript.isTutorial)
         {
-            agent.SetDestination(Player.transform.position);
-        }
-        else
-        {
-            if (findDistance(Player.transform, transform) > 50)
+            if (pieceName == "Pawn")
             {
                 agent.SetDestination(Player.transform.position);
             }
             else
             {
-                agent.SetDestination(transform.position);
+                if (findDistance(Player.transform, transform) > 50)
+                {
+                    agent.SetDestination(Player.transform.position);
+                }
+                else
+                {
+                    agent.SetDestination(transform.position);
+                }
             }
         }
     }

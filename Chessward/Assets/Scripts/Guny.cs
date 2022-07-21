@@ -32,7 +32,7 @@ public class Guny : MonoBehaviour
         transform.rotation = Player.transform.rotation;
         transform.position += transform.right;
         transform.position += transform.forward;
-        if (magSize <= 0 && reloadDone == false && !teleportManagerScript.isPowerActive)
+        if (magSize <= 0 && reloadDone == false)
         {
             transform.Rotate(reloadRot, 0, 0);
             reloadRot = reloadRot - 60f * Time.deltaTime;
@@ -41,7 +41,7 @@ public class Guny : MonoBehaviour
                 reloadRot = -45;
             }
         }
-        if (Input.GetKey(KeyCode.Mouse0) && shootTime > 0.2 && magSize > 0)
+        if (Input.GetKey(KeyCode.Mouse0) && shootTime > 0.2 && magSize > 0 && !teleportManagerScript.isPowerActive)
         {
             Vector3 offset2 = transform.up * 0.5f + transform.forward * 8f;
             shootTime = 0;

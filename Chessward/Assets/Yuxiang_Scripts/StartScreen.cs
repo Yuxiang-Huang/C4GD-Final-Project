@@ -8,6 +8,7 @@ public class StartScreen : MonoBehaviour
     public GameObject startCanvas;
     public GameObject levelScreen;
     public GameObject PieceScreen;
+    public GameObject tutorialCanvas;
     public GameObject player;
     public GameObject gun;
     public GameObject miniMapScreen;
@@ -44,6 +45,8 @@ public class StartScreen : MonoBehaviour
 
     public string difficulty;
 
+    public bool isTutorial;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +58,7 @@ public class StartScreen : MonoBehaviour
         teleportManager.promotionScreen.SetActive(false);
         endScreen.SetActive(false);
         GameStarted = false;
+        tutorialCanvas.SetActive(false);
     }
 
     void Update()
@@ -101,12 +105,17 @@ public class StartScreen : MonoBehaviour
 
     public void startTutorial()
     {
+        gun = Scar;
+        scarAmmoText.SetActive(true);
+
+        tutorialCanvas.SetActive(true);
         startCanvas.SetActive(false);
         player.SetActive(true);
         gun.SetActive(true);
         mapBuilder.StartBuild(false);
         statScreen.SetActive(true);
         GameStarted = true;
+        isTutorial = true;
         spawnEnemyScript.startGame("tutorial");
     }
 

@@ -13,6 +13,7 @@ public class MapBuilder : MonoBehaviour
     public GameObject BlackFloor;
     public GameObject BlackWall;
     public GameObject BlackWallWDoor;
+    public GameObject DoorForTutorial;
 
     public GameObject BoardFloor;
 
@@ -104,7 +105,9 @@ public class MapBuilder : MonoBehaviour
     {
         Vector3 center = new Vector3(50, 0, 50);
         Instantiate(WhiteFloor, center, WhiteFloor.transform.rotation);
-        CreateWhiteFrontWallWDoor(center);
+        Instantiate(DoorForTutorial,
+            new Vector3(center.x, yForDoors, center.z + roomLength / 2),
+            WhiteFloor.transform.rotation);
         CreateWhiteLeftWall(center);
         CreateWhiteRightWall(center);
         CreateWhiteBackWall(center);

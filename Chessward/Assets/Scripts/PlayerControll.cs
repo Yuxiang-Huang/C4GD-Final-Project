@@ -94,7 +94,6 @@ public class PlayerControll : MonoBehaviour
         if (other.gameObject.CompareTag("BulletBad"))
         {
             health = health - damage;
-        }
-        Destroy(other.gameObject);
+        }     
     }
 }
