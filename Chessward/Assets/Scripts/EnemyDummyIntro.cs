@@ -20,11 +20,36 @@ public class EnemyDummyIntro : MonoBehaviour
     public float roomLength = 100;
     public string pieceName;
 
+    [SerializeField] private NavMeshAgent agent;
+
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.Find("Player");
         health = 100;
+
+        switch (pieceName)
+        {
+            case "Rook":
+                health = 150;
+                break;
+            case "Knight":
+                health = 150;
+                break;
+            case "Bishop":
+                health = 200;
+                break;
+            case "Queen":
+                health = 100;
+                break;
+            case "Pawn":
+                health = 200;
+                break;
+            case "King":
+                health = 200;
+                break;
+        }
+
         damage = 10;
         sniperdamage = 100;
         EnemyWeapon.gameObject.SetActive(true);
@@ -53,7 +78,23 @@ public class EnemyDummyIntro : MonoBehaviour
             teleportManager.enemySquare[xPos][yPos] = true;
         }
 
+        if (pieceName == "Pawn")
+        {
+            agent.SetDestination(Player.transform.position);
+        }
+        else
+        {
+            if (findDistance(Player.transform, transform) > 50)
+            {
+                agent.SetDestination(Player.transform.position);
+            }
+            else
+            {
+                agent.SetDestination(transform.position);
+            }
+        }
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -98,5 +139,12 @@ public class EnemyDummyIntro : MonoBehaviour
             }
         }
     }
+
+    float findDistance(Transform pointA, Transform pointB)
+    {
+        return Mathf.Sqrt(Mathf.Pow((pointA.transform.position.x - pointB.transform.position.x), 2)
+          + Mathf.Pow((pointA.transform.position.z - pointB.transform.position.z), 2));
+    }
+
 
 }

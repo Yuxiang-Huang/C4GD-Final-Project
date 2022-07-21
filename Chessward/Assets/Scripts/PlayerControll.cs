@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerControll : MonoBehaviour
 {
-    public float jumpForce = 10.0f;
+    public float jumpForce = 100.0f;
     private Rigidbody playerRb;
     public bool isOnGround = true;
     public float gravityModifier;
     private float speed = 20.0f;
     private float rSpeed = 700.0f;
-    private bool touchingWall;
     public int health;
     private int damage;
     private AudioSource PlayerAudio;
@@ -30,22 +29,22 @@ public class PlayerControll : MonoBehaviour
         switch (teleportManager.pieceName)
         {
             case "Rook":
-                health = 200;
+                health = 150;
                 break;
             case "Knight":
-                health = 300;
+                health = 150;
                 break;
             case "Bishop":
-                health = 400;
+                health = 200;
                 break;
             case "Queen":
                 health = 100;
                 break;
             case "Pawn":
-                health = 500;
+                health = 200;
                 break;
             case "King":
-                health = 500;
+                health = 200;
                 break;
         }
 
@@ -87,19 +86,9 @@ public class PlayerControll : MonoBehaviour
                 PlayerAudio.PlayOneShot(landSound, 1.0f);
             }
             isOnGround = true;
-        }
-        else if (collision.gameObject.CompareTag("Wall")){
-            touchingWall = true;
-        }
-       
+        }      
     }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            touchingWall = false;
-        }
-    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("BulletBad"))

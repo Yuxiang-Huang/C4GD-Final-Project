@@ -5838,7 +5838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &348058467
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22144,7 +22144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1320726286
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22154,15 +22154,15 @@ RectTransform:
   m_GameObject: {fileID: 1320726285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1430989442}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 342, y: -287}
+  m_SizeDelta: {x: 86, y: 146}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1320726287
 MonoBehaviour:
@@ -24479,7 +24479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1430989439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27247,9 +27247,11 @@ MonoBehaviour:
   WhiteQueenImage: {fileID: 1444374952}
   WhiteKingImage: {fileID: 38383036}
   Scar: {fileID: 855456972}
-  scarAmmoText: {fileID: 0}
+  scarAmmoText: {fileID: 348058466}
   shotGun: {fileID: 990529790}
-  shotGunAmmoText: {fileID: 0}
+  shotGunAmmoText: {fileID: 1933953678}
+  sniperGun: {fileID: 81527195}
+  sniperAmmoText: {fileID: 1320726285}
   GameStarted: 0
   difficulty: 
 --- !u!1 &1605356256
@@ -30778,7 +30780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1933953679
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30788,14 +30790,14 @@ RectTransform:
   m_GameObject: {fileID: 1933953678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1430989442}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 284, y: -270}
   m_SizeDelta: {x: 86, y: 146}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1933953680

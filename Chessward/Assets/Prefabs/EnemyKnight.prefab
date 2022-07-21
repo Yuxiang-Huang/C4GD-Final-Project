@@ -1220,7 +1220,6 @@ GameObject:
   - component: {fileID: 6394975179601063342}
   - component: {fileID: 7299221313946265274}
   - component: {fileID: 6422425364609669697}
-  - component: {fileID: -288137701707474095}
   m_Layer: 0
   m_Name: EnemyKnight
   m_TagString: Enemy
@@ -1296,6 +1295,7 @@ MonoBehaviour:
   yPos: 0
   roomLength: 100
   pieceName: Knight
+  agent: {fileID: 6422425364609669697}
 --- !u!195 &6422425364609669697
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1314,24 +1314,10 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.2
-  m_BaseOffset: 0.1
+  m_Height: 0.3
+  m_BaseOffset: 0.14
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-288137701707474095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5202100947696472551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d167c5897128441fbbc52993b69a5a31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 6422425364609669697}
-  player: {fileID: 0}
 --- !u!1 &5518978163714387951
 GameObject:
   m_ObjectHideFlags: 0
