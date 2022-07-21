@@ -26915,7 +26915,9 @@ MonoBehaviour:
   WhiteQueenImage: {fileID: 1444374952}
   WhiteKingImage: {fileID: 38383036}
   Scar: {fileID: 855456972}
+  scarAmmoText: {fileID: 0}
   shotGun: {fileID: 990529790}
+  shotGunAmmoText: {fileID: 0}
   GameStarted: 0
   difficulty: 
 --- !u!1 &1605356256
@@ -30086,7 +30088,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!82 &1921103551
 AudioSource:

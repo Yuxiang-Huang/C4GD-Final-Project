@@ -30,7 +30,9 @@ public class StartScreen : MonoBehaviour
     public GameObject WhiteKingImage;
 
     public GameObject Scar;
+    public GameObject scarAmmoText;
     public GameObject shotGun;
+    public GameObject shotGunAmmoText;
 
     public bool GameStarted;
 

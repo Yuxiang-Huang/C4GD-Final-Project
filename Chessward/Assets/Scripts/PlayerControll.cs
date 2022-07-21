@@ -34,16 +34,8 @@ public class PlayerControll : MonoBehaviour
         float forwardInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        if (!touchingWall)
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-            transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
-        }
-        else
-        {
-            transform.Translate(-Vector3.forward * Time.deltaTime * speed * forwardInput);
-            transform.Translate(-Vector3.right * Time.deltaTime * speed * horizontalInput);
-        }
+        playerRb.AddRelativeForce(new Vector3(horizontalInput * speed, 0, forwardInput * speed), ForceMode.VelocityChange);
+
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             PlayerAudio.PlayOneShot(jumpSound, 1.0f);
