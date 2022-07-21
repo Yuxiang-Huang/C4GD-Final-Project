@@ -27,6 +27,7 @@ public class StartScreen : MonoBehaviour
     public GameObject WhiteBishopImage;
     public GameObject WhiteRookImage;
     public GameObject WhiteQueenImage;
+    public GameObject WhiteKingImage;
 
     public bool GameStarted;
 
@@ -141,6 +142,15 @@ public class StartScreen : MonoBehaviour
         teleportManager.pieceName = "Pawn";
         WhitePawnImage.SetActive(true);
         minimapScript.playerImage = WhitePawnImage;
+    }
+
+    public void startKingGame()
+    {
+        notTutorial();
+
+        teleportManager.pieceName = "King";
+        WhiteKingImage.SetActive(true);
+        minimapScript.playerImage = WhiteKingImage;
     }
 
     void notTutorial()
