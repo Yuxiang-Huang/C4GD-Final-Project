@@ -10,7 +10,6 @@ public class PlayerControll : MonoBehaviour
     public float gravityModifier;
     private float speed = 20.0f;
     private float rSpeed = 700.0f;
-    private bool touchingWall;
     public int health;
     private int damage;
     private AudioSource PlayerAudio;
@@ -87,19 +86,9 @@ public class PlayerControll : MonoBehaviour
                 PlayerAudio.PlayOneShot(landSound, 1.0f);
             }
             isOnGround = true;
-        }
-        else if (collision.gameObject.CompareTag("Wall")){
-            touchingWall = true;
-        }
-       
+        }      
     }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            touchingWall = false;
-        }
-    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("BulletBad"))

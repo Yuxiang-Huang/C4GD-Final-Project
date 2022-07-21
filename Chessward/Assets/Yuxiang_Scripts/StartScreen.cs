@@ -33,6 +33,8 @@ public class StartScreen : MonoBehaviour
     public GameObject scarAmmoText;
     public GameObject shotGun;
     public GameObject shotGunAmmoText;
+    public GameObject sniperGun;
+    public GameObject sniperAmmoText;
 
     public bool GameStarted;
 
@@ -106,6 +108,9 @@ public class StartScreen : MonoBehaviour
 
     public void startKnightGame()
     {
+        gun = Scar;
+        scarAmmoText.SetActive(true);
+
         notTutorial();
 
         teleportManager.pieceName = "Knight";
@@ -115,6 +120,9 @@ public class StartScreen : MonoBehaviour
 
     public void startRookGame()
     {
+        gun = sniperGun;
+        sniperAmmoText.SetActive(true);
+
         notTutorial();
 
         teleportManager.pieceName = "Rook";
@@ -143,6 +151,7 @@ public class StartScreen : MonoBehaviour
     public void startPawnGame()
     {
         gun = shotGun;
+        shotGunAmmoText.SetActive(true);
 
         notTutorial();
 
