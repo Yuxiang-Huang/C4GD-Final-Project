@@ -184,6 +184,11 @@ public class TeleportManager : MonoBehaviour
 
     void FindSquareForPawn()
     {
+        if (inBound(xPos, yPos + 1))
+        {
+            allButtons[yPos + 1][xPos].gameObject.SetActive(true);
+        }
+
         if (inBound(xPos + 1, yPos + 1) && enemySquare[xPos + 1][yPos + 1])
         {
             allButtons[yPos+1][xPos+1].gameObject.SetActive(true);
