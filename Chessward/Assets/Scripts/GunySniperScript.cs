@@ -42,7 +42,7 @@ public class GunySniperScript : MonoBehaviour
                 reloadRot = -45;
             }
         }
-        if (Input.GetKey(KeyCode.Mouse0) && shootTime > 4 && magSize > 0 && !teleportManagerScript.isPowerActive)
+        if (Input.GetKey(KeyCode.Mouse0) && shootTime > 3.25f && magSize > 0 && !teleportManagerScript.isPowerActive)
         {
             Vector3 offset2 = transform.up * 0.5f + transform.forward * 12f;
             shootTime = 0;
@@ -74,7 +74,7 @@ public class GunySniperScript : MonoBehaviour
         {
             manualReload = true;
             SniperAudio.PlayOneShot(reloadSound, 1.0f);
-            yield return new WaitForSeconds(8.25f);
+            yield return new WaitForSeconds(5.25f);
             SniperAudio.PlayOneShot(reloadSound, 1.0f);
             StartCoroutine(DownGun());
             manualReload = false;
