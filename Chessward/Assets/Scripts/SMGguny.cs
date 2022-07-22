@@ -15,7 +15,11 @@ public class SMGguny : MonoBehaviour
     public AudioClip shootSound;
     public AudioClip reloadSound;
     public GameObject shootParticlePrefab;
+<<<<<<< Updated upstream
     public TeleportManager teleportManagerScript;
+=======
+    private bool manualReload = false;
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
@@ -61,15 +65,22 @@ public class SMGguny : MonoBehaviour
             }
         }
         transform.Rotate(0, 180, 0);
+        if (Input.GetKey(KeyCode.R) && !manualReload)
+        {
+            magSize = 0;
+            StartCoroutine(MagCheck());
+        }
     }
     IEnumerator MagCheck()
     {
         if (magSize <= 0)
         {
+            manualReload = true;
             SMGAudio.PlayOneShot(reloadSound, 1.0f);
             yield return new WaitForSeconds(2.25f);
             SMGAudio.PlayOneShot(reloadSound, 1.0f);
             StartCoroutine(DownGun());
+            manualReload = false;
         }
     }
     IEnumerator DownGun()

@@ -8,9 +8,13 @@ public class EnemyDummyIntro : MonoBehaviour
     public int health;
     private int damage;
     private int sniperdamage;
+<<<<<<< Updated upstream
     private int smgdamage;
     private int revolverDamage;
     private int shotgunDamage;
+=======
+    private int SwordDamage;
+>>>>>>> Stashed changes
     public GameObject Player;
     public GameObject EnemyWeapon;
     public SpawnEnemy spawnEnemyScript;
@@ -57,9 +61,13 @@ public class EnemyDummyIntro : MonoBehaviour
         damage = 10;
         smgdamage = 5;
         sniperdamage = 100;
+<<<<<<< Updated upstream
         revolverDamage = 15;
         shotgunDamage = 10;
 
+=======
+        SwordDamage = 50;
+>>>>>>> Stashed changes
         EnemyWeapon.gameObject.SetActive(true);
         spawnEnemyScript = GameObject.Find("SpawnManager").GetComponent<SpawnEnemy>();
         teleportManager = GameObject.Find("Teleport Manager").GetComponent<TeleportManager>();
@@ -116,6 +124,7 @@ public class EnemyDummyIntro : MonoBehaviour
         {
             health = health - sniperdamage;
         }
+<<<<<<< Updated upstream
         if (other.gameObject.CompareTag("smgBullet"))
         {
             health = health - smgdamage;
@@ -131,6 +140,12 @@ public class EnemyDummyIntro : MonoBehaviour
 
         Destroy(other.gameObject);
 
+=======
+        if (other.gameObject.CompareTag("Sword"))
+        {
+            health = health - SwordDamage;
+        }
+>>>>>>> Stashed changes
         if (health <= 0)
         {
             Destroy(gameObject);

@@ -10,10 +10,14 @@ TagManager:
   - BulletBad
   - Enemy
   - SniperBullet
+<<<<<<< Updated upstream
   - smgBullet
   - shotGunBullet
   - SMGBullet
   - RevolverBullet
+=======
+  - Sword
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
