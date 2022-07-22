@@ -9,6 +9,8 @@ public class EnemyDummyIntro : MonoBehaviour
     private int damage;
     private int sniperdamage;
     private int smgdamage;
+    private int revolverDamage;
+    private int shotgunDamage;
     public GameObject Player;
     public GameObject EnemyWeapon;
     public SpawnEnemy spawnEnemyScript;
@@ -55,6 +57,8 @@ public class EnemyDummyIntro : MonoBehaviour
         damage = 10;
         smgdamage = 5;
         sniperdamage = 100;
+        revolverDamage = 15;
+        shotgunDamage = 10;
 
         EnemyWeapon.gameObject.SetActive(true);
         spawnEnemyScript = GameObject.Find("SpawnManager").GetComponent<SpawnEnemy>();
@@ -115,6 +119,14 @@ public class EnemyDummyIntro : MonoBehaviour
         if (other.gameObject.CompareTag("smgBullet"))
         {
             health = health - smgdamage;
+        }
+        if (other.gameObject.CompareTag("RevolverBullet"))
+        {
+            health = health - revolverDamage;
+        }
+        if (other.gameObject.CompareTag("shotGunBullet"))
+        {
+            health = health - shotgunDamage;
         }
 
         Destroy(other.gameObject);

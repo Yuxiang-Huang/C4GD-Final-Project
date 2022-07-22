@@ -11,8 +11,9 @@ TagManager:
   - Enemy
   - SniperBullet
   - smgBullet
-  - EnemySniperBullet
-  - EnemySMGBullet
+  - shotGunBullet
+  - SMGBullet
+  - RevolverBullet
   layers:
   - Default
   - TransparentFX

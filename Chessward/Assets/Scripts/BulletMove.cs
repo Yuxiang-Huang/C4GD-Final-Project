@@ -6,7 +6,7 @@ public class BulletMove : MonoBehaviour
 {
     private float bSpeed = 80.0f;
     Rigidbody rb;
-    public float gravity = -9.8f; 
+    public float gravity; 
 
     // Start is called before the first frame update
     void Start()

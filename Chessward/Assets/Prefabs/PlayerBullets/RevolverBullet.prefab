@@ -92,10 +92,10 @@ GameObject:
   - component: {fileID: 8564808497890321371}
   - component: {fileID: 4760337461444912217}
   - component: {fileID: 7451850046980568078}
-  - component: {fileID: 7561762059285822354}
+  - component: {fileID: -3469232094819408810}
   m_Layer: 0
-  m_Name: ShotGunBullet
-  m_TagString: shotGunBullet
+  m_Name: RevolverBullet
+  m_TagString: RevolverBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7561762059285822354
+--- !u!114 &-3469232094819408810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9049877210073119073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b670db73a0a13c4a8dfeb57efb8dbcc, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bad84b7ea1f7e44eb148d982b72ad5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: -4

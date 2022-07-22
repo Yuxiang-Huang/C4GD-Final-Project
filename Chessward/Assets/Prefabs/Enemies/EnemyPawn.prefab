@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   Player: {fileID: 0}
-  EnemyWeapon: {fileID: 0}
+  EnemyWeapon: {fileID: 7638680601834853752}
   spawnEnemyScript: {fileID: 0}
   minimapScript: {fileID: 0}
   startScreenScript: {fileID: 0}
