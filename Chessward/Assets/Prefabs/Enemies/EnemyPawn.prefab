@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Pawn
   roomLength: 100
+  startScreenScript: {fileID: 0}
+  agent: {fileID: 6422425364609669697}
 --- !u!1 &6465122786696550544
 GameObject:
   m_ObjectHideFlags: 0

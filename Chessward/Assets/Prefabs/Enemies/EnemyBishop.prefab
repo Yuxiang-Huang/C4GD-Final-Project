@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Bishop
   roomLength: 100
+  startScreenScript: {fileID: 0}
+  agent: {fileID: 6422425364609669697}
 --- !u!1001 &4508867201961899683
 PrefabInstance:
   m_ObjectHideFlags: 0

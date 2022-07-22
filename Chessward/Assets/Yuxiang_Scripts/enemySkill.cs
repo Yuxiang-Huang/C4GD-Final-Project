@@ -29,39 +29,39 @@ public class enemySkill : MonoBehaviour
             
             if (coolDown <= 0)
             {
-                agent.updatePosition = false;
+                agent.enabled = false;
 
                 switch (pieceName)
                 {
                     case "Rook":
                         FindSquareForRook();
                         break;
-                        //case "Knight":
-                        //    FindSquareForKnight();
-                        //    break;
-                        //case "Bishop":
-                        //    FindSquareForBishop();
-                        //    break;
-                        //case "Queen":
-                        //    FindSquareForQueen();
-                        //    break;
-                        //case "Pawn":
-                        //    FindSquareForPawn();
-                        //    break;
-                        //case "King":
-                        //    if (startScreenScript.difficulty == "hard")
-                        //    {
-                        //        FindSquareForKingFar();
-                        //    }
-                        //    else
-                        //    {
-                        //        FindSquareForKing();
-                        //    }
-                        //    break;
+                    case "Knight":
+                        FindSquareForKnight();
+                        break;
+                    case "Bishop":
+                        FindSquareForBishop();
+                        break;
+                    case "Queen":
+                        FindSquareForQueen();
+                        break;
+                    case "Pawn":
+                        FindSquareForPawn();
+                        break;
+                    case "King":
+                        if (startScreenScript.difficulty == "hard")
+                        {
+                            FindSquareForKingFar();
+                        }
+                        else
+                        {
+                            FindSquareForKing();
+                        }
+                        break;
                 }
                 startCoolDown();
 
-                agent.updatePosition = true;
+                agent.enabled = true;
             }
             else
             {
@@ -304,7 +304,7 @@ public class enemySkill : MonoBehaviour
                 coolDown = 1;
                 break;
             case "King":
-                coolDown = 1;
+                coolDown = 2;
                 break;
         }
     }
