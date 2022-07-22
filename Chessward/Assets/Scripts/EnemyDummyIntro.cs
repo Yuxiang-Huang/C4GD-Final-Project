@@ -107,7 +107,7 @@ public class EnemyDummyIntro : MonoBehaviour
                 //}
                 //else
                 //{
-            agent.SetDestination(transform.position);
+            agent.SetDestination(Player.transform.position);
                 
             
         }
