@@ -8,6 +8,7 @@ public class EnemyDummyIntro : MonoBehaviour
     public int health;
     private int damage;
     private int sniperdamage;
+    private int smgdamage;
     public GameObject Player;
     public GameObject EnemyWeapon;
     public SpawnEnemy spawnEnemyScript;
@@ -29,30 +30,32 @@ public class EnemyDummyIntro : MonoBehaviour
         Player = GameObject.Find("Player");
         health = 100;
 
-        //switch (pieceName)
-        //{
-        //    case "Rook":
-        //        health = 150;
-        //        break;
-        //    case "Knight":
-        //        health = 150;
-        //        break;
-        //    case "Bishop":
-        //        health = 200;
-        //        break;
-        //    case "Queen":
-        //        health = 100;
-        //        break;
-        //    case "Pawn":
-        //        health = 200;
-        //        break;
-        //    case "King":
-        //        health = 200;
-        //        break;
-        //}
+        switch (pieceName)
+        {
+            case "Rook":
+                health = 150;
+                break;
+            case "Knight":
+                health = 150;
+                break;
+            case "Bishop":
+                health = 200;
+                break;
+            case "Queen":
+                health = 100;
+                break;
+            case "Pawn":
+                health = 200;
+                break;
+            case "King":
+                health = 200;
+                break;
+        }
 
         damage = 10;
+        smgdamage = 5;
         sniperdamage = 100;
+
         EnemyWeapon.gameObject.SetActive(true);
         spawnEnemyScript = GameObject.Find("SpawnManager").GetComponent<SpawnEnemy>();
         teleportManager = GameObject.Find("Teleport Manager").GetComponent<TeleportManager>();
@@ -108,6 +111,10 @@ public class EnemyDummyIntro : MonoBehaviour
         if (other.gameObject.CompareTag("SniperBullet"))
         {
             health = health - sniperdamage;
+        }
+        if (other.gameObject.CompareTag("smgBullet"))
+        {
+            health = health - smgdamage;
         }
 
         Destroy(other.gameObject);

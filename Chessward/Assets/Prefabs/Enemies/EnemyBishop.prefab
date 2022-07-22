@@ -1295,6 +1295,7 @@ MonoBehaviour:
   yPos: 0
   roomLength: 100
   pieceName: Bishop
+  doorControlTutorialScript: {fileID: 0}
   agent: {fileID: 6422425364609669697}
 --- !u!195 &6422425364609669697
 NavMeshAgent:

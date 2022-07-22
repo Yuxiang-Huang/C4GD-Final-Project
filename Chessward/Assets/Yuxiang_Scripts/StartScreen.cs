@@ -105,8 +105,8 @@ public class StartScreen : MonoBehaviour
 
     public void startKnightGame()
     {
-        gun = Scar;
-        scarAmmoText.SetActive(true);
+        gun = SMG;
+        SMGText.SetActive(true);
 
         notTutorial();
 
@@ -129,8 +129,8 @@ public class StartScreen : MonoBehaviour
 
     public void startBishopGame()
     {
-        gun = SMG;
-        SMGText.SetActive(true);
+        gun = revolver;
+        revolverText.SetActive(true);
 
         notTutorial();
 
@@ -141,8 +141,8 @@ public class StartScreen : MonoBehaviour
 
     public void startQueenGame()
     {
-        gun = revolver;
-        revolverText.SetActive(true);
+        gun = Scar;
+        scarAmmoText.SetActive(true);
 
         notTutorial();
 

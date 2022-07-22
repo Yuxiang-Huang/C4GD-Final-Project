@@ -46,7 +46,7 @@ public class PlayerControll : MonoBehaviour
                 break;
         }
 
-        damage = 5;
+        damage = 10;
     }
 
     // Update is called once per frame
