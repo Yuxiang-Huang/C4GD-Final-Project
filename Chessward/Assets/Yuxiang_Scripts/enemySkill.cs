@@ -23,8 +23,7 @@ public class enemySkill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startScreenScript.difficulty == "hard" || startScreenScript.difficulty == "impossible"
-            || startScreenScript.difficulty == "tutorial")
+        if (startScreenScript.difficulty == "hard" || startScreenScript.difficulty == "impossible")
         {
             
             if (coolDown <= 0)
