@@ -148,7 +148,7 @@ public class EnemyDummyIntro : MonoBehaviour
         {
             Destroy(gameObject);
             EnemyWeapon.gameObject.SetActive(false);
-            spawnEnemyScript.numOfEnemies--;
+            spawnEnemyScript.enemies.Remove(this);
             teleportManager.enemySquare[xPos][yPos] = false;
             switch (pieceName)
             {

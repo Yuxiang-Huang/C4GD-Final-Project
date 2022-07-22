@@ -38,6 +38,7 @@ public class SpawnEnemy : MonoBehaviour
         { 
             startScreenScript.displayWinEndScreen();
         }
+        numOfEnemies = enemies.Count;
     }
 
     public void startGame()
