@@ -21,39 +21,50 @@ public class enemySkill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (coolDown <= 0)
+        if (startScreenScript.difficulty == "hard" || startScreenScript.difficulty == "impossible"
+            || startScreenScript.difficulty == "tutorial")
         {
-            switch (pieceName)
+            if (coolDown <= 0)
             {
-                case "Rook":
-                    FindSquareForRook();
-                    break;
-                case "Knight":
-                    FindSquareForKnight();
-                    break;
-                case "Bishop":
-                    FindSquareForBishop();
-                    break;
-                case "Queen":
-                    FindSquareForQueen();
-                    break;
-                case "Pawn":
-                    FindSquareForPawn();
-                    break;
-                case "King":
-                    FindSquareForKing();
-                    break;
+                switch (pieceName)
+                {
+                    case "Rook":
+                        FindSquareForRook();
+                        break;
+                    case "Knight":
+                        FindSquareForKnight();
+                        break;
+                    case "Bishop":
+                        FindSquareForBishop();
+                        break;
+                    case "Queen":
+                        FindSquareForQueen();
+                        break;
+                    case "Pawn":
+                        FindSquareForPawn();
+                        break;
+                    case "King":
+                        if (startScreenScript.difficulty == "hard")
+                        {
+                            FindSquareForKingFar();
+                        }
+                        else
+                        {
+                            FindSquareForKing();
+                        }
+                        break;
+                }
+                startCoolDown();
             }
-            startCoolDown();
-        }
-        else
-        {
-            coolDown -= Time.deltaTime;
-        }
+            else
+            {
+                coolDown -= Time.deltaTime;
+            }
 
-        if (pieceName == "Pawn" && (int)(transform.position.z / roomLength) == 0)
-        {
-            pieceName = "Queen";
+            if (pieceName == "Pawn" && (int)(transform.position.z / roomLength) == 0)
+            {
+                pieceName = "Queen";
+            }
         }
     }
 
@@ -174,6 +185,34 @@ public class enemySkill : MonoBehaviour
                             min = candidate;
                             minDist = findDistance(playerPos, candidate);
                         }                
+                    }
+                }
+            }
+        }
+        transform.position = min;
+    }
+
+    void FindSquareForKingFar()
+    {
+        Vector3 playerPos = player.transform.position;
+        Vector3 min = transform.position;
+        float minDist = findDistance(playerPos, min);
+
+        for (int rowInc = -1; rowInc <= 1; rowInc++)
+        {
+            for (int colInc = -1; colInc <= 1; colInc++)
+            {
+                if (!(rowInc == 0 && colInc == 0))
+                {
+                    Vector3 candidate = new Vector3(transform.position.x + rowInc * roomLength, transform.position.y,
+                        transform.position.z + colInc * roomLength);
+                    if (inBound(candidate))
+                    {
+                        if (findDistance(playerPos, candidate) > minDist)
+                        {
+                            min = candidate;
+                            minDist = findDistance(playerPos, candidate);
+                        }
                     }
                 }
             }

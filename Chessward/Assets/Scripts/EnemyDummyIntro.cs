@@ -155,7 +155,7 @@ public class EnemyDummyIntro : MonoBehaviour
                     minimapScript.BlackQueenImage.SetActive(false);
                     break;
                 case "King":
-                    if (startScreenScript.difficulty == "easy")
+                    if (startScreenScript.difficulty == "easy" || startScreenScript.difficulty == "hard")
                     {
                         spawnEnemyScript.numOfEnemies = 0;
                     }
