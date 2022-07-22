@@ -18,6 +18,7 @@ public class DoorControlTutorial : MonoBehaviour
     public GameObject FourthDirection;
 
     bool readyForDirection;
+    bool lastPatch;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,12 @@ public class DoorControlTutorial : MonoBehaviour
             {
                 close.onClick.Invoke();
             }
+        }
+
+        if (lastPatch && readyForDirection)
+        {
+            ThirdDirection.SetActive(false);
+            FourthDirection.SetActive(true);
         }
     }
 
@@ -92,11 +99,9 @@ public class DoorControlTutorial : MonoBehaviour
             interactable = false;
         }
 
-        if (ThirdDirection.activeSelf && readyForDirection)
-        {
-            ThirdDirection.SetActive(false);
-            FourthDirection.SetActive(true);
-        }
+
+
+        lastPatch = true;
     }
 
     public void openDoor()
