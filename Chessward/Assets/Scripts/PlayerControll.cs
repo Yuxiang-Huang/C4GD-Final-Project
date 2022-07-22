@@ -17,14 +17,12 @@ public class PlayerControll : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip landSound;
     public TeleportManager teleportManager;
-    public AudioClip music;
     // Start is called before the first frame update
     void Start()
     {
         PlayerAudio = GetComponent<AudioSource>();
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity = new Vector3 (0, -9.8f * gravityModifier, 0);
-        PlayerAudio.PlayOneShot(music, 0.2f);
 
         switch (teleportManager.pieceName)
         {

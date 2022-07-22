@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -31787,7 +31787,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: b16d5c2b39d28d04dad6b50296a9b578, type: 3}
   landSound: {fileID: 8300000, guid: 0101d46a2b1a35d4fa2270e6a65c96a8, type: 3}
   teleportManager: {fileID: 660388096}
-  music: {fileID: 0}
+  music: {fileID: 8300000, guid: 644f8788a1473574bb49e47162339e7d, type: 3}
 --- !u!65 &1921103547
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31827,11 +31827,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 644f8788a1473574bb49e47162339e7d, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
