@@ -56,6 +56,7 @@ public class DoorControlTutorial : MonoBehaviour
         {
             ThirdDirection.SetActive(false);
             FourthDirection.SetActive(true);
+            readyForDirection = false;
         }
     }
 
