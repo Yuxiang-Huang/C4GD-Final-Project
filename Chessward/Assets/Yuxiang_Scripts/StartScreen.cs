@@ -40,6 +40,7 @@ public class StartScreen : MonoBehaviour
     public GameObject revolverText;
     public GameObject SMG;
     public GameObject SMGText;
+    public GameObject sword;
 
     public bool GameStarted;
 
@@ -165,6 +166,8 @@ public class StartScreen : MonoBehaviour
 
     public void startKingGame()
     {
+        gun = sword;
+
         notTutorial();
 
         teleportManager.pieceName = "King";
