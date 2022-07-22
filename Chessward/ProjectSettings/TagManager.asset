@@ -5,19 +5,20 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Wall
-  - bullet
-  - BulletBad
   - Enemy
-  - SniperBullet
-<<<<<<< Updated upstream
-  - smgBullet
-  - shotGunBullet
-  - SMGBullet
-  - RevolverBullet
-=======
+  - Wall
+  - BulletBad
   - Sword
->>>>>>> Stashed changes
+  - bullet
+  - RevolverBullet
+  - SniperBullet
+  - shotGunBullet
+  - smgBullet
+  - enemyRevolverBullet
+  - Undefined
+  - enemyShotgunBullet
+  - enemySMGBullet
+  - enemySniperBullet
   layers:
   - Default
   - TransparentFX
