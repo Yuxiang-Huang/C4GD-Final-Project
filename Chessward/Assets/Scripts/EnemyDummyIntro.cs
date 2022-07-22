@@ -36,23 +36,30 @@ public class EnemyDummyIntro : MonoBehaviour
         switch (pieceName)
         {
             case "Rook":
-                health = 150;
+                health = 100;
                 break;
             case "Knight":
-                health = 150;
+                health = 100;
                 break;
             case "Bishop":
-                health = 200;
+                health = 100;
                 break;
             case "Queen":
                 health = 100;
                 break;
             case "Pawn":
-                health = 200;
+                health = 100;
                 break;
             case "King":
-                health = 200;
+                health = 150;
                 break;
+        }
+
+        startScreenScript = GameObject.Find("Screen Manager").GetComponent<StartScreen>();
+
+        if (startScreenScript.difficulty == "hard" || startScreenScript.difficulty == "impossible")
+        {
+            health *= 2;
         }
 
         damage = 10;
@@ -64,7 +71,7 @@ public class EnemyDummyIntro : MonoBehaviour
         EnemyWeapon.gameObject.SetActive(true);
         spawnEnemyScript = GameObject.Find("SpawnManager").GetComponent<SpawnEnemy>();
         teleportManager = GameObject.Find("Teleport Manager").GetComponent<TeleportManager>();
-        startScreenScript = GameObject.Find("Screen Manager").GetComponent<StartScreen>();
+        
         minimapScript = GameObject.Find("MiniMap").GetComponent<MiniMap>();
     }
 
@@ -88,21 +95,21 @@ public class EnemyDummyIntro : MonoBehaviour
         }
         if (!startScreenScript.isTutorial)
         {
-            if (pieceName == "Pawn")
-            {
-                agent.SetDestination(Player.transform.position);
-            }
-            else
-            {
-                if (findDistance(Player.transform, transform) > 50)
-                {
-                    agent.SetDestination(Player.transform.position);
-                }
-                else
-                {
-                    agent.SetDestination(transform.position);
-                }
-            }
+            //if (pieceName == "Pawn")
+            //{
+            //    agent.SetDestination(Player.transform.position);
+            //}
+            //else
+            //{
+                //if (findDistance(Player.transform, transform) > 50)
+                //{
+                //    agent.SetDestination(Player.transform.position);
+                //}
+                //else
+                //{
+            agent.SetDestination(transform.position);
+                
+            
         }
     }
 

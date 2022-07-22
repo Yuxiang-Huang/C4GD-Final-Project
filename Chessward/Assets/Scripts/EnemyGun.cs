@@ -26,6 +26,8 @@ public class EnemyGun : MonoBehaviour
         {
             Vector3 offset2 = transform.up * 0.5f + transform.forward * 8f;
             shootTime = 0;
-            Instantiate(projectilePrefab, transform.position + offset2, transform.rotation);        }
+            Instantiate(projectilePrefab, transform.position + offset2, transform.rotation);
+        }
+        transform.Rotate(0, 180, 0);
     }
 }
