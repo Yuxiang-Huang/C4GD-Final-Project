@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: 
   roomLength: 100
+  startScreenScript: {fileID: 0}
+  agent: {fileID: 6422425364609669697}
 --- !u!1001 &5769177581459894647
 PrefabInstance:
   m_ObjectHideFlags: 0

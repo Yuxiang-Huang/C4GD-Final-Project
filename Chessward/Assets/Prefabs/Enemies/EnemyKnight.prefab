@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Knight
   roomLength: 100
+  startScreenScript: {fileID: 0}
+  agent: {fileID: 6422425364609669697}
 --- !u!1001 &2009842674159270093
 PrefabInstance:
   m_ObjectHideFlags: 0

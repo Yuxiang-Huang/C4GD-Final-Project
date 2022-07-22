@@ -127,7 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceName: Rook
   roomLength: 100
-  enemy: {fileID: 5202100947696472551}
+  startScreenScript: {fileID: 0}
+  agent: {fileID: 6422425364609669697}
 --- !u!1001 &5952058431156336739
 PrefabInstance:
   m_ObjectHideFlags: 0
