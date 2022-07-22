@@ -24,8 +24,6 @@ public class PlayerControll : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
 
-        health = 1000;
-
         switch (teleportManager.pieceName)
         {
             case "Rook":

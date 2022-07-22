@@ -15,6 +15,9 @@ public class DoorControlTutorial : MonoBehaviour
     public GameObject FirstDirection;
     public GameObject SecondDirection;
     public GameObject ThirdDirection;
+    public GameObject FourthDirection;
+
+    bool readyForDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +25,13 @@ public class DoorControlTutorial : MonoBehaviour
         FirstDirection = GameObject.Find("First Direction");
         SecondDirection = GameObject.Find("Second Direction");
         ThirdDirection = GameObject.Find("Third Direction");
+        FourthDirection = GameObject.Find("Fourth Direction");
 
         doorClose = true;
         FirstDirection.SetActive(true);
         SecondDirection.SetActive(false);
         ThirdDirection.SetActive(false);
+        FourthDirection.SetActive(false);
     }
 
     // Update is called once per frame
@@ -62,8 +67,11 @@ public class DoorControlTutorial : MonoBehaviour
             }
             interactable = true;
 
-            FirstDirection.SetActive(false);
-            SecondDirection.SetActive(true);
+            if (FirstDirection.activeSelf)
+            {
+                FirstDirection.SetActive(false);
+                SecondDirection.SetActive(true);
+            }         
         }      
     }
 
@@ -83,6 +91,12 @@ public class DoorControlTutorial : MonoBehaviour
 
             interactable = false;
         }
+
+        if (ThirdDirection.activeSelf && readyForDirection)
+        {
+            ThirdDirection.SetActive(false);
+            FourthDirection.SetActive(true);
+        }
     }
 
     public void openDoor()
@@ -92,8 +106,12 @@ public class DoorControlTutorial : MonoBehaviour
         open.gameObject.SetActive(false);
         doorClose = false;
         close.gameObject.SetActive(true);
-        SecondDirection.SetActive(false);
-        ThirdDirection.SetActive(true);
+        if (SecondDirection.activeSelf)
+        {
+            SecondDirection.SetActive(false);
+            ThirdDirection.SetActive(true);
+            StartCoroutine(waitForTime());
+        }
     }
 
     public void closeDoor()
@@ -103,6 +121,12 @@ public class DoorControlTutorial : MonoBehaviour
         close.gameObject.SetActive(false);
         doorClose = true;
         open.gameObject.SetActive(true);
+    }
+
+    IEnumerator waitForTime()
+    {
+        yield return new WaitForSeconds(5);
+        readyForDirection = true;
     }
 }
 

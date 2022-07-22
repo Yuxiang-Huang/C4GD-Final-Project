@@ -19,6 +19,7 @@ public class EnemyDummyIntro : MonoBehaviour
     public int yPos;
     public float roomLength = 100;
     public string pieceName;
+    public DoorControlTutorial doorControlTutorialScript;
 
     [SerializeField] private NavMeshAgent agent;
 
@@ -56,10 +57,7 @@ public class EnemyDummyIntro : MonoBehaviour
         spawnEnemyScript = GameObject.Find("SpawnManager").GetComponent<SpawnEnemy>();
         teleportManager = GameObject.Find("Teleport Manager").GetComponent<TeleportManager>();
         startScreenScript = GameObject.Find("Screen Manager").GetComponent<StartScreen>();
-        if (!startScreenScript.isTutorial)
-        {
-            minimapScript = GameObject.Find("MiniMap").GetComponent<MiniMap>();
-        }
+        minimapScript = GameObject.Find("MiniMap").GetComponent<MiniMap>();
     }
 
     // Update is called once per frame

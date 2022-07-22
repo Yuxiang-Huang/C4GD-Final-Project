@@ -103,22 +103,6 @@ public class StartScreen : MonoBehaviour
         lose.SetActive(false);
     }
 
-    public void startTutorial()
-    {
-        gun = Scar;
-        scarAmmoText.SetActive(true);
-
-        tutorialCanvas.SetActive(true);
-        startCanvas.SetActive(false);
-        player.SetActive(true);
-        gun.SetActive(true);
-        mapBuilder.StartBuild(false);
-        statScreen.SetActive(true);
-        GameStarted = true;
-        isTutorial = true;
-        spawnEnemyScript.startGame("tutorial");
-    }
-
     public void startKnightGame()
     {
         gun = Scar;
@@ -193,11 +177,19 @@ public class StartScreen : MonoBehaviour
         PieceScreen.SetActive(false);
         player.SetActive(true);
         gun.SetActive(true);
-        mapBuilder.StartBuild(true);
+        if (isTutorial)
+        {
+            mapBuilder.StartBuild(false);
+            tutorialCanvas.SetActive(true);
+        }
+        else
+        {
+            mapBuilder.StartBuild(true);
+        } 
         miniMapScreen.SetActive(true);
         statScreen.SetActive(true);
-        spawnEnemyScript.startGame(difficulty);
         GameStarted = true;
+        spawnEnemyScript.startGame();
     }
 
     public void tagKnight()
@@ -254,5 +246,16 @@ public class StartScreen : MonoBehaviour
     public void setDifficultyHard()
     {
         difficulty = "hard";
+    }
+
+    public void setDifficultyTutorial()
+    {
+        isTutorial = true;
+        difficulty = "tutorial";
+    }
+
+    public void setDifficultyImpossible()
+    {
+        difficulty = "impossible";
     }
 }

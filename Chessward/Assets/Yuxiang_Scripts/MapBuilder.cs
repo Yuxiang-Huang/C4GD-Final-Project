@@ -28,97 +28,169 @@ public class MapBuilder : MonoBehaviour
    
     }
 
-    public void StartBuild(bool fullGame)
+    public void StartBuild(bool fullMap)
     {
-        if (fullGame)
+        if (fullMap)
         {
-            BoardFloor.SetActive(true);
-
-            for (int row = 1; row < 7; row++)
-            {
-                for (int col = 1; col < 7; col++)
-                {
-                    if (row % 2 == 0)
-                    {
-                        if (col % 2 == 0)
-                        {
-                            CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
-                        }
-                        else
-                        {
-                            CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
-                        }
-                    }
-                    else
-                    {
-                        if (col % 2 == 0)
-                        {
-                            CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
-                        }
-                        else
-                        {
-                            CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
-                        }
-                    }
-                }
-            }
-
-            for (int row = 1; row < 7; row++)
-            {
-                if (row % 2 == 1)
-                {
-                    CreateWhiteRoomWith3Doors(0, row * roomLength, "left");
-                    CreateBlackRoomWith3Doors(7 * roomLength, row * roomLength, "right");
-                }
-                else
-                {
-                    CreateWhiteRoomWith3Doors(7 * roomLength, row * roomLength, "right");
-                    CreateBlackRoomWith3Doors(0, row * roomLength, "left");
-                }
-            }
-
-            for (int col = 1; col < 7; col++)
-            {
-                if (col % 2 == 1)
-                {
-                    CreateWhiteRoomWith3Doors(col * roomLength, 0, "back");
-                    CreateBlackRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
-                }
-                else
-                {
-                    CreateWhiteRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
-                    CreateBlackRoomWith3Doors(col * roomLength, 0, "back");
-                }
-            }
-
-            CreatFourCornerRooms();
+            BuildFullMap();
         }
 
         else
         {
             BuildTutorialMap();
-            
         }
     }
 
     void BuildTutorialMap()
     {
-        Vector3 center = new Vector3(50, 0, 50);
-        Instantiate(WhiteFloor, center, WhiteFloor.transform.rotation);
-        Instantiate(DoorForTutorial,
-            new Vector3(center.x, yForDoors, center.z + roomLength / 2),
-            WhiteFloor.transform.rotation);
-        CreateWhiteLeftWall(center);
-        CreateWhiteRightWall(center);
-        CreateWhiteBackWall(center);
+        BoardFloor.SetActive(true);
 
-        Vector3 center2 = new Vector3(50, 0, 150);
-        Instantiate(BlackFloor, center2, BlackFloor.transform.rotation);
-        CreateBlackFrontWall(center2);
-        CreateBlackLeftWall(center2);
-        CreateBlackRightWall(center2);
-        CreateBlackBackWallWDoor(center2);
+        for (int row = 1; row < 7; row++)
+        {
+            for (int col = 1; col < 7; col++)
+            {
+                if (row % 2 == 0)
+                {
+                    if (col % 2 == 0)
+                    {
+                        CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
+                    }
+                    else
+                    {
+                        CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
+                    }
+                }
+                else
+                {
+                    if (col % 2 == 0)
+                    {
+                        CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
+                    }
+                    else
+                    {
+                        CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
+                    }
+                }
+            }
+        }
+
+        for (int row = 1; row < 7; row++)
+        {
+            if (row % 2 == 1)
+            {
+                if (row != 1)
+                {
+                    CreateWhiteRoomWith3Doors(0, row * roomLength, "left");
+                }
+                CreateBlackRoomWith3Doors(7 * roomLength, row * roomLength, "right");
+            }
+            else
+            {
+                CreateWhiteRoomWith3Doors(7 * roomLength, row * roomLength, "right");
+                CreateBlackRoomWith3Doors(0, row * roomLength, "left");
+            }
+        }
+
+        for (int col = 1; col < 7; col++)
+        {
+            if (col % 2 == 1)
+            {
+                if (col != 1)
+                {
+                    CreateWhiteRoomWith3Doors(col * roomLength, 0, "back");
+                }
+                CreateBlackRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
+            }
+            else
+            {
+                CreateWhiteRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
+                CreateBlackRoomWith3Doors(col * roomLength, 0, "back");
+            }
+        }
+
+        CreatFourCornerRoomsTutorial();
+    
+        Vector3 center = new Vector3(50, 0, 150);
+        GameObject back = Instantiate(DoorForTutorial,
+        new Vector3(center.x, yForDoors, center.z - roomLength / 2),
+        WhiteFloor.transform.rotation);
+        back.transform.Rotate(0, 180, 0);
+
+        CreateWhiteFrontWallWDoor(center);
+        CreateWhiteLeftWall(center);
+        CreateWhiteRightWallWDoor(center);
+
+        Vector3 center2 = new Vector3(150, 0, 50);
+        CreateWhiteFrontWallWDoor(center2);
+        CreateWhiteLeftWall(center2);
+        CreateWhiteRightWallWDoor(center2);
+        CreateWhiteBackWall(center2);
     }
+
+    void BuildFullMap()
+    {
+        BoardFloor.SetActive(true);
+
+        for (int row = 1; row < 7; row++)
+        {
+            for (int col = 1; col < 7; col++)
+            {
+                if (row % 2 == 0)
+                {
+                    if (col % 2 == 0)
+                    {
+                        CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
+                    }
+                    else
+                    {
+                        CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
+                    }
+                }
+                else
+                {
+                    if (col % 2 == 0)
+                    {
+                        CreateWhiteRoomWith4Doors(row * roomLength, col * roomLength);
+                    }
+                    else
+                    {
+                        CreateBlackRoomWith4Doors(row * roomLength, col * roomLength);
+                    }
+                }
+            }
+        }
+
+        for (int row = 1; row < 7; row++)
+        {
+            if (row % 2 == 1)
+            {
+                CreateWhiteRoomWith3Doors(0, row * roomLength, "left");
+                CreateBlackRoomWith3Doors(7 * roomLength, row * roomLength, "right");
+            }
+            else
+            {
+                CreateWhiteRoomWith3Doors(7 * roomLength, row * roomLength, "right");
+                CreateBlackRoomWith3Doors(0, row * roomLength, "left");
+            }
+        }
+
+        for (int col = 1; col < 7; col++)
+        {
+            if (col % 2 == 1)
+            {
+                CreateWhiteRoomWith3Doors(col * roomLength, 0, "back");
+                CreateBlackRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
+            }
+            else
+            {
+                CreateWhiteRoomWith3Doors(col * roomLength, 7 * roomLength, "front");
+                CreateBlackRoomWith3Doors(col * roomLength, 0, "back");
+            }
+        }
+
+        CreatFourCornerRooms();
+    }
+    
 
     void CreateWhiteRoomWith4Doors(float x, float z)
     {
@@ -320,6 +392,89 @@ public class MapBuilder : MonoBehaviour
 
 
      //Right Bottom
+        Vector3 center4 = new Vector3(7 * roomLength + roomLength / 2, 0, 0 + roomLength / 2);
+
+        //floor
+        CreateWhiteFloor(center4);
+
+        //front
+        CreateWhiteFrontWallWDoor(center4);
+
+        //back
+        CreateWhiteBackWall(center4);
+
+        //left
+        CreateWhiteLeftWallWDoor(center4);
+
+        //right
+        CreateWhiteRightWall(center4);
+
+    }
+
+    void CreatFourCornerRoomsTutorial()
+    {
+        //left bottom
+        Vector3 center = new Vector3(0 + roomLength / 2, 0, 0 + roomLength / 2);
+
+        //floor
+        CreateBlackFloor(center);
+
+        //front
+        CreateBlackFrontWallWDoor(center);
+
+        //back
+        CreateBlackBackWall(center);
+
+        //left
+        CreateBlackLeftWall(center);
+
+        //right
+        CreateBlackRightWall(center);
+
+
+        //left upper
+        Vector3 center2 = new Vector3(0 + roomLength / 2, 0, 7 * roomLength + roomLength / 2);
+
+        //floor
+        CreateWhiteFloor(center2);
+
+        //front
+        CreateWhiteFrontWall(center2);
+
+        //back
+        CreateWhiteBackWallWDoor(center2);
+
+
+        //left
+        CreateWhiteLeftWall(center2);
+
+
+        //right
+        CreateWhiteRightWallWDoor(center2);
+
+
+        //right upper
+        Vector3 center3 = new Vector3(7 * roomLength + roomLength / 2, 0, 7 * roomLength + roomLength / 2);
+
+        //floor
+        CreateBlackFloor(center3);
+
+        //front
+        CreateBlackFrontWall(center3);
+
+        //back
+        CreateBlackBackWallWDoor(center3);
+
+
+        //left
+        CreateBlackLeftWallWDoor(center3);
+
+
+        //right
+        CreateBlackRightWall(center3);
+
+
+        //Right Bottom
         Vector3 center4 = new Vector3(7 * roomLength + roomLength / 2, 0, 0 + roomLength / 2);
 
         //floor

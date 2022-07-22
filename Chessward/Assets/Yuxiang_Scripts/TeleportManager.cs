@@ -31,6 +31,9 @@ public class TeleportManager : MonoBehaviour
 
     public float coolDown;
 
+    public GameObject fourthDirection;
+    public GameObject fifthDirection;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -117,7 +120,12 @@ public class TeleportManager : MonoBehaviour
                             break;
                     }             
                 }
-            }
+                if (fourthDirection.activeSelf)
+                {
+                    fourthDirection.SetActive(false);
+                    fifthDirection.SetActive(true);
+                }
+            }       
         }
 
         if (pieceName == "Pawn" && yPos == 7)

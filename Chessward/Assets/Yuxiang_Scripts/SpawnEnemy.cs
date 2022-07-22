@@ -40,12 +40,28 @@ public class SpawnEnemy : MonoBehaviour
         }
     }
 
-    public void startGame(string difficulty)
+    public void startGame()
     {
-        if (difficulty == "tutorial")
+        if (startScreenScript.difficulty == "tutorial")
         {
-            numOfEnemies = 1;
-            Instantiate(EnemyDummy, new Vector3(50, 0, 150), EnemyDummy.transform.rotation);
+            numOfEnemies = 6;
+            GameObject Pawn = Instantiate(EnemyPawn, new Vector3(50, 0, 150), EnemyPawn.transform.rotation);
+            enemies.Add(Pawn.GetComponent<EnemyDummyIntro>());
+
+            GameObject Knight = Instantiate(EnemyKnight, randomPosition(), EnemyKnight.transform.rotation);
+            enemies.Add(Knight.GetComponent<EnemyDummyIntro>());
+
+            GameObject Bishop = Instantiate(EnemyBishop, randomPosition(), EnemyBishop.transform.rotation);
+            enemies.Add(Bishop.GetComponent<EnemyDummyIntro>());
+
+            GameObject Rook = Instantiate(EnemyRook, randomPosition(), EnemyRook.transform.rotation);
+            enemies.Add(Rook.GetComponent<EnemyDummyIntro>());
+
+            GameObject Queen = Instantiate(EnemyQueen, randomPosition(), EnemyQueen.transform.rotation);
+            enemies.Add(Queen.GetComponent<EnemyDummyIntro>());
+
+            GameObject King = Instantiate(EnemyKing, randomPosition(), EnemyKing.transform.rotation);
+            enemies.Add(King.GetComponent<EnemyDummyIntro>());
         }
 
         else
