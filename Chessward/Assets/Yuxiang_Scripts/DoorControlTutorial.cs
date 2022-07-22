@@ -125,7 +125,7 @@ public class DoorControlTutorial : MonoBehaviour
 
     IEnumerator waitForTime()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         readyForDirection = true;
     }
 }
