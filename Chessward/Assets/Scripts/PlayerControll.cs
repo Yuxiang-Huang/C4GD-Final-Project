@@ -9,7 +9,7 @@ public class PlayerControll : MonoBehaviour
     public bool isOnGround = true;
     public float gravityModifier;
     private float speed = 20.0f;
-    private float rSpeed = 700.0f;
+    private float rSpeed = 500.0f;
     public int health;
     private int damage;
     private AudioSource PlayerAudio;
@@ -17,12 +17,14 @@ public class PlayerControll : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip landSound;
     public TeleportManager teleportManager;
+    public AudioClip music;
     // Start is called before the first frame update
     void Start()
     {
         PlayerAudio = GetComponent<AudioSource>();
         playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
+        PlayerAudio.PlayOneShot(music, 0.2f);
 
         switch (teleportManager.pieceName)
         {
@@ -59,7 +61,7 @@ public class PlayerControll : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
-            PlayerAudio.PlayOneShot(jumpSound, 1.0f);
+            PlayerAudio.PlayOneShot(jumpSound, 1.2f);
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
@@ -81,7 +83,7 @@ public class PlayerControll : MonoBehaviour
         {
             if (isOnGround == false)
             {
-                PlayerAudio.PlayOneShot(landSound, 1.0f);
+                PlayerAudio.PlayOneShot(landSound, 1.2f);
             }
             isOnGround = true;
         }      

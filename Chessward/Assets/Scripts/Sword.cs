@@ -84,7 +84,7 @@ public class Sword : MonoBehaviour
         transform.Rotate(-60, 60, -30);
     }
     IEnumerator Bleep() {
-        SwordAudio.PlayOneShot(swingSound, 1.0f);
+        SwordAudio.PlayOneShot(swingSound, 1.5f);
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(BleepBack());
     }
