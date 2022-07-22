@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class enemySkill : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class enemySkill : MonoBehaviour
     private float coolDown;
     public float roomLength = 100;
     public StartScreen startScreenScript;
+    public NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()
@@ -24,37 +26,42 @@ public class enemySkill : MonoBehaviour
         if (startScreenScript.difficulty == "hard" || startScreenScript.difficulty == "impossible"
             || startScreenScript.difficulty == "tutorial")
         {
+            
             if (coolDown <= 0)
             {
+                agent.updatePosition = false;
+
                 switch (pieceName)
                 {
                     case "Rook":
                         FindSquareForRook();
                         break;
-                    case "Knight":
-                        FindSquareForKnight();
-                        break;
-                    case "Bishop":
-                        FindSquareForBishop();
-                        break;
-                    case "Queen":
-                        FindSquareForQueen();
-                        break;
-                    case "Pawn":
-                        FindSquareForPawn();
-                        break;
-                    case "King":
-                        if (startScreenScript.difficulty == "hard")
-                        {
-                            FindSquareForKingFar();
-                        }
-                        else
-                        {
-                            FindSquareForKing();
-                        }
-                        break;
+                        //case "Knight":
+                        //    FindSquareForKnight();
+                        //    break;
+                        //case "Bishop":
+                        //    FindSquareForBishop();
+                        //    break;
+                        //case "Queen":
+                        //    FindSquareForQueen();
+                        //    break;
+                        //case "Pawn":
+                        //    FindSquareForPawn();
+                        //    break;
+                        //case "King":
+                        //    if (startScreenScript.difficulty == "hard")
+                        //    {
+                        //        FindSquareForKingFar();
+                        //    }
+                        //    else
+                        //    {
+                        //        FindSquareForKing();
+                        //    }
+                        //    break;
                 }
                 startCoolDown();
+
+                agent.updatePosition = true;
             }
             else
             {
