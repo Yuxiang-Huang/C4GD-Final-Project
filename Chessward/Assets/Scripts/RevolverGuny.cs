@@ -15,12 +15,8 @@ public class RevolverGuny : MonoBehaviour
     public AudioClip shootSound;
     public AudioClip reloadSound;
     public GameObject shootParticlePrefab;
-<<<<<<< Updated upstream
     public TeleportManager teleportManagerScript;
-
-=======
     private bool manualReload = false;
->>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
