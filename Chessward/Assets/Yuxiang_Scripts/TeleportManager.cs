@@ -265,7 +265,7 @@ public class TeleportManager : MonoBehaviour
                 coolDown = 1;
                 break;
             case "King":
-                coolDown = 2;
+                coolDown = 1;
                 break;
         }
     }

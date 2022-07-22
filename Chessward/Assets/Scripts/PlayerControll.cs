@@ -23,7 +23,7 @@ public class PlayerControll : MonoBehaviour
     {
         PlayerAudio = GetComponent<AudioSource>();
         playerRb = GetComponent<Rigidbody>();
-        Physics.gravity *= gravityModifier;
+        Physics.gravity = new Vector3 (0, -9.8f * gravityModifier, 0);
         PlayerAudio.PlayOneShot(music, 0.2f);
 
         switch (teleportManager.pieceName)

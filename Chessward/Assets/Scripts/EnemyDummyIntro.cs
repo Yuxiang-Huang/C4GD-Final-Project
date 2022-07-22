@@ -57,10 +57,10 @@ public class EnemyDummyIntro : MonoBehaviour
 
         startScreenScript = GameObject.Find("Screen Manager").GetComponent<StartScreen>();
 
-        if (startScreenScript.difficulty == "hard" || startScreenScript.difficulty == "impossible")
-        {
-            health *= 2;
-        }
+        //if (startScreenScript.difficulty == "hard" || startScreenScript.difficulty == "impossible")
+        //{
+        //    health *= 2;
+        //}
 
         damage = 10;
         smgdamage = 5;

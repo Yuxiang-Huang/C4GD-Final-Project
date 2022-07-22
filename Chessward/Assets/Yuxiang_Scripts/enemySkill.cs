@@ -303,7 +303,7 @@ public class enemySkill : MonoBehaviour
                 coolDown = 1;
                 break;
             case "King":
-                coolDown = 2;
+                coolDown = 5;
                 break;
         }
     }
